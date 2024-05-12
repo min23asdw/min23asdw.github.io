@@ -5,7 +5,11 @@ import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 
-function PdfViewer() {
+interface PdfProps {
+  src: string;
+}
+function PdfViewer(props: PdfProps) {
+  const src = props.src;
   const defaultLayoutPluginInstance = defaultLayoutPlugin();
 
   return (
@@ -16,12 +20,9 @@ function PdfViewer() {
         flexDirection: "column",
       }}
     >
-      <div style={{ border: "2px solid rgba(0,0,0,.3)", width: "50%" }}>
+      <div style={{ border: "2px solid rgba(0,0,0,.3)", width: "70%" }}>
         <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.js">
-          <Viewer
-            fileUrl="https://min23asdw.github.io/portfolio/resume.pdf"
-            plugins={[defaultLayoutPluginInstance]}
-          />
+          <Viewer fileUrl={src} plugins={[defaultLayoutPluginInstance]} />
         </Worker>
       </div>
     </div>

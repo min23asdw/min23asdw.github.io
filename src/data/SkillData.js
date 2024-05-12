@@ -11,16 +11,6 @@ export const SkillData = {
       "rank": 5
     },
     {
-      "name": "JavaScript",
-      "icon": "devicon-javascript-plain",
-      "rank": 3
-    },
-    {
-      "name": "TypeScript",
-      "icon": "devicon-typescript-plain",
-      "rank": 5
-    },
-    {
       "name": "HTML",
       "icon": "devicon-html5-plain",
       "rank": 3
@@ -29,6 +19,16 @@ export const SkillData = {
       "name": "CSS",
       "icon": "devicon-tailwindcss-plain",
       "rank": 3
+    },
+    {
+      "name": "JavaScript",
+      "icon": "devicon-javascript-plain",
+      "rank": 3
+    },
+    {
+      "name": "TypeScript",
+      "icon": "devicon-typescript-plain",
+      "rank": 5
     },
     {
       "name": "Material UI",
@@ -48,9 +48,9 @@ export const SkillData = {
       "rank": 3
     },
     {
-      "name": "AWS",
-      "icon": "devicon-amazonwebservices-original",
-      "rank": 2
+      "name": "Python",
+      "icon": "devicon-python-plain",
+      "rank": 4
     },
     {
       "name": "Go",
@@ -58,14 +58,14 @@ export const SkillData = {
       "rank": 5
     },
     {
-      "name": "Python",
-      "icon": "devicon-python-plain",
-      "rank": 4
-    },
-    {
       "name": "Java",
       "icon": "devicon-java-plain",
       "rank": 5
+    },
+    {
+      "name": "AWS",
+      "icon": "devicon-amazonwebservices-original",
+      "rank": 2
     },
     {
       "name": "SQL",

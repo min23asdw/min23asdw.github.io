@@ -14,23 +14,21 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="App" style={{ marginLeft: "15vw", marginRight: "15vw" }}>
       <About />
       <div>
         Resume Here.
         <button onClick={toggleResume}>
           {resumeVisible ? "Hide" : "Show"}
         </button>
-        {resumeVisible && <PdfViewer />}
+        {resumeVisible && (
+          <PdfViewer src={"https://min23asdw.github.io/doc/resume.pdf"} />
+        )}
       </div>
       <SkillsComponent />
 
-       
-
-       
       <div>
-        PROJECTS.
-       
+        <h2> PROJECTS.</h2>
       </div>
 
       {/* </header> */}
