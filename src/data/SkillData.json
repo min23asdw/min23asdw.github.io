@@ -1,5 +1,5 @@
-export const SkillData = {
-  frontend: [
+ {
+  "frontend": [
     {
       "name": "Flutter",
       "icon": "devicon-flutter-plain",
@@ -34,9 +34,9 @@ export const SkillData = {
       "name": "Material UI",
       "icon": "devicon-materialui-plain",
       "rank": 4
-    },
+    }
   ],
-  backend: [
+  "backend": [
     {
       "name": "C#",
       "icon": "devicon-csharp-plain",
@@ -72,5 +72,5 @@ export const SkillData = {
       "icon": "devicon-mysql-plain-wordmark",
       "rank": 4
     }
-  ],
+  ]
 }

@@ -1,0 +1,11 @@
+{
+  "namjai": {
+    "title": "Front End Developer at Namjai Development Team",
+    "imgSrc": "./img/airwareness_1.png",
+    "alt": "Screenshot of Airwareness",
+    
+    "description": "Worked with a team of five to develop a mobile application that displays air quality data from the government's API. I was responsible for developing a feature that allows to get GPS coordinates and get heat spot data form api NASAs FIRMS",
+    "techstack": "Mobile Application - Flutter / Dart",
+    "isTeam": true
+  }
+}

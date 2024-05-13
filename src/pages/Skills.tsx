@@ -1,33 +1,23 @@
 import React from "react";
-import { SkillData } from "../data/SkillData";
+import data from "../data/SkillData.json";
 
 const SkillsComponent = () => {
   return (
     <div
       style={{ display: "flex", flexDirection: "column", alignItems: "start" }}
     >
-      <h2
-        className="text-2xl font-bold"
-        style={{
-          paddingBottom: "1rem",
-          borderBottom: "solid black",
-          textAlign: "left",
-          width: "100%",
-        }}
-      >
-        SKILLS
-      </h2>
       <div
         style={{
           display: "flex",
           flexDirection: "column",
           alignItems: "start",
+          width: "100%",
         }}
       >
         <div style={{ display: "flex", flexDirection: "row", gap: "3rem" }}>
           <h2 className="text-xl font-bold">Frontend</h2>
           <div style={{ display: "flex", flexDirection: "row", gap: "2rem" }}>
-            {SkillData.frontend.map((skill, index) => (
+            {data.frontend.map((skill, index) => (
               <div
                 key={index}
                 style={{
@@ -47,7 +37,7 @@ const SkillsComponent = () => {
         <div style={{ display: "flex", flexDirection: "row", gap: "3rem" }}>
           <h2 className="text-xl font-bold">Backend</h2>
           <div style={{ display: "flex", flexDirection: "row", gap: "2rem" }}>
-            {SkillData.backend.map((skill, index) => (
+            {data.backend.map((skill, index) => (
               <div
                 key={index}
                 style={{
