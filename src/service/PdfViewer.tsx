@@ -12,19 +12,6 @@ function PdfViewer(props: PdfProps) {
   const src = props.src;
   const defaultLayoutPluginInstance = defaultLayoutPlugin();
 
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    return () => setIsMounted(true);
-  }, []);
-
-  if (!isMounted) {
-    return (
-      <div
-        style={{ height: "1600px", border: "2px solid rgba(0,0,0,.3)", backgroundColor:"black" }}
-      ></div>
-    );
-  }
   return (
     <div
       style={{
