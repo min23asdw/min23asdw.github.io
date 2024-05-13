@@ -65,7 +65,7 @@ const ExpandableSection: React.FC<SectionProps> = ({
         {visible ? <ExpandLess /> : <ExpandMore />}
       </Button>
 
-      <Collapse in={visible} timeout="auto" unmountOnExit>
+      <Collapse in={visible} timeout="auto">
         <Box sx={{ padding: "10px" }}>{content}</Box>
       </Collapse>
     </>
