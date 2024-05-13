@@ -1,0 +1,27 @@
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.fe {
+    background-color: #6cc24a;
+    color: white;
+}
+
+.be {
+    background-color: #ff9900;
+    color: white;
+}
+
+.mobile {
+    background-color: #61dafb;
+    color: white;
+}
+
+.ai {
+    background-color: #9966ff;
+    color: white;
+}

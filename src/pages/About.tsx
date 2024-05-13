@@ -62,7 +62,7 @@ function About() {
         <p>
           I have a passion about learning and exploring a wide range of topics,
           from <b>AI</b>,<b>React</b>,<b>Mobile Flutter</b>, and
-          <b> Backend development</b>
+          <b> Backend development </b>
           which reflects my adaptable skill set and enhance for creativity.
         </p>
       </div>

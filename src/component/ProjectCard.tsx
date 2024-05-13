@@ -15,8 +15,11 @@ import {
 } from "@mui/material";
 import { red } from "@mui/material/colors";
 import Divider from "@mui/material/Divider";
-import { ProjectData } from "../model/project";
+import ProjectData from "../model/project";
 import "../styles/card.css";
+import Badge from "./Badge";
+import BadgeType from "../model/BadgeType";
+
 interface DataProp {
   data: ProjectData;
 }
@@ -44,11 +47,21 @@ const ProjectCard = (prop: DataProp) => {
       />
 
       <CardContent>
-      
-        <h3 className="inline  text-lg font-bold">{data.title}</h3>
-     
+        <h3 className="inline  text-lg font-bold" style={{ minHeight: "50px" }}>
+          {data.title}
+        </h3>
 
-        {data.interval}
+        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+          {data.interval}
+          <Box sx={{ display: "flex", gap: "5px" }}>
+            {data.tech.map((type, index) => (
+              <React.Fragment key={index}>
+                <Badge type={type} />
+              </React.Fragment>
+            ))}
+          </Box>
+        </Box>
+
         <Typography variant="body1" color="text.secondary">
           {data.description}
         </Typography>

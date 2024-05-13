@@ -7,6 +7,7 @@
       "externalLink": "https://github.com/AreYouWorking/Air-pollution-awareness",
       "description": "Worked with a team of five to develop a mobile application that displays air quality data from the government's API. I was responsible for developing a feature that allows to get GPS coordinates and get heat spot data form api NASAs FIRMS",
       "techstack": "Mobile Application - Flutter / Dart",
+      "tech":["MOBILE"],
       "isTeam": true
       
     },
@@ -18,6 +19,7 @@
       "externalLink": "https://github.com/min23asdw/MLP_neural_network",
       "description": "I implemented an MLP from scratch using Java. I used Back Propagation, Genetic Algorithms, and Particle Swarm Optimization to train a network.",
       "techstack": "Computational Intelligence - JAVA",
+      "tech":["AI"],
       "isTeam": false
     },
     {
@@ -28,6 +30,7 @@
       "externalLink": "https://github.com/PutawanDE/ExpensivePigCARIN",
       "description": "It is a single-player online strategy game. It features genetic code parser and interpreter for game's characters, and multi-threaded server support for concurrent playing games.",
       "techstack": "Game - Java Spring WebSocket / React / TypeScript / CSS / HTML",
+      "tech":["FE","BE"],
       "isTeam": true
     },
     {
@@ -38,6 +41,7 @@
       "externalLink": "https://github.com/min23asdw/CapSnap_App_streaming_ML_flutter",
       "description": "Flutter based android application for product browsing, checkout, and real time and has feature like camera streaming that streaming to a self trained AI classification server in real time",
       "techstack": "Mobile & AI Developer",
+      "tech":["MOBILE","AI"],
       "isTeam": true
     }
   ]
