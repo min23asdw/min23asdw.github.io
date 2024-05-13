@@ -12,15 +12,17 @@ function About() {
         }}
       >
         <h2>PONGSAKORN RATTANAPAN</h2>
-        <a
-          className="Email-link"
-          href="mailto:pongsakorn_career@outlook.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ textDecoration: "none" }}
-        >
-          pongsakorn_career@outlook.com
-        </a>
+        <div style={{ gap: "20px" }}>
+          <a
+            className="Email-link"
+            href="mailto:pongsakorn_career@outlook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: "none" }}
+          >
+            pongsakorn_career@outlook.com
+          </a>
+        </div>
 
         <a
           className="Email-link"
@@ -31,7 +33,7 @@ function About() {
         >
           https://www.linkedin.com/in/pongsakorn-rattanapan-7b2979140/
         </a>
-        <p>(+66) 802033044</p>
+        <b>(+66)802033044</b>
         <a
           className="github-link"
           href="https://github.com/min23asdw"
@@ -44,11 +46,25 @@ function About() {
       </div>
 
       <div style={{ width: "60%" }}>
-        <h4 className="text-md">
-          My name is Pongsakorn Rattanapan. I'm a computer engineering
-          undergraduate student at Faculty of Engineering, Chiang Mai
-          University.
-        </h4>
+        <p className="text-md">
+          I graduated with a Bachelor of Engineering in Computer Engineering,
+          Chiang Mai University and I'm interested in working as a
+          <b> software engineer</b>, <b>web frontend/mobile developer</b> , or
+          <b> full-stack developer</b>.
+        </p>
+        <p className="text-md">
+          In particular, during my time in college, I worked on outsourcing
+          projects that gave me real-world experience. One of these projects was
+          developing a crowdsourcing platform for a Christian organization,
+          which I think is my masterwork.<b> [React, Jira, and Agile] </b>
+        </p>
+
+        <p>
+          I have a passion about learning and exploring a wide range of topics,
+          from <b>AI</b>,<b>React</b>,<b>Mobile Flutter</b>, and
+          <b> Backend development</b>
+          which reflects my adaptable skill set and enhance for creativity.
+        </p>
       </div>
     </div>
   );

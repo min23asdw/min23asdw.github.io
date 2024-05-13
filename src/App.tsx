@@ -73,18 +73,7 @@ const ExpandableSection: React.FC<SectionProps> = ({
 };
 
 function App() {
-  const [resumeVisible, setResumeVisible] = useState(false);
-  const [skillsVisible, setSkillsVisible] = useState(true);
-  const [projectsVisible, setProjectsVisible] = useState(true);
-  const toggleResume = () => {
-    setResumeVisible(!resumeVisible);
-  };
-  const toggleSkills = () => {
-    setSkillsVisible(!skillsVisible);
-  };
-  const toggleProjects = () => {
-    setProjectsVisible(!projectsVisible);
-  };
+ 
   return (
     // <div className="App" style={{ marginLeft: "15vw", marginRight: "15vw" }}>
     <Container>
