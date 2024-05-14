@@ -1,8 +1,14 @@
+import { Box, Stack } from "@mui/material";
+
 function About() {
   return (
-    <div
+    <Stack
       className="About"
-      style={{ display: "flex", flexDirection: "row", marginTop: "50px" }}
+      sx={{
+        display: "flex",
+        flexDirection: { md: "column", lg: "row" },
+        marginTop: "50px",
+      }}
     >
       <div
         style={{
@@ -44,8 +50,13 @@ function About() {
           github.com/min23asdw
         </a>
       </div>
-
-      <div style={{ width: "60%" }}>
+      <Box
+        className="Passion"
+        sx={{
+          width: "60%",
+          marginLeft: { xs: "30vw", lg: "0vw" },
+        }}
+      >
         <p className="text-md">
           I graduated with a Bachelor of Engineering in Computer Engineering,
           Chiang Mai University and I'm interested in working as a
@@ -56,7 +67,8 @@ function About() {
           In particular, during my time in college, I worked on outsourcing
           projects that gave me real-world experience. One of these projects was
           developing a crowdsourcing platform for a Christian organization,
-          which I think is my masterwork.<b> [React, Jira, and Agile] </b>
+          which I think is my masterwork.
+          <b> [React, Jira, and Agile] </b>
         </p>
 
         <p>
@@ -65,8 +77,8 @@ function About() {
           <b> Backend development </b>
           which reflects my adaptable skill set and enhance for creativity.
         </p>
-      </div>
-    </div>
+      </Box>
+    </Stack>
   );
 }
 

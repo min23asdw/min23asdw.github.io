@@ -2,74 +2,74 @@
   "frontend": [
     {
       "name": "Flutter",
-      "icon": "devicon-flutter-plain",
+      "icon": "devicon-flutter-plain colored",
       "rank": 4
     },
     {
       "name": "React",
-      "icon": "devicon-react-original",
+      "icon": "devicon-react-original colored",
       "rank": 5
     },
     {
       "name": "HTML",
-      "icon": "devicon-html5-plain",
+      "icon": "devicon-html5-plain-wordmark colored",
       "rank": 3
     },
     {
       "name": "CSS",
-      "icon": "devicon-tailwindcss-plain",
+      "icon": "devicon-tailwindcss-plain colored",
       "rank": 3
     },
     {
       "name": "JavaScript",
-      "icon": "devicon-javascript-plain",
+      "icon": "devicon-javascript-plain colored",
       "rank": 3
     },
     {
       "name": "TypeScript",
-      "icon": "devicon-typescript-plain",
+      "icon": "devicon-typescript-plain colored",
       "rank": 5
     },
     {
       "name": "Material UI",
-      "icon": "devicon-materialui-plain",
+      "icon": "devicon-materialui-plain colored",
       "rank": 4
     }
   ],
   "backend": [
     {
       "name": "C#",
-      "icon": "devicon-csharp-plain",
+      "icon": "devicon-csharp-plain colored",
       "rank": 3
     },
     {
       "name": ".NET",
-      "icon": "devicon-dotnetcore-plain",
+      "icon": "devicon-dotnetcore-plain colored",
       "rank": 3
     },
     {
       "name": "Python",
-      "icon": "devicon-python-plain",
+      "icon": "devicon-python-plain colored",
       "rank": 4
     },
     {
       "name": "Go",
-      "icon": "devicon-go-original-wordmark",
+      "icon": "devicon-go-original-wordmark colored",
       "rank": 5
     },
     {
       "name": "Java",
-      "icon": "devicon-java-plain",
+      "icon": "devicon-java-plain colored",
       "rank": 5
     },
     {
       "name": "AWS",
-      "icon": "devicon-amazonwebservices-original",
+      "icon": "devicon-amazonwebservices-original colored",
       "rank": 2
     },
     {
       "name": "SQL",
-      "icon": "devicon-mysql-plain-wordmark",
+      "icon": "devicon-mysql-plain-wordmark colored",
       "rank": 4
     }
   ]

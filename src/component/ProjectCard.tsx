@@ -51,7 +51,13 @@ const ProjectCard = (prop: DataProp) => {
           {data.title}
         </h3>
 
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
           {data.interval}
           <Box sx={{ display: "flex", gap: "5px" }}>
             {data.tech.map((type, index) => (
