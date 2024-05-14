@@ -1,47 +1,46 @@
 [
-    {
-      "title": "Airwareness - Air Quality and Sharing Mobile Application",
-      "interval":"April 2023",
-      "imgSrc": "./pic/airwareness_1.png",
-      "alt": "Screenshot of Airwareness",
-      "detailsLink": "/airwareness",
-      "description": "Worked with a team of five to develop a mobile application that displays air quality data from the government's API. I was responsible for developing a feature that allows to get GPS coordinates and get heat spot data form api NASAs FIRMS",
-      "techstack": "Mobile Application - Flutter / Dart",
-      "tech":["MOBILE"],
-      "isTeam": true
-      
-    },
-    {
-      "title": "Neural Network from Scratch",
-      "interval":"Dec 2022",
-      "imgSrc": "./pic/mlp_1.png",
-      "alt": "Structure of a Neural Network",
-      "detailsLink": "/mlp",
-      "description": "I implemented an MLP from scratch using Java. I used Back Propagation, Genetic Algorithms, and Particle Swarm Optimization to train a network.",
-      "techstack": "Computational Intelligence - JAVA",
-      "tech":["AI"],
-      "isTeam": false
-    },
-    {
-      "title": "CARIN",
-      "interval":"Mar 2022",
-      "imgSrc": "./pic/carin_1.png",
-      "alt": "Screenshot of CARIN",
-      "detailsLink": "/carin",
-      "description": "It is a single-player online strategy game. It features genetic code parser and interpreter for game's characters, and multi-threaded server support for concurrent playing games.",
-      "techstack": "Game - Java Spring WebSocket / React / TypeScript / CSS / HTML",
-      "tech":["FE","BE"],
-      "isTeam": true
-    },
-    {
-      "title": "CapSnap - Capstone Project",
-      "interval":"2023-2024",
-      "imgSrc": "./pic/capsnap_1.png",
-      "alt": "Screenshot of  CapSnap",
-      "detailsLink": "/capsnap",
-      "description": "Flutter based android application for product browsing, checkout, and real time and has feature like camera streaming that streaming to a self trained AI classification server in real time",
-      "techstack": "Mobile & AI Developer",
-      "tech":["MOBILE","AI"],
-      "isTeam": true
-    }
-  ]
+  {
+    "title": "[Java] - Multilayer Perceptron (MLP) from Scratch",
+    "interval": "Dec 2022",
+    "imgSrc": "./pic/mlp_1.png",
+    "alt": "Structure of a Neural Network",
+    "detailsLink": "/mlp",
+    "description": "I implemented an MLP from scratch using [Java]. I used Back Propagation, Genetic Algorithms, and Particle Swarm Optimization to train a network.",
+    "techstack": "Computational Intelligence - JAVA",
+    "tech": ["AI"],
+    "isTeam": false
+  },
+  {
+    "title": "Airwareness - Air Quality and Sharing Mobile Application",
+    "interval": "April 2023",
+    "imgSrc": "./pic/airwareness_1.png",
+    "alt": "Screenshot of Airwareness",
+    "detailsLink": "/airwareness",
+    "description": "Worked with a team of five to develop a mobile application that displays air quality data from the government's API. I was responsible for developing a feature that allows to get GPS coordinates and get heat spot data form api NASAs FIRMS",
+    "techstack": "Mobile Application - Flutter / Dart",
+    "tech": ["MOBILE"],
+    "isTeam": true
+  },
+  {
+    "title": "CARIN",
+    "interval": "Mar 2022",
+    "imgSrc": "./pic/carin_1.png",
+    "alt": "Screenshot of CARIN",
+    "detailsLink": "/carin",
+    "description": "It is a single-player online strategy game. It features genetic code parser and interpreter for game's characters, and multi-threaded server support for concurrent playing games.",
+    "techstack": "Game - Java Spring WebSocket / React / TypeScript / CSS / HTML",
+    "tech": ["FE", "BE"],
+    "isTeam": true
+  },
+  {
+    "title": "CapSnap - Capstone Project",
+    "interval": "2023-2024",
+    "imgSrc": "./pic/capsnap_1.png",
+    "alt": "Screenshot of  CapSnap",
+    "detailsLink": "/capsnap",
+    "description": "Flutter based android application for product browsing, checkout, and real time and has feature like camera streaming that streaming to a self trained AI classification server in real time",
+    "techstack": "Mobile & AI Developer",
+    "tech": ["MOBILE", "AI"],
+    "isTeam": true
+  }
+]

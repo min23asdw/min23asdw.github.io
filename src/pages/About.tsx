@@ -31,7 +31,7 @@ function About() {
         </div>
 
         <a
-          className="Email-link"
+          className="linkedin-link"
           href="https://www.linkedin.com/in/pongsakorn-rattanapan-7b2979140/"
           target="_blank"
           rel="noopener noreferrer"

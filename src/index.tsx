@@ -7,6 +7,7 @@ import ScrollToTop from "./service/ScrollToTop";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { ROUTE } from "./data/route";
 import AIRWARE from "./project/airwareness/AirPage";
+import MLP from "./project/mlp/MlpPage";
 const router = createBrowserRouter([
   {
     element: <ScrollToTop />,
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: ROUTE.AIRWARE,
         element: <AIRWARE />,
+      },
+      {
+        path: ROUTE.MLP,
+        element: <MLP />,
       },
     ],
   },
