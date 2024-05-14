@@ -37,7 +37,7 @@ function PdfViewer(props: PdfProps) {
         flexDirection: "column",
       }}
     >
-      <div style={{   width: "70%" , height :'100vh'}}>
+      <div style={{   width: "80%" , height :'90vh'}}>
         <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.js">
           <Viewer fileUrl={src} plugins={[defaultLayoutPluginInstance]} />
         </Worker>
