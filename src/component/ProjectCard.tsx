@@ -1,25 +1,9 @@
 import React from "react";
-import {
-  Avatar,
-  Box,
-  Card,
-  CardActions,
-  CardContent,
-  CardHeader,
-  CardMedia,
-  Collapse,
-  Grid,
-  IconButton,
-  Theme,
-  Typography,
-} from "@mui/material";
-import { red } from "@mui/material/colors";
-import Divider from "@mui/material/Divider";
+import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 import ProjectData from "../model/project";
 import "../styles/card.css";
 import Badge from "./Badge";
-import BadgeType from "../model/BadgeType";
-
+import { Link } from "react-router-dom";
 interface DataProp {
   data: ProjectData;
 }
@@ -75,6 +59,7 @@ const ProjectCard = (prop: DataProp) => {
         <Typography variant="body1" color="text.secondary">
           {data.techstack}
         </Typography>
+        <Link to={data.detailsLink}>Details</Link>
       </CardContent>
       {/* <CardActions disableSpacing></CardActions> */}
     </Card>

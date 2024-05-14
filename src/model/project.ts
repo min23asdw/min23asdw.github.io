@@ -4,7 +4,7 @@ interface ProjectData {
   interval: string;
   imgSrc: string;
   alt: string;
-  externalLink: string;
+  detailsLink: string;
   description: string;
   techstack: string;
   tech: string[];

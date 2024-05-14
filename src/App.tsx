@@ -1,31 +1,13 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import PdfViewer from "./service/PdfViewer";
-import YouTubePlayer from "react-player/youtube";
-import YoutubeViewer from "./service/YoutubeViewer";
+
 import About from "./pages/About";
 import SkillsComponent from "./pages/Skills";
-import {
-  Avatar,
-  Box,
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardHeader,
-  CardMedia,
-  Collapse,
-  Container,
-  Grid,
-  IconButton,
-  IconButtonProps,
-  Typography,
-  styled,
-} from "@mui/material";
+import { Box, Button, Collapse, Container } from "@mui/material";
 import ProjectsComponent from "./pages/Projects";
-import { red } from "@mui/material/colors";
 import { ExpandMore, ExpandLess } from "@mui/icons-material";
+import Navbar from "./component/Navbar";
 
 interface SectionProps {
   title: string;
@@ -73,30 +55,31 @@ const ExpandableSection: React.FC<SectionProps> = ({
 };
 
 function App() {
- 
   return (
     // <div className="App" style={{ marginLeft: "15vw", marginRight: "15vw" }}>
-    <Container>
-      <About />
-      <ExpandableSection
-        title="Resume"
-        show={false}
-        content={
-          <PdfViewer src={"https://min23asdw.github.io/doc/resume.pdf"} />
-        }
-      />
-      <ExpandableSection
-        title="Skills"
-        show={true}
-        content={<SkillsComponent />}
-      />
-      <ExpandableSection
-        title="Projects"
-        show={true}
-        content={<ProjectsComponent />}
-      />
-    </Container>
-    // </div>
+    <>
+      <Navbar />
+      <Container>
+        <About />
+        <ExpandableSection
+          title="Resume"
+          show={false}
+          content={
+            <PdfViewer src={"https://min23asdw.github.io/doc/resume.pdf"} />
+          }
+        />
+        <ExpandableSection
+          title="Skills"
+          show={true}
+          content={<SkillsComponent />}
+        />
+        <ExpandableSection
+          title="Projects"
+          show={true}
+          content={<ProjectsComponent />}
+        />
+      </Container>
+    </>
   );
 }
 
