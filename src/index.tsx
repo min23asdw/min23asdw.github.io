@@ -8,6 +8,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { ROUTE } from "./data/route";
 import AIRWARE from "./project/airwareness/AirPage";
 import MLP from "./project/mlp/MlpPage";
+import CAPSNAP from "./project/capsnap/CapsnapPage";
 const router = createBrowserRouter([
   {
     element: <ScrollToTop />,
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: ROUTE.MLP,
         element: <MLP />,
+      },
+      {
+        path: ROUTE.CAPSNAP,
+        element: <CAPSNAP />,
       },
     ],
   },
