@@ -33,6 +33,28 @@
     "isTeam": true
   },
   {
+    "title": "GO Basic RESTful API in GoLang",
+    "interval": "2024",
+    "imgSrc": "./pic/goapi_1.png",
+    "alt": "Screenshot of  go api",
+    "detailsLink": "/goapi",
+    "description": "Build in an MVC structure and connect to a MySQL database that offers endpoints for users, posts, task services with JWT authentication. ",
+    "techstack": "GO JWT MySQL Docker",
+    "tech": ["BE"],
+    "isTeam": false
+  },
+  {
+    "title": "C# .Net Basic RESTful API RESTful API",
+    "interval": "2024",
+    "imgSrc": "./pic/netapi_1.png",
+    "alt": "Screenshot of  net api",
+    "detailsLink": "/netapi",
+    "description": " Learn and build in an .NET Framework for all CRUD with data validations for villas endpoints that have swagger API Document and connect to a SQL database. ",
+    "techstack": "C# .Net 8 SSMS Swagger",
+    "tech": ["BE"],
+    "isTeam": false
+  },
+  {
     "title": "CARIN",
     "interval": "Mar 2022",
     "imgSrc": "./pic/carin_1.png",

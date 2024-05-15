@@ -9,6 +9,9 @@ import { ROUTE } from "./data/route";
 import AIRWARE from "./project/airwareness/AirPage";
 import MLP from "./project/mlp/MlpPage";
 import CAPSNAP from "./project/capsnap/CapsnapPage";
+import GOAPI from "./project/goapi/GoApi";
+import NETAPI from "./project/netapi/NetApi";
+import CARIN from "./project/carin/Carin";
 const router = createBrowserRouter([
   {
     element: <ScrollToTop />,
@@ -29,6 +32,18 @@ const router = createBrowserRouter([
       {
         path: ROUTE.CAPSNAP,
         element: <CAPSNAP />,
+      },
+      {
+        path: ROUTE.GOAPI,
+        element: <GOAPI />,
+      },
+      {
+        path: ROUTE.NETAPI,
+        element: <NETAPI />,
+      },
+      {
+        path: ROUTE.CARIN,
+        element: <CARIN />,
       },
     ],
   },

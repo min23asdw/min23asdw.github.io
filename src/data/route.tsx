@@ -3,4 +3,6 @@ export const ROUTE = {
     AIRWARE: '/airwareness',
     MLP: '/mlp',
     CAPSNAP: '/capsnap',
+    GOAPI: '/goapi',
+    NETAPI: '/netapi',
   }
