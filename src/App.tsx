@@ -1,22 +1,23 @@
-import React, { useState } from "react";
 import "./App.css";
 import PdfViewer from "./service/PdfViewer";
 
-import About from "./pages/About";
-import SkillsComponent from "./pages/Skills";
-import { Box, Button, Collapse, Container } from "@mui/material";
-import ProjectsComponent from "./pages/Projects";
-import { ExpandMore, ExpandLess } from "@mui/icons-material";
+import SkillsComponent from "./sections/Skills";
+import { Container } from "@mui/material";
+import ProjectsComponent from "./sections/Projects";
 import Navbar from "./component/Navbar";
 import { ExpandableSection } from "./component/Expand";
+import About from "./sections/About";
 
- 
 function App() {
   return (
     // <div className="App" style={{ marginLeft: "15vw", marginRight: "15vw" }}>
     <>
       <Navbar />
-      <Container>
+      <Container
+        sx={{
+          paddingTop: "70px",
+        }}
+      >
         <About />
         <ExpandableSection
           title="Resume"

@@ -1,11 +1,4 @@
-import {
-  Box,
-  Button,
-  Card,
-  CardContent,
-  Collapse,
-  Stack,
-} from "@mui/material";
+import { Box, Button, Card, CardContent, Collapse, Stack } from "@mui/material";
 import { useState } from "react";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
 
@@ -46,6 +39,9 @@ const Education = () => {
               </li>
               <li>
                 Object-Oriented Programming : <b>A</b>
+              </li>
+              <li>
+                Fundamentals of Database Systems : <b>B+</b>
               </li>
               <li>
                 Algorithms : <b>A</b>

@@ -1,4 +1,3 @@
-import React from "react";
 import data from "../data/SkillData.json";
 
 const SkillsComponent = () => {
@@ -16,7 +15,14 @@ const SkillsComponent = () => {
       >
         <div style={{ display: "flex", flexDirection: "row", gap: "3rem" }}>
           <h2 className="text-xl font-bold">Frontend</h2>
-          <div style={{ display: "flex", flexDirection: "row",flexWrap:'wrap', gap: "2rem" }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              flexWrap: "wrap",
+              gap: "2rem",
+            }}
+          >
             {data.frontend.map((skill, index) => (
               <div
                 key={index}
@@ -36,7 +42,14 @@ const SkillsComponent = () => {
 
         <div style={{ display: "flex", flexDirection: "row", gap: "3rem" }}>
           <h2 className="text-xl font-bold">Backend</h2>
-          <div style={{ display: "flex", flexDirection: "row",flexWrap:'wrap', gap: "2rem" }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              flexWrap: "wrap",
+              gap: "2rem",
+            }}
+          >
             {data.backend.map((skill, index) => (
               <div
                 key={index}

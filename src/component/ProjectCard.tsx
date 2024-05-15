@@ -23,7 +23,7 @@ const ProjectCard = (prop: DataProp) => {
       <Card
         variant="outlined"
         sx={{
-          minHeight: "600px",
+          minHeight: "550px",
           height: "100%",
           // width: { xs: "80vh", md: "20vh" },
           display: "flex",
@@ -68,23 +68,20 @@ const ProjectCard = (prop: DataProp) => {
           <Typography
             variant="body1"
             color="text.secondary"
-            sx={{ padding: "10px" }}
+            sx={{ paddingLeft: "10px", paddingTop: "10px" }}
           >
             {data.description}
-          </Typography>
-
-          <Typography
-            variant="body1"
-            color="text.secondary"
-            sx={{ padding: "10px" }}
-          >
-            {data.techstack}
           </Typography>
         </CardContent>
         <CardActions
           disableSpacing
-          sx={{ display: "flex", justifyContent: "end" }}
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+          }}
         >
+          {data.techstack}
           <Box>
             <Link to={data.detailsLink}>Details</Link>
           </Box>

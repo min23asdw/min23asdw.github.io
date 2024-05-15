@@ -20,17 +20,21 @@ function Navbar() {
   return (
     <Box
       sx={{
+        position: "fixed",
+        top: 0,
+        width: "100%",
         height: "50px",
         padding: "10px",
-
         borderBottom: `1px solid ${grey[400]}`,
         boxShadow: `0px 4px 4px ${grey[400]}`,
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
-        justifyContent: "space-between",
-
+        justifyContent: "end",
         gap: 2,
+        backgroundColor: "white",
+        zIndex: 1000,
+        marginBottom: "60px",
       }}
     >
       <Link to="/" style={{ textDecoration: "none" }}>
@@ -71,6 +75,7 @@ function Navbar() {
           handlePopoverClose={handlePopoverClose}
         />
       </Box>
+      <Box sx={{ height: "60px" }} />
     </Box>
   );
 }

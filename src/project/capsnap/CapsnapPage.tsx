@@ -1,13 +1,15 @@
-import React from "react";
 import Navbar from "../../component/Navbar";
 import { Container } from "@mui/material";
-import PdfViewer from "../../service/PdfViewer";
 
 const CAPSNAP = () => {
   return (
     <>
       <Navbar />
-      <Container>
+      <Container
+        sx={{
+          paddingTop: "70px",
+        }}
+      >
         <div
           style={{
             display: "flex",
