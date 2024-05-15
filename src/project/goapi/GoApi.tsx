@@ -33,7 +33,7 @@ const GOAPI = () => {
             </h2>
 
             <h3 className="text-xl font-bold">
-              To offers endpoints for users, posts, task services with JWT
+              To offers endpoints for users, projects, tasks services with JWT
               authentication.
             </h3>
 

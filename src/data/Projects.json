@@ -38,7 +38,7 @@
     "imgSrc": "./pic/goapi_1.png",
     "alt": "Screenshot of  go api",
     "detailsLink": "/goapi",
-    "description": "Build in an MVC structure and connect to a MySQL database that offers endpoints for users, posts, task services with JWT authentication. ",
+    "description": "Build in an MVC structure and connect to a MySQL database that offers endpoints for users, projects, tasks services with JWT authentication. ",
     "techstack": "GO JWT MySQL Docker",
     "tech": ["BE"],
     "isTeam": false
