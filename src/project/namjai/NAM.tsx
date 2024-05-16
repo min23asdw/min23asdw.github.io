@@ -34,7 +34,7 @@ const NAMJAI = () => {
             </h2>
             <p className="   ">
               I worked in a team as a front end and UX/UI designer developer
-              using <b>React, TypeScript</b> , Tailwind CSS, and <b>MUI</b>.
+              using <b>React, TypeScript</b> , Tailwind CSS , and <b>MUI</b>.
             </p>
             <h2 className="text-xl font-bold">Overview</h2>
             <div
