@@ -5,4 +5,5 @@ export const ROUTE = {
     CAPSNAP: '/capsnap',
     GOAPI: '/goapi',
     NETAPI: '/netapi',
+    MIN: '/minecraft',
   }

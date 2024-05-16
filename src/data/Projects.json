@@ -33,17 +33,6 @@
     "isTeam": true
   },
   {
-    "title": "GO Basic RESTful API in GoLang",
-    "interval": "2024",
-    "imgSrc": "./pic/goapi_1.png",
-    "alt": "Screenshot of  go api",
-    "detailsLink": "/goapi",
-    "description": "Build in an MVC structure and connect to a MySQL database that offers endpoints for users, projects, tasks services with JWT authentication. ",
-    "techstack": "GO JWT MySQL Docker",
-    "tech": ["BE"],
-    "isTeam": false
-  },
-  {
     "title": "C# .Net Basic RESTful API RESTful API",
     "interval": "2024",
     "imgSrc": "./pic/netapi_1.png",
@@ -51,6 +40,17 @@
     "detailsLink": "/netapi",
     "description": " Learn and build in an .NET Framework for all CRUD with data validations for villas endpoints that have swagger API Document and connect to a SQL database. ",
     "techstack": "C# .Net 8 SSMS Swagger",
+    "tech": ["BE"],
+    "isTeam": false
+  },
+  {
+    "title": "GO Basic RESTful API in GoLang",
+    "interval": "2024",
+    "imgSrc": "./pic/goapi_1.png",
+    "alt": "Screenshot of  go api",
+    "detailsLink": "/goapi",
+    "description": "Build in an MVC structure and connect to a MySQL database that offers endpoints for users, projects, tasks services with JWT authentication. ",
+    "techstack": "GO JWT MySQL Docker",
     "tech": ["BE"],
     "isTeam": false
   },
@@ -63,6 +63,17 @@
     "description": "It is a single-player online strategy game. It features genetic code parser and interpreter for game's characters, and multi-threaded server support for concurrent playing games.",
     "techstack": "Game - Java Spring WebSocket / React / TypeScript / CSS / HTML",
     "tech": ["FE", "BE"],
+    "isTeam": true
+  },
+  {
+    "title": "Minecraft",
+    "interval": "2015-2016",
+    "imgSrc": "./pic/min_1.png",
+    "alt": "Screenshot of minecraft",
+    "detailsLink": "/minecraft",
+    "description": "To host the Ubuntu Minecraft server on AWS, free up 12 mouths , with security and port game settings",
+    "techstack": "Game - AWS with ubuntu",
+    "tech": ["BE"],
     "isTeam": true
   }
 ]

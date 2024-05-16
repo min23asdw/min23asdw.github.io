@@ -12,6 +12,7 @@ import CAPSNAP from "./project/capsnap/CapsnapPage";
 import GOAPI from "./project/goapi/GoApi";
 import NETAPI from "./project/netapi/NetApi";
 import CARIN from "./project/carin/Carin";
+import MIN from "./project/min/Min";
 const router = createBrowserRouter([
   {
     element: <ScrollToTop />,
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: ROUTE.CARIN,
         element: <CARIN />,
+      },
+      {
+        path: ROUTE.MIN,
+        element: <MIN />,
       },
     ],
   },
