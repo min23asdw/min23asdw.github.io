@@ -13,6 +13,7 @@ import GOAPI from "./project/goapi/GoApi";
 import NETAPI from "./project/netapi/NetApi";
 import CARIN from "./project/carin/Carin";
 import MIN from "./project/min/Min";
+import NAMJAI from "./project/namjai/NAM";
 const router = createBrowserRouter([
   {
     element: <ScrollToTop />,
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
       {
         path: ROUTE.MIN,
         element: <MIN />,
+      },
+      {
+        path: ROUTE.NAMJAI,
+        element: <NAMJAI />,
       },
     ],
   },

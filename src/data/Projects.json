@@ -74,6 +74,17 @@
     "description": "To host the Ubuntu Minecraft server on AWS, free up 12 mouths , with security and port game settings",
     "techstack": "Game - AWS with ubuntu",
     "tech": ["BE"],
+    "isTeam": false
+  },
+  {
+    "title": "Front End Developer at Namjai Development Team",
+    "interval": "2023-2024",
+    "imgSrc": "./pic/nam_1.png",
+    "alt": "Screenshot of namjai",
+    "detailsLink": "/namjai",
+    "description": "Namjai is a crowd funding platform targeted to childrens development led by a charity foundation.",
+    "techstack": "Website -  React, TypeScript, Tailwind CSS, and MUI.",
+    "tech": ["FE"],
     "isTeam": true
   }
 ]
