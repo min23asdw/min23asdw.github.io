@@ -23,7 +23,7 @@ function App() {
           title="Resume"
           show={false}
           content={
-            <PdfViewer src={"https://min23asdw.github.io/doc/resume.pdf"} />
+            <PdfViewer src={"https://min23asdw.github.io/doc/Pongsakorn_Rattanapan_Resume.pdf"} />
           }
         />
         <ExpandableSection
