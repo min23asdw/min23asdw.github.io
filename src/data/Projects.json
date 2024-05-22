@@ -7,7 +7,9 @@
     "detailsLink": "/mlp",
     "description": "I implemented an MLP from scratch using [Java]. I used Back Propagation, Genetic Algorithms, and Particle Swarm Optimization to train a network.",
     "techstack": "Computational Intelligence - JAVA",
-    "tech": ["AI"],
+    "tech": [
+      "AI"
+    ],
     "isTeam": false
   },
   {
@@ -18,9 +20,11 @@
     "detailsLink": "/airwareness",
     "description": "Worked with a team of five to develop a mobile application that displays air quality data from the government's API. I was responsible for developing a feature that allows to get GPS coordinates and get heat spot data form api NASAs FIRMS",
     "techstack": "Mobile Application - Flutter / Dart",
-    "tech": ["MOBILE"],
+    "tech": [
+      "MOBILE"
+    ],
     "isTeam": true
-  }, 
+  },
   {
     "title": "CapSnap - Capstone Project",
     "interval": "2023-2024",
@@ -29,7 +33,10 @@
     "detailsLink": "/capsnap",
     "description": "Flutter based android application for product browsing, checkout in real time and has feature like camera streaming that streaming to a self trained AI classification server in real time",
     "techstack": "Mobile & AI Developer",
-    "tech": ["MOBILE", "AI"],
+    "tech": [
+      "MOBILE",
+      "AI"
+    ],
     "isTeam": true
   },
   {
@@ -40,7 +47,9 @@
     "detailsLink": "/netapi",
     "description": " Learn and build in an .NET Framework for all CRUD with data validations for villas endpoints that have swagger API Document and connect to a SQL database. ",
     "techstack": "C# .Net 8 SSMS Swagger",
-    "tech": ["BE"],
+    "tech": [
+      "BE"
+    ],
     "isTeam": false
   },
   {
@@ -51,7 +60,9 @@
     "detailsLink": "/goapi",
     "description": "Build in an MVC structure and connect to a MySQL database that offers endpoints for users, projects, tasks services with JWT authentication. ",
     "techstack": "GO JWT MySQL Docker",
-    "tech": ["BE"],
+    "tech": [
+      "BE"
+    ],
     "isTeam": false
   },
   {
@@ -62,7 +73,10 @@
     "detailsLink": "/carin",
     "description": "It is a single-player online strategy game. It features genetic code parser and interpreter for game's characters, and multi-threaded server support for concurrent playing games.",
     "techstack": "Game - Java Spring WebSocket / React / TypeScript / CSS / HTML",
-    "tech": ["FE", "BE"],
+    "tech": [
+      "FE",
+      "BE"
+    ],
     "isTeam": true
   },
   {
@@ -73,18 +87,9 @@
     "detailsLink": "/minecraft",
     "description": "To host the Ubuntu Minecraft server on AWS, free up 12 mouths , with security and port game settings",
     "techstack": "Game - AWS with ubuntu",
-    "tech": ["BE"],
+    "tech": [
+      "BE"
+    ],
     "isTeam": false
-  },
-  {
-    "title": "Front End Developer at Namjai Development Team",
-    "interval": "2023-2024",
-    "imgSrc": "./pic/nam_1.png",
-    "alt": "Screenshot of namjai",
-    "detailsLink": "/namjai",
-    "description": "Namjai is a crowd funding platform targeted to childrens development led by a charity foundation.",
-    "techstack": "Website -  React, TypeScript, Tailwind CSS, and MUI.",
-    "tech": ["FE"],
-    "isTeam": true
   }
 ]

@@ -7,4 +7,6 @@ export const ROUTE = {
   NETAPI: "/netapi",
   MIN: "/minecraft",
   NAMJAI: "/namjai",
+  WAANME: "/waanme",
+  TA: "/ta",
 };

@@ -1,0 +1,40 @@
+[
+  {
+    "title": "Front End Developer at Namjai Development Team",
+    "interval": "2023-2024",
+    "imgSrc": "./pic/nam_1.png",
+    "alt": "Screenshot of namjai",
+    "detailsLink": "/namjai",
+    "description": "Namjai is a crowd funding platform targeted to childrens development led by a charity foundation.",
+    "techstack": "Website -  React, TypeScript, Tailwind CSS, and MUI.",
+    "tech": [
+      "FE"
+    ],
+    "isTeam": true
+  },
+  {
+    "title": "Startup Tech “WAANME ( React PWA )",
+    "interval": "2020-2021",
+    "imgSrc": "./pic/waan_1.png",
+    "alt": "Screenshot of waanme",
+    "detailsLink": "/waanme",
+    "description": "Sandbox: Entrepreneurial Ecosystem Development Program from Science & Technology Park (STeP) , Experience on Business plan and Lean Canvas , developing prototype and MVP",
+    "techstack": "Website -  React , Sandbox",
+    "tech": [
+      "FE",
+      "BE"
+    ],
+    "isTeam": true
+  },
+  {
+    "title": "Teaching Assistant at Chiang Mai University",
+    "interval": "2022-2023",
+    "imgSrc": "./pic/ta_1.png",
+    "alt": "Screenshot of ta",
+    "detailsLink": "/ta",
+    "description": "Assisted in the Seminar in Accounting for Non IT Majors course and the Computational Intelligence for Robotics Majors course",
+    "techstack": "Power BI , Python , AI",
+    "tech": [],
+    "isTeam": true
+  }
+]
