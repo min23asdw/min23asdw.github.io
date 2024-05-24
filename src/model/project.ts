@@ -1,7 +1,9 @@
 
 interface ProjectData {
   title: string;
-  interval: string;
+  short:string;
+  start: string;
+  end: string;
   imgSrc: string;
   alt: string;
   detailsLink: string;

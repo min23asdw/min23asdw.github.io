@@ -1,95 +1,93 @@
 [
   {
     "title": "[Java] - Multilayer Perceptron (MLP) from Scratch",
-    "interval": "Dec 2022",
+    "short":"MLP",
+    "start": "Jun 2022",
+    "end": "Nov 2022",
     "imgSrc": "./pic/mlp_1.png",
     "alt": "Structure of a Neural Network",
     "detailsLink": "/mlp",
     "description": "I implemented an MLP from scratch using [Java]. I used Back Propagation, Genetic Algorithms, and Particle Swarm Optimization to train a network.",
     "techstack": "Computational Intelligence - JAVA",
-    "tech": [
-      "AI"
-    ],
+    "tech": ["AI"],
     "isTeam": false
   },
   {
     "title": "Airwareness - Air Quality and Sharing Mobile Application",
-    "interval": "April 2023",
+    "short":"Airwareness",
+    "start": "Dec 2022",
+    "end": "Mar 2023",
     "imgSrc": "./pic/airwareness_1.png",
     "alt": "Screenshot of Airwareness",
     "detailsLink": "/airwareness",
     "description": "Worked with a team of five to develop a mobile application that displays air quality data from the government's API. I was responsible for developing a feature that allows to get GPS coordinates and get heat spot data form api NASAs FIRMS",
     "techstack": "Mobile Application - Flutter / Dart",
-    "tech": [
-      "MOBILE"
-    ],
+    "tech": ["MOBILE"],
     "isTeam": true
   },
   {
     "title": "CapSnap - Capstone Project",
-    "interval": "2023-2024",
+    "short":"CapSnap",
+    "start": "Jun 2023",
+    "end": "Mar 2024",
     "imgSrc": "./pic/capsnap_1.png",
     "alt": "Screenshot of  CapSnap",
     "detailsLink": "/capsnap",
     "description": "Flutter based android application for product browsing, checkout in real time and has feature like camera streaming that streaming to a self trained AI classification server in real time",
     "techstack": "Mobile & AI Developer",
-    "tech": [
-      "MOBILE",
-      "AI"
-    ],
+    "tech": ["MOBILE", "AI"],
     "isTeam": true
   },
   {
-    "title": "C# .Net Basic RESTful API RESTful API",
-    "interval": "2024",
+    "title": "C# .Net Basic RESTful API",
+    "short":"C# API",
+    "start": "Mar 2024",
+    "end": "-1",
     "imgSrc": "./pic/netapi_1.png",
     "alt": "Screenshot of  net api",
     "detailsLink": "/netapi",
     "description": " Learn and build in an .NET Framework for all CRUD with data validations for villas endpoints that have swagger API Document and connect to a SQL database. ",
     "techstack": "C# .Net 8 SSMS Swagger",
-    "tech": [
-      "BE"
-    ],
+    "tech": ["BE"],
     "isTeam": false
   },
   {
     "title": "GO Basic RESTful API in GoLang",
-    "interval": "2024",
+    "short":"GO API",
+    "start": "Apr 2024",
+    "end": "-1",
     "imgSrc": "./pic/goapi_1.png",
     "alt": "Screenshot of  go api",
     "detailsLink": "/goapi",
     "description": "Build in an MVC structure and connect to a MySQL database that offers endpoints for users, projects, tasks services with JWT authentication. ",
     "techstack": "GO JWT MySQL Docker",
-    "tech": [
-      "BE"
-    ],
+    "tech": ["BE"],
     "isTeam": false
   },
   {
     "title": "CARIN",
-    "interval": "Mar 2022",
+    "short":"CARIN",
+    "start": "Feb 2022",
+    "end": "Apr 2022",
     "imgSrc": "./pic/carin_1.png",
     "alt": "Screenshot of CARIN",
     "detailsLink": "/carin",
     "description": "It is a single-player online strategy game. It features genetic code parser and interpreter for game's characters, and multi-threaded server support for concurrent playing games.",
     "techstack": "Game - Java Spring WebSocket / React / TypeScript / CSS / HTML",
-    "tech": [
-      "FE",
-      "BE"
-    ],
+    "tech": ["FE", "BE"],
     "isTeam": true
   },
   {
     "title": "Minecraft",
-    "interval": "2015-2016",
+    "short":"Minecraft",
+    "start": "Dec 2021",
+    "end": "Jan 2022",
     "imgSrc": "./pic/min_1.png",
     "alt": "Screenshot of minecraft",
     "detailsLink": "/minecraft",
     "description": "To host the Ubuntu Minecraft server on AWS, free up 12 mouths , with security and port game settings",
     "techstack": "Game - AWS with ubuntu",
-    "tech": [
-      "BE"
-    ],
+    "tech": ["BE"],
     "isTeam": false
   }
 ]

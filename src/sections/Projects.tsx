@@ -1,6 +1,7 @@
 import { Grid } from "@mui/material";
 import ProjectCard from "../component/ProjectCard";
 import file from "../data/Projects.json";
+import TimelinePlotly from "../service/TimelinePlotly";
 const ProjectsComponent = () => {
   return (
     <Grid
@@ -14,6 +15,7 @@ const ProjectsComponent = () => {
           <ProjectCard data={data} />
         </Grid>
       ))}
+      <TimelinePlotly data={file} />
     </Grid>
   );
 };

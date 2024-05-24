@@ -1,7 +1,9 @@
 [
   {
     "title": "Front End Developer at Namjai Development Team",
-    "interval": "2023-2024",
+    "short":"Namjai",
+    "start": "Jul 2023",
+    "end": "-1",
     "imgSrc": "./pic/nam_1.png",
     "alt": "Screenshot of namjai",
     "detailsLink": "/namjai",
@@ -13,8 +15,10 @@
     "isTeam": true
   },
   {
-    "title": "Startup Tech “WAANME ( React PWA )",
-    "interval": "2020-2021",
+    "title": "Startup Tech “WAANME (React PWA)",
+    "short":"Waanme",
+    "start": "Aug 2020",
+    "end": "Jul 2021",
     "imgSrc": "./pic/waan_1.png",
     "alt": "Screenshot of waanme",
     "detailsLink": "/waanme",
@@ -28,7 +32,9 @@
   },
   {
     "title": "Teaching Assistant at Chiang Mai University",
-    "interval": "2022-2023",
+    "short":"TA",
+    "start": "Feb 2022",
+    "end": "Nov 2023",
     "imgSrc": "./pic/ta_1.png",
     "alt": "Screenshot of ta",
     "detailsLink": "/ta",

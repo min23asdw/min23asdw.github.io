@@ -55,7 +55,7 @@ const ProjectCard = (prop: DataProp) => {
               alignItems: "center",
             }}
           >
-            <b>{data.interval}</b>
+            <b>{data.start}</b>
             <Box sx={{ display: "flex", gap: "5px" }}>
               {data.tech.map((type, index) => (
                 <React.Fragment key={index}>
