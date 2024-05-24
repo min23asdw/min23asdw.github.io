@@ -1,5 +1,44 @@
 [
   {
+    "title": "2in1 Smart Bin & Cleaner Robot",
+    "short":"SmartBin",
+    "start": "Sep 2020",
+    "end": "Nov 2020",
+    "imgSrc": "./pic/binbot_1.png",
+    "alt": "Image of SmartBin",
+    "detailsLink": "/binbot",
+    "description": "Utilizing the Gogoboard microcontroller operates as both a trash bin and a cleaning robot.",
+    "techstack": "CAD microcontroller - iot",
+    "tech": [""],
+    "isTeam": true
+  },
+  {
+    "title": "Minecraft",
+    "short":"Minecraft",
+    "start": "Feb 2021",
+    "end": "Nov 2021",
+    "imgSrc": "./pic/min_1.png",
+    "alt": "Screenshot of minecraft",
+    "detailsLink": "/minecraft",
+    "description": "To host the Ubuntu Minecraft server on AWS, free up 12 mouths , with security and port game settings",
+    "techstack": "Game - AWS with ubuntu",
+    "tech": ["BE"],
+    "isTeam": false
+  },
+  {
+    "title": "CARIN",
+    "short":"CARIN",
+    "start": "Jan 2022",
+    "end": "May 2022",
+    "imgSrc": "./pic/carin_1.png",
+    "alt": "Screenshot of CARIN",
+    "detailsLink": "/carin",
+    "description": "It is a single-player online strategy game. It features genetic code parser and interpreter for game's characters, and multi-threaded server support for concurrent playing games.",
+    "techstack": "Game - Java Spring WebSocket / React / TypeScript / CSS / HTML",
+    "tech": ["FE", "BE"],
+    "isTeam": true
+  },
+  {
     "title": "[Java] - Multilayer Perceptron (MLP) from Scratch",
     "short":"MLP",
     "start": "Jun 2022",
@@ -23,6 +62,45 @@
     "description": "Worked with a team of five to develop a mobile application that displays air quality data from the government's API. I was responsible for developing a feature that allows to get GPS coordinates and get heat spot data form api NASAs FIRMS",
     "techstack": "Mobile Application - Flutter / Dart",
     "tech": ["MOBILE"],
+    "isTeam": true
+  },
+  {
+    "title": "Food Image Classification Model",
+    "short":"Food",
+    "start": "Apr 2023",
+    "end": "Aug 2023",
+    "imgSrc": "./pic/food_1.png",
+    "alt": "Food Classification",
+    "detailsLink": "/food",
+    "description": "Created a Convolutional Neural Network (CNN) model for classifying types of food from images.",
+    "techstack": "OpenCv , Classification model",
+    "tech": ["AI"],
+    "isTeam": false
+  },
+  {
+    "title": "Smart Water Monitoring System",
+    "short":"Water Monitoring",
+    "start": "Jun 2023",
+    "end": "Nov 2023",
+    "imgSrc": "./pic/water_1.png",
+    "alt": "Water Monitoring",
+    "detailsLink": "/water",
+    "description": "Developed a smart home water usage monitoring system utilizing IoT technology for data collection and storage. The system incorporates a data analysis web application that presents detailed reports and insights through a user-friendly dashboard.",
+    "techstack": "Microcontroller - Firebase / iot",
+    "tech": ["Be"],
+    "isTeam": true
+  },
+  {
+    "title": "Compiler - (.CPE) custom language functional",
+    "short":"Compiler",
+    "start": "Nov 2023",
+    "end": "Mar 2024",
+    "imgSrc": "./pic/compiler_1.png",
+    "alt": "Compiler",
+    "detailsLink": "/compiler",
+    "description": "Worked with a team of three to develop a .cpe (functional) language  with OCaml-based compiler to parse token and make AST and Understand Lambda calculus.",
+    "techstack": "parser - token AST/ Lambda calculus",
+    "tech": ["Be"],
     "isTeam": true
   },
   {
@@ -61,32 +139,6 @@
     "detailsLink": "/goapi",
     "description": "Build in an MVC structure and connect to a MySQL database that offers endpoints for users, projects, tasks services with JWT authentication. ",
     "techstack": "GO JWT MySQL Docker",
-    "tech": ["BE"],
-    "isTeam": false
-  },
-  {
-    "title": "CARIN",
-    "short":"CARIN",
-    "start": "Feb 2022",
-    "end": "Apr 2022",
-    "imgSrc": "./pic/carin_1.png",
-    "alt": "Screenshot of CARIN",
-    "detailsLink": "/carin",
-    "description": "It is a single-player online strategy game. It features genetic code parser and interpreter for game's characters, and multi-threaded server support for concurrent playing games.",
-    "techstack": "Game - Java Spring WebSocket / React / TypeScript / CSS / HTML",
-    "tech": ["FE", "BE"],
-    "isTeam": true
-  },
-  {
-    "title": "Minecraft",
-    "short":"Minecraft",
-    "start": "Dec 2021",
-    "end": "Jan 2022",
-    "imgSrc": "./pic/min_1.png",
-    "alt": "Screenshot of minecraft",
-    "detailsLink": "/minecraft",
-    "description": "To host the Ubuntu Minecraft server on AWS, free up 12 mouths , with security and port game settings",
-    "techstack": "Game - AWS with ubuntu",
     "tech": ["BE"],
     "isTeam": false
   }

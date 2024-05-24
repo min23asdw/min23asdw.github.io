@@ -1,20 +1,5 @@
 [
   {
-    "title": "Front End Developer at Namjai Development Team",
-    "short":"Namjai",
-    "start": "Jul 2023",
-    "end": "-1",
-    "imgSrc": "./pic/nam_1.png",
-    "alt": "Screenshot of namjai",
-    "detailsLink": "/namjai",
-    "description": "Namjai is a crowd funding platform targeted to childrens development led by a charity foundation.",
-    "techstack": "Website -  React, TypeScript, Tailwind CSS, and MUI.",
-    "tech": [
-      "FE"
-    ],
-    "isTeam": true
-  },
-  {
     "title": "Startup Tech “WAANME (React PWA)",
     "short":"Waanme",
     "start": "Aug 2020",
@@ -31,6 +16,19 @@
     "isTeam": true
   },
   {
+    "title": "4th place, Thailand 3rd Kibo Robot  Hosted by JAXA and NSTDA",
+    "short":"Kibo",
+    "start": "Jun 2021",
+    "end": "Jul 2022",
+    "imgSrc": "./pic/kibo_1.png",
+    "alt": "Screenshot of kibo",
+    "detailsLink": "/kibo",
+    "description": "Collaborated with a team to program the robot Astrobee in Java for completing tasks in an ISS simulation, including image processing, handling robot errors, and planning robot routes.",
+    "techstack": "ISS Simulation , Java , OpenCV",
+    "tech": [],
+    "isTeam": true
+  },
+  {
     "title": "Teaching Assistant at Chiang Mai University",
     "short":"TA",
     "start": "Feb 2022",
@@ -41,6 +39,21 @@
     "description": "Assisted in the Seminar in Accounting for Non IT Majors course and the Computational Intelligence for Robotics Majors course",
     "techstack": "Power BI , Python , AI",
     "tech": [],
+    "isTeam": true
+  },
+  {
+    "title": "Front End Developer at Namjai Development Team",
+    "short":"Namjai",
+    "start": "Jul 2023",
+    "end": "-1",
+    "imgSrc": "./pic/nam_1.png",
+    "alt": "Screenshot of namjai",
+    "detailsLink": "/namjai",
+    "description": "Namjai is a crowd funding platform targeted to childrens development led by a charity foundation.",
+    "techstack": "Website -  React, TypeScript, Tailwind CSS, and MUI.",
+    "tech": [
+      "FE"
+    ],
     "isTeam": true
   }
 ]

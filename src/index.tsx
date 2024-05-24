@@ -16,6 +16,8 @@ import MIN from "./project/min/Min";
 import NAMJAI from "./experience/namjai/NAM";
 import TA from "./experience/ta/TA";
 import WAANME from "./experience/waanme/WAANME";
+import BINBOT from "./project/binbot/Binbot";
+import FOOD from "./project/food/Food";
 const router = createBrowserRouter([
   {
     element: <ScrollToTop />,
@@ -64,6 +66,14 @@ const router = createBrowserRouter([
       {
         path: ROUTE.TA,
         element: <TA />,
+      },
+      {
+        path: ROUTE.BINBOT,
+        element: <BINBOT />,
+      },
+      {
+        path: ROUTE.FOOD,
+        element: <FOOD />,
       },
     ],
   },

@@ -1,5 +1,7 @@
 export const ROUTE = {
+  BINBOT: "/binbot",
   CARIN: "/carin",
+  FOOD: "/food",
   AIRWARE: "/airwareness",
   MLP: "/mlp",
   CAPSNAP: "/capsnap",

@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Plot from "react-plotly.js";
 import { Layout, ScatterData } from "plotly.js";
-import file from "../data/Projects.json";
 import ProjectData from "../model/project";
 import { Button, Collapse } from "@mui/material";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
@@ -35,12 +34,12 @@ const TimelinePlotly = (prop: DataProp) => {
       type: "scatter",
       x: [projectStart, projectEnd],
       y: [index, index],
-      mode: "lines+markers+text",
+      mode: "lines+markers",
       line: { width: 40 },
       text: [project.title],
       textposition: "middle right",
       marker: { size: 1 },
-      hoverinfo: "x+y",
+      hoverinfo: "x+text",
     };
   });
 
