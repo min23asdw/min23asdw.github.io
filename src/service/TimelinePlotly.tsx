@@ -49,6 +49,7 @@ const TimelinePlotly = (prop: DataProp) => {
     title: "Project Timeline",
     xaxis: {
       type: "date",
+      range:  ["2020-06-01", new Date().toISOString()], 
     },
     yaxis: {
       type: "category",
