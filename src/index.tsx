@@ -18,6 +18,8 @@ import TA from "./experience/ta/TA";
 import WAANME from "./experience/waanme/WAANME";
 import BINBOT from "./project/binbot/Binbot";
 import FOOD from "./project/food/Food";
+import WATER from "./project/water/Water";
+import COMPILER from "./project/compiler/Com";
 const router = createBrowserRouter([
   {
     element: <ScrollToTop />,
@@ -74,6 +76,14 @@ const router = createBrowserRouter([
       {
         path: ROUTE.FOOD,
         element: <FOOD />,
+      },
+      {
+        path: ROUTE.WATER,
+        element: <WATER />,
+      },
+      {
+        path: ROUTE.COMPILER,
+        element: <COMPILER />,
       },
     ],
   },
