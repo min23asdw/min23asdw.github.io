@@ -61,9 +61,16 @@ const TimelinePlotly = (prop: DataProp) => {
   };
 
   return (
-    <>
+    <div
+      style={{
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-end",
+      }}
+    >
       <Button key={0} onClick={() => toggleVisibility()}>
-        <h2 className="text-2xl font-bold">show</h2>
+        <h3 className="text-2xl font-bold">Timeline</h3>
         {show ? <ExpandLess /> : <ExpandMore />}
       </Button>
       <Collapse key={0} in={show} timeout="auto" style={{ width: "100%" }}>
@@ -74,7 +81,7 @@ const TimelinePlotly = (prop: DataProp) => {
           style={{ width: "100%" }}
         />
       </Collapse>
-    </>
+    </div>
   );
 };
 
