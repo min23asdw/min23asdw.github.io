@@ -35,9 +35,10 @@ const ProjectCard = (prop: DataProp) => {
         <CardMedia
           component="img"
           height="200"
-          image={data.imgSrc}
+          image={data.imgSrc+"?w=359&h=200"}
           alt={data.alt}
           sx={{ padding: "1em 1em 0 0em", objectFit: "contain" }}
+          loading="lazy"
         />
 
         <CardContent sx={{ flexGrow: 1 }}>
