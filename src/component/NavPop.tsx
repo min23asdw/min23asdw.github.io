@@ -37,6 +37,25 @@ function NavbarUserPopover({
             หน้าหลัก
           </Typography>
         </Link>
+        <Link to="/note" style={{ textDecoration: "none" }}>
+          <Typography
+            sx={{
+              padding: "5px",
+              fontWeight: "bold",
+              bgcolor: "rgba(255, 142, 61, 0.25)",
+              color: "black",
+              ":hover": {
+                bgcolor: "rgba(255, 142, 61, 0.75)",
+                color: "white",
+              },
+
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            Note
+          </Typography>
+        </Link>
       </div>
     );
   };
