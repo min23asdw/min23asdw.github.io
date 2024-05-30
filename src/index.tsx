@@ -21,6 +21,7 @@ import FOOD from "./project/food/Food";
 import WATER from "./project/water/Water";
 import COMPILER from "./project/compiler/Com";
 import KIBO from "./project/kibo/Kibo";
+import Note from "./component/NoteReact";
 const router = createBrowserRouter([
   {
     element: <ScrollToTop />,
@@ -89,6 +90,10 @@ const router = createBrowserRouter([
       {
         path: ROUTE.KIBO,
         element: <KIBO />,
+      },
+      {
+        path: ROUTE.NOTE,
+        element: <Note />,
       },
     ],
   },

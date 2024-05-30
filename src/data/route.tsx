@@ -14,4 +14,6 @@ export const ROUTE = {
   WAANME: "/waanme",
   TA: "/ta",
   KIBO: "/kibo",
+
+  NOTE: "/note",
 };
