@@ -15,7 +15,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ code }) => {
   };
 
   return (
-    <div style={{ paddingLeft: "15%", paddingRight: "15%" }}>
+    <div>
       <div
         style={{
           display: "flex",

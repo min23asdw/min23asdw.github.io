@@ -23,6 +23,7 @@ const WATER = lazy(() => import("./project/water/Water"));
 const COMPILER = lazy(() => import("./project/compiler/Com"));
 const KIBO = lazy(() => import("./project/kibo/Kibo"));
 const Note = lazy(() => import("./component/NoteReact"));
+const LIFECYCLE = lazy(() => import("./component/ReactLifecycle"));
 
 const router = createBrowserRouter([
   {
@@ -158,6 +159,14 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<div>Loading...</div>}>
             <Note />
+          </Suspense>
+        ),
+      },
+      {
+        path: ROUTE.LIFECYCLE,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <LIFECYCLE />
           </Suspense>
         ),
       },

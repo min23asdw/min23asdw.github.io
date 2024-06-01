@@ -1,5 +1,6 @@
 import React from "react";
 import CodeBlock from "../sections/CodeBlock";
+import Navbar from "./Navbar";
 
 const c_0 = `pnpm create next-app@latest my-project --typescript --eslint`;
 
@@ -64,11 +65,14 @@ const code = [
 ];
 function Note() {
   return (
-    <div style={{ padding: "20px" }}>
-      {Array.from(code, (v, i) => (
-        <CodeBlock key={i} code={v} />
-      ))}
-    </div>
+    <>
+      <Navbar />
+      <div style={{ paddingLeft: "17%", paddingRight: "17%", padding: "5%" }}>
+        {Array.from(code, (v, i) => (
+          <CodeBlock key={i} code={v} />
+        ))}
+      </div>
+    </>
   );
 }
 

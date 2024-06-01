@@ -16,4 +16,5 @@ export const ROUTE = {
   KIBO: "/kibo",
 
   NOTE: "/note",
+  LIFECYCLE: "/lifecycle",
 };
