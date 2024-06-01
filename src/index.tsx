@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
@@ -6,22 +6,24 @@ import reportWebVitals from "./reportWebVitals";
 import ScrollToTop from "./service/ScrollToTop";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { ROUTE } from "./data/route";
-import AIRWARE from "./project/airwareness/AirPage";
-import MLP from "./project/mlp/MlpPage";
-import CAPSNAP from "./project/capsnap/CapsnapPage";
-import GOAPI from "./project/goapi/GoApi";
-import NETAPI from "./project/netapi/NetApi";
-import CARIN from "./project/carin/Carin";
-import MIN from "./project/min/Min";
-import NAMJAI from "./experience/namjai/NAM";
-import TA from "./experience/ta/TA";
-import WAANME from "./experience/waanme/WAANME";
-import BINBOT from "./project/binbot/Binbot";
-import FOOD from "./project/food/Food";
-import WATER from "./project/water/Water";
-import COMPILER from "./project/compiler/Com";
-import KIBO from "./project/kibo/Kibo";
-import Note from "./component/NoteReact";
+// Lazy load the components
+const AIRWARE = lazy(() => import("./project/airwareness/AirPage"));
+const MLP = lazy(() => import("./project/mlp/MlpPage"));
+const CAPSNAP = lazy(() => import("./project/capsnap/CapsnapPage"));
+const GOAPI = lazy(() => import("./project/goapi/GoApi"));
+const NETAPI = lazy(() => import("./project/netapi/NetApi"));
+const CARIN = lazy(() => import("./project/carin/Carin"));
+const MIN = lazy(() => import("./project/min/Min"));
+const NAMJAI = lazy(() => import("./experience/namjai/NAM"));
+const TA = lazy(() => import("./experience/ta/TA"));
+const WAANME = lazy(() => import("./experience/waanme/WAANME"));
+const BINBOT = lazy(() => import("./project/binbot/Binbot"));
+const FOOD = lazy(() => import("./project/food/Food"));
+const WATER = lazy(() => import("./project/water/Water"));
+const COMPILER = lazy(() => import("./project/compiler/Com"));
+const KIBO = lazy(() => import("./project/kibo/Kibo"));
+const Note = lazy(() => import("./component/NoteReact"));
+
 const router = createBrowserRouter([
   {
     element: <ScrollToTop />,
@@ -33,67 +35,131 @@ const router = createBrowserRouter([
 
       {
         path: ROUTE.AIRWARE,
-        element: <AIRWARE />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <AIRWARE />
+          </Suspense>
+        ),
       },
       {
         path: ROUTE.MLP,
-        element: <MLP />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <MLP />
+          </Suspense>
+        ),
       },
       {
         path: ROUTE.CAPSNAP,
-        element: <CAPSNAP />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <CAPSNAP />
+          </Suspense>
+        ),
       },
       {
         path: ROUTE.GOAPI,
-        element: <GOAPI />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <GOAPI />
+          </Suspense>
+        ),
       },
       {
         path: ROUTE.NETAPI,
-        element: <NETAPI />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <NETAPI />
+          </Suspense>
+        ),
       },
       {
         path: ROUTE.CARIN,
-        element: <CARIN />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <CARIN />
+          </Suspense>
+        ),
       },
       {
         path: ROUTE.MIN,
-        element: <MIN />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <MIN />
+          </Suspense>
+        ),
       },
       {
         path: ROUTE.NAMJAI,
-        element: <NAMJAI />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <NAMJAI />
+          </Suspense>
+        ),
       },
       {
         path: ROUTE.WAANME,
-        element: <WAANME />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <WAANME />
+          </Suspense>
+        ),
       },
       {
         path: ROUTE.TA,
-        element: <TA />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <TA />
+          </Suspense>
+        ),
       },
       {
         path: ROUTE.BINBOT,
-        element: <BINBOT />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <BINBOT />
+          </Suspense>
+        ),
       },
       {
         path: ROUTE.FOOD,
-        element: <FOOD />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <FOOD />
+          </Suspense>
+        ),
       },
       {
         path: ROUTE.WATER,
-        element: <WATER />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <WATER />
+          </Suspense>
+        ),
       },
       {
         path: ROUTE.COMPILER,
-        element: <COMPILER />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <COMPILER />
+          </Suspense>
+        ),
       },
       {
         path: ROUTE.KIBO,
-        element: <KIBO />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <KIBO />
+          </Suspense>
+        ),
       },
       {
         path: ROUTE.NOTE,
-        element: <Note />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Note />
+          </Suspense>
+        ),
       },
     ],
   },
