@@ -24,6 +24,7 @@ const COMPILER = lazy(() => import("./project/compiler/Com"));
 const KIBO = lazy(() => import("./project/kibo/Kibo"));
 const Note = lazy(() => import("./component/NoteReact"));
 const LIFECYCLE = lazy(() => import("./component/ReactLifecycle"));
+const INLINE = lazy(() => import("./component/ReactInlineProp"));
 
 const router = createBrowserRouter([
   {
@@ -167,6 +168,14 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<div>Loading...</div>}>
             <LIFECYCLE />
+          </Suspense>
+        ),
+      },
+      {
+        path: ROUTE.INLINE,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <INLINE />
           </Suspense>
         ),
       },

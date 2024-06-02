@@ -17,4 +17,5 @@ export const ROUTE = {
 
   NOTE: "/note",
   LIFECYCLE: "/lifecycle",
+  INLINE: "/inline",
 };

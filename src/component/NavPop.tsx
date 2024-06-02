@@ -20,6 +20,7 @@ function NavbarUserPopover({
       ["หน้าหลัก", "/"],
       ["Note", "/note"],
       ["React lifecycle", "/lifecycle"],
+      ["React inline prop", "/inline"],
     ];
     return (
       <div>

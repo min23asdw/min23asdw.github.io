@@ -2,7 +2,8 @@ import React from "react";
 import CodeBlock from "../sections/CodeBlock";
 import Navbar from "./Navbar";
 
-const c_0 = `import React from 'react';
+function Note() {
+  const c_0 = `import React from 'react';
 import ReactDOM from 'react-dom';
 
 interface AppProps {}
@@ -53,7 +54,7 @@ export default App;
 // ReactDOM.render(<App />, document.getElementById('root'));
 `;
 
-const c_1 = `import React, { useState, useEffect } from 'react';
+  const c_1 = `import React, { useState, useEffect } from 'react';
 
 interface AppProps {}
 
@@ -86,8 +87,7 @@ export default App;
 // ReactDOM.render(<App />, document.getElementById('root'));
 `;
 
-const code = [c_0, c_1];
-function Note() {
+  const code = [c_0, c_1];
   return (
     <>
       <Navbar />
