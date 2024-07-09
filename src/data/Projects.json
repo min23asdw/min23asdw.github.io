@@ -120,7 +120,7 @@
     "title": "C# .Net Basic RESTful API",
     "short":"C# API",
     "start": "Mar 2024",
-    "end": "-1",
+    "end": "Jun 2024",
     "imgSrc": "./pic/netapi_1.png",
     "alt": "Screenshot of  net api",
     "detailsLink": "/netapi",
@@ -133,13 +133,26 @@
     "title": "GO Basic RESTful API in GoLang",
     "short":"GO API",
     "start": "Apr 2024",
-    "end": "-1",
+    "end": "Jun 2024",
     "imgSrc": "./pic/goapi_1.png",
     "alt": "Screenshot of  go api",
     "detailsLink": "/goapi",
     "description": "Build in an MVC structure and connect to a MySQL database that offers endpoints for users, projects, tasks services with JWT authentication. ",
     "techstack": "GO JWT MySQL Docker",
     "tech": ["BE"],
+    "isTeam": false
+  },
+  {
+    "title": "Onemillioncheckboxes - clone",
+    "short":" Next.js GraphQL WebSocket MongoDB Node.js Ubuntu",
+    "start": "Jul 2024",
+    "end": "-1",
+    "imgSrc": "./pic/check_1.png",
+    "alt": "Screenshot of check",
+    "detailsLink": "/check",
+    "description": "Developed checkworld.click to enhance skills. Set up an Ubuntu server, configured MongoDB, and created a GraphQL WebSocket API for a Next.js app TSX and TailwindCSS. ",
+    "techstack": "Next.js GraphQL WebSocket MongoDB Node.js Ubuntu",
+    "tech": ["BE","FE"],
     "isTeam": false
   }
 ]

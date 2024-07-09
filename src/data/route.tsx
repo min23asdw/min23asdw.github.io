@@ -14,6 +14,7 @@ export const ROUTE = {
   WAANME: "/waanme",
   TA: "/ta",
   KIBO: "/kibo",
+  CHECK: "/check",
 
   NOTE: "/note",
   LIFECYCLE: "/lifecycle",

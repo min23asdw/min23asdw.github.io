@@ -22,6 +22,7 @@ const FOOD = lazy(() => import("./project/food/Food"));
 const WATER = lazy(() => import("./project/water/Water"));
 const COMPILER = lazy(() => import("./project/compiler/Com"));
 const KIBO = lazy(() => import("./project/kibo/Kibo"));
+const CHECK = lazy(() => import("./project/check/Check"));
 const Note = lazy(() => import("./component/NoteReact"));
 const LIFECYCLE = lazy(() => import("./component/ReactLifecycle"));
 const INLINE = lazy(() => import("./component/ReactInlineProp"));
@@ -152,6 +153,14 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<div>Loading...</div>}>
             <KIBO />
+          </Suspense>
+        ),
+      },
+      {
+        path: ROUTE.CHECK,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <CHECK />
           </Suspense>
         ),
       },
