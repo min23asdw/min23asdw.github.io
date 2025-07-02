@@ -37,6 +37,10 @@ const CHECK = () => {
             <h1>
               <a href="http://checkworld.click/">checkworld.click </a>
             </h1>
+            <video width="640" height="360" controls>
+              <source src="/video/click_video.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
             <h3 className="text-xl font-bold">
               Next.js GraphQL WebSocket MongoDB Node.js Ubuntu
             </h3>
