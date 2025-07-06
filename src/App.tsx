@@ -21,6 +21,11 @@ function App() {
     if (redirect) {
       navigate(redirect);
     }
+
+    if (window.location.hostname === "localhost" || window.location.hostname === "checkworld.click") {
+      window.location.href = "https://min23asdw.github.io/check";
+    }
+
   }, [location]);
 
   const ResumeSkills = [
