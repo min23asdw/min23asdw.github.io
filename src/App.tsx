@@ -19,11 +19,17 @@ function App() {
     const query = new URLSearchParams(location.search);
     const redirect = query.get("redirect");
     if (redirect) {
-      navigate(redirect);
+      const isFullUrl = redirect.startsWith("http://") || redirect.startsWith("https://");
+
+      if (window.location.href.startsWith("https://min23asdw.github.io")) {
+        navigate(redirect);
+      } else {
+        const finalUrl = isFullUrl ? redirect : `https://min23asdw.github.io${redirect}`;
+        window.location.href = finalUrl;
+      }
+      return;
     }
-
-
-  }, [location]);
+  }, [location, navigate]);
 
   const ResumeSkills = [
     {
