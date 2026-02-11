@@ -9,6 +9,7 @@ import { ExpandableSection } from "./component/Expand";
 import About from "./sections/About";
 import ExperienceComponent from "./sections/Experience";
 import Footer from "./component/Footer";
+import AnimatedBackground from "./components/AnimatedBackground";
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -61,6 +62,7 @@ function App() {
 
   return (
     <Box sx={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+      <AnimatedBackground />
       <Navbar />
       <Container
         component="main"
@@ -68,12 +70,16 @@ function App() {
           flex: 1,
           paddingTop: "var(--space-4)",
           paddingBottom: "var(--space-8)",
+          pointerEvents: "none",
+          "& > *": {
+            pointerEvents: "auto",
+          },
         }}
       >
         <About />
         <ExpandableSection items={Resume} show={null} />
-        <ExpandableSection items={Projects} show={0} />
         <ExpandableSection items={Experience} show={0} />
+        <ExpandableSection items={Projects} show={0} />
       </Container>
       <Footer />
     </Box>
