@@ -11,6 +11,9 @@ import ProjectData from "../model/project";
 import "../styles/card.css";
 import Badge from "./Badge";
 import { Link } from "react-router-dom";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+
 interface DataProp {
   data: ProjectData;
 }
@@ -19,72 +22,158 @@ const ProjectCard = (prop: DataProp) => {
   const data = prop.data;
 
   return (
-    <Link style={{ textDecoration: "none" }} to={data.detailsLink}>
+    <Link
+      style={{ textDecoration: "none", display: "block", height: "100%" }}
+      to={data.detailsLink}
+      aria-label={`View details for ${data.title}`}
+    >
       <Card
         variant="outlined"
         sx={{
-          minHeight: "550px",
           height: "100%",
-          // width: { xs: "80vh", md: "20vh" },
           display: "flex",
           flexDirection: "column",
-          borderRadius: "10px",
+          borderRadius: "var(--radius-sm)",
+          backgroundColor: "var(--color-surface)",
+          border: "1px solid var(--color-border)",
+          overflow: "hidden",
+          "&:focus-within": {
+            outline: "2px solid var(--color-border-focus)",
+            outlineOffset: "2px",
+          },
         }}
         className="custom-card"
       >
-        <CardMedia
-          component="img"
-          height="200"
-          image={data.imgSrc+"?w=359&h=200"}
-          alt={data.alt}
-          sx={{ padding: "1em 1em 0 0em", objectFit: "contain" }}
-          loading="lazy"
-        />
+        {/* Image Container */}
+        <Box
+          sx={{
+            position: "relative",
+            paddingTop: "56.25%",
+            backgroundColor: "var(--color-surface-subtle)",
+            overflow: "hidden",
+          }}
+        >
+          <CardMedia
+            component="img"
+            image={data.imgSrc + "?w=600&h=338&fit=crop"}
+            alt={data.alt}
+            loading="lazy"
+            sx={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+          />
+        </Box>
 
-        <CardContent sx={{ flexGrow: 1 }}>
-          <h3
-            className="inline  text-lg font-bold"
-            style={{ minHeight: "50px" }}
+        <CardContent
+          sx={{
+            flexGrow: 1,
+            padding: "var(--space-4)",
+            display: "flex",
+            flexDirection: "column",
+            gap: "var(--space-2)",
+          }}
+        >
+          {/* Title */}
+          <Typography
+            variant="h3"
+            sx={{
+              fontSize: "var(--text-lg)",
+              fontWeight: 600,
+              color: "var(--color-text-primary)",
+              lineHeight: "var(--leading-tight)",
+              display: "-webkit-box",
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
+              minHeight: "2.25rem",
+            }}
           >
             {data.title}
-          </h3>
+          </Typography>
 
+          {/* Date and Badges */}
           <Box
             sx={{
               display: "flex",
+              flexDirection: { xs: "column", sm: "row" },
               justifyContent: "space-between",
-              alignItems: "center",
+              alignItems: { xs: "flex-start", sm: "center" },
+              gap: "var(--space-2)",
             }}
           >
-            <b>{data.start}</b>
-            <Box sx={{ display: "flex", gap: "5px" }}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: "var(--space-1)",
+                color: "var(--color-text-tertiary)",
+                fontSize: "var(--text-sm)",
+              }}
+            >
+              <CalendarTodayIcon fontSize="small" />
+              <span>{data.start}</span>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                gap: "var(--space-1)",
+                flexWrap: "wrap",
+              }}
+            >
               {data.tech.map((type, index) => (
-                <React.Fragment key={index}>
-                  <Badge type={type} />
-                </React.Fragment>
+                <Badge key={index} type={type} />
               ))}
             </Box>
           </Box>
 
+          {/* Description */}
           <Typography
             variant="body1"
-            color="text.secondary"
-            sx={{ paddingLeft: "10px", paddingTop: "10px" }}
+            sx={{
+              color: "var(--color-text-secondary)",
+              fontSize: "var(--text-sm)",
+              lineHeight: "var(--leading-normal)",
+              display: "-webkit-box",
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
+              flexGrow: 1,
+            }}
           >
             {data.description}
           </Typography>
         </CardContent>
+
         <CardActions
-          disableSpacing
           sx={{
+            padding: "var(--space-3) var(--space-4)",
+            paddingTop: 0,
             display: "flex",
-            flexDirection: "row",
             justifyContent: "space-between",
+            alignItems: "center",
+            borderTop: "1px solid var(--color-border-subtle)",
+            marginTop: "auto",
           }}
         >
-          {data.techstack}
-          <Box>
-            <Link to={data.detailsLink}>Details</Link>
+          <Box />
+
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: "var(--space-1)",
+              color: "var(--color-primary-500)",
+              fontWeight: 500,
+              fontSize: "var(--text-sm)",
+            }}
+          >
+            <span>Details</span>
+            <ArrowForwardIcon fontSize="small" />
           </Box>
         </CardActions>
       </Card>

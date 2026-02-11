@@ -1,70 +1,177 @@
-import { Box, Button, Card, CardContent, Collapse, Stack } from "@mui/material";
+import { Box, Button, Collapse, Stack } from "@mui/material";
 import { useState } from "react";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
+import EmailIcon from "@mui/icons-material/Email";
+import PhoneIcon from "@mui/icons-material/Phone";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 const Education = () => {
   return (
-    <Box sx={{ padding: "20px" }}>
-      <Card
-        variant="outlined"
+    <Box sx={{ padding: { xs: "var(--space-2)", md: "var(--space-4)" } }}>
+      <Box
         sx={{
-          minHeight: "20px",
-          height: "100%",
-          borderRadius: "10px",
+          borderRadius: "var(--radius-lg)",
+          backgroundColor: "var(--color-surface)",
+          border: "1px solid var(--color-border)",
+          padding: { xs: "var(--space-3)", md: "var(--space-5)" },
         }}
-        className="custom-card"
       >
-        <CardContent>
+        {/* University Name */}
+        <Box
+          component="h3"
+          sx={{
+            fontSize: { xs: "var(--text-lg)", md: "var(--text-xl)" },
+            fontWeight: 600,
+            color: "var(--color-text-primary)",
+            marginBottom: "var(--space-2)",
+            fontFamily: "var(--font-family-thai)",
+            lineHeight: "var(--leading-tight)",
+          }}
+        >
+          มหาวิทยาลัยเชียงใหม่
+        </Box>
+
+        {/* Degree */}
+        <Box
+          sx={{
+            fontSize: { xs: "var(--text-sm)", md: "var(--text-base)" },
+            color: "var(--color-text-secondary)",
+            fontFamily: "var(--font-family-thai)",
+            lineHeight: "var(--leading-relaxed)",
+          }}
+        >
+          วิศวกรรมศาสตรบัณฑิต (วิศวกรรมคอมพิวเตอร์)
+        </Box>
+
+        {/* Year & GPA */}
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", sm: "row" },
+            gap: { xs: "var(--space-1)", sm: "var(--space-3)" },
+            color: "var(--color-text-tertiary)",
+            fontSize: "var(--text-sm)",
+            marginTop: "var(--space-3)",
+            marginBottom: "var(--space-4)",
+          }}
+        >
+          <span>2020 — 2024</span>
           <Box
+            component="span"
             sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
+              display: { xs: "none", sm: "inline" },
+              color: "var(--color-border)",
             }}
           >
-            <div>
-              <b>ประวัติการศึกษา:</b> ปริญญาตรี - ปีที่สําเร็จการศึกษา 2567
-              <br />
-              <b>สถานศึกษา:</b> มหาวิทยาลัยเชียงใหม่ คณะวิศวกรรมศาสตร์
-              สาขาวิศวกรรมคอมพิวเตอร์
-              <br />
-              <b>ชื่อปริญญา:</b> Bachelor of Engineering <br />
-              <b>เกรดเฉลี่ย:</b> 3.61 <br />
-              <b>เกียรตินิยมอันดับ:</b> เกียรตินิยมอันดับ 1 <br />
-              <br />
-            </div>
-            <ul>
-              <li>
-                Data Structues : <b>A</b>
-              </li>
-              <li>
-                Object-Oriented Programming : <b>A</b>
-              </li>
-              <li>
-                Fundamentals of Database Systems : <b>B+</b>
-              </li>
-              <li>
-                Algorithms : <b>A</b>
-              </li>
-              <li>
-                Machine Vision : <b>A</b>
-              </li>
-              <li>
-                NLP : <b>A</b>
-              </li>
-              <li>
-                Basic Compiler Design : <b>A</b>
-              </li>
-              <li>
-                Fundamental English 2 : <b>B</b>
-              </li>
-              <li>
-                Calculus for Engineering 3 : <b>C+</b>
-              </li>
-            </ul>
+            |
           </Box>
-        </CardContent>
-      </Card>
+          <span>GPA 3.61</span>
+          <Box
+            component="span"
+            sx={{
+              display: { xs: "none", sm: "inline" },
+              color: "var(--color-border)",
+            }}
+          >
+            |
+          </Box>
+          <span>First Class Honors</span>
+        </Box>
+
+        {/* Transcript Button */}
+        <Button
+          variant="outlined"
+          size="small"
+          href="/doc/Pongsakorn_Rattanapan_Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          sx={{
+            textTransform: "none",
+            fontWeight: 500,
+            fontSize: "var(--text-sm)",
+            color: "var(--color-text-secondary)",
+            borderColor: "var(--color-border)",
+            borderRadius: "var(--radius-md)",
+            padding: "var(--space-1) var(--space-4)",
+            fontFamily: "var(--font-family-thai)",
+            marginBottom: "var(--space-5)",
+            "&:hover": {
+              backgroundColor: "var(--color-hover)",
+              borderColor: "var(--color-border-hover)",
+            },
+          }}
+        >
+          ดู Resume
+        </Button>
+
+        {/* Course Grades */}
+        <Box
+          sx={{
+            borderTop: "1px solid var(--color-border)",
+            paddingTop: "var(--space-4)",
+          }}
+        >
+          <Box
+            sx={{
+              fontSize: "var(--text-sm)",
+              fontWeight: 500,
+              color: "var(--color-text-secondary)",
+              marginBottom: "var(--space-3)",
+              fontFamily: "var(--font-family-thai)",
+            }}
+          >
+            รายวิชาเด่น
+          </Box>
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" },
+              gap: "var(--space-2)",
+            }}
+          >
+            {[
+              { name: "Compiler Construction", grade: "A" },
+              { name: "Machine Learning", grade: "A" },
+              { name: "Software Engineering", grade: "A" },
+              { name: "Database Systems", grade: "A" },
+              { name: "Computer Networks", grade: "A" },
+              { name: "Operating Systems", grade: "B+" },
+            ].map((course) => (
+              <Box
+                key={course.name}
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  padding: "var(--space-2) var(--space-3)",
+                  backgroundColor: "var(--color-bg-secondary)",
+                  borderRadius: "var(--radius-md)",
+                }}
+              >
+                <Box
+                  sx={{
+                    fontSize: "var(--text-sm)",
+                    color: "var(--color-text-secondary)",
+                  }}
+                >
+                  {course.name}
+                </Box>
+                <Box
+                  sx={{
+                    fontSize: "var(--text-sm)",
+                    fontWeight: 600,
+                    color: "var(--color-text-primary)",
+                    fontFamily: "var(--font-family-mono)",
+                  }}
+                >
+                  {course.grade}
+                </Box>
+              </Box>
+            ))}
+          </Box>
+        </Box>
+      </Box>
     </Box>
   );
 };
@@ -76,121 +183,200 @@ function About() {
     setVisible(!visible);
   };
 
+  const contactLinks = [
+    {
+      icon: <EmailIcon fontSize="small" />,
+      label: "pongsakorn_career@outlook.com",
+      href: "mailto:pongsakorn_career@outlook.com",
+    },
+    {
+      icon: <PhoneIcon fontSize="small" />,
+      label: "(+66) 80-203-3044",
+      href: "tel:+66802033044",
+    },
+    {
+      icon: <LinkedInIcon fontSize="small" />,
+      label: "linkedin.com/in/pongsakorn-rattanapan",
+      href: "https://www.linkedin.com/in/pongsakorn-rattanapan-7b2979140/",
+    },
+    {
+      icon: <GitHubIcon fontSize="small" />,
+      label: "github.com/min23asdw",
+      href: "https://github.com/min23asdw",
+    },
+  ];
+
   return (
-    <Stack
-      className="About"
+    <Box
+      id="about"
+      component="section"
       sx={{
-        display: "flex",
-        flexDirection: "column",
-        // marginTop: "50px",
+        padding: { xs: "var(--space-8) 0", md: "var(--space-16) 0" },
+        scrollMarginTop: "80px",
       }}
     >
       <Stack
-        className="About_1"
-        sx={{
-          display: "flex",
-          flexDirection: { md: "column", lg: "row" },
-          marginTop: "50px",
-        }}
+        direction={{ xs: "column", lg: "row" }}
+        spacing={{ xs: 6, lg: 8 }}
+        alignItems={{ xs: "center", lg: "flex-start" }}
       >
-        <div
-          style={{
+        {/* Left Column - Personal Info */}
+        <Box
+          sx={{
+            flex: { lg: "0 0 40%" },
             display: "flex",
             flexDirection: "column",
-            marginBottom: "5px",
-            width: "40%",
+            alignItems: { xs: "center", lg: "flex-start" },
+            textAlign: { xs: "center", lg: "left" },
           }}
         >
-          <h2>PONGSAKORN RATTANAPAN</h2>
-          <div style={{ gap: "20px" }}>
-            <a
-              className="Email-link"
-              href="mailto:pongsakorn_career@outlook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ textDecoration: "none" }}
-            >
-              pongsakorn_career@outlook.com
-            </a>
-          </div>
-
-          <a
-            className="linkedin-link"
-            href="https://www.linkedin.com/in/pongsakorn-rattanapan-7b2979140/"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ textDecoration: "none" }}
-          >
-            https://www.linkedin.com/in/pongsakorn-rattanapan-7b2979140/
-          </a>
-          <b>(+66)802033044</b>
-          <a
-            className="github-link"
-            href="https://github.com/min23asdw"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ textDecoration: "none" }}
-          >
-            github.com/min23asdw
-          </a>
           <Box
-            className="school"
+            component="h1"
             sx={{
-              width: "60%",
-              // marginLeft: { xs: "30vw", lg: "0vw" },
+              fontSize: { xs: "var(--text-3xl)", md: "var(--text-4xl)", lg: "var(--text-5xl)" },
+              fontWeight: 800,
+              color: "var(--color-text-primary)",
+              marginBottom: "var(--space-4)",
+              letterSpacing: "var(--tracking-tight)",
+              lineHeight: "var(--leading-tight)",
             }}
           >
-            <Button
-              disableElevation
-              onClick={toggleVisibility}
-              sx={{
-                // bgcolor: "rgba(255, 142, 61, 0.25)",
-                color: "black",
-                ":hover": {
-                  // bgcolor: "rgba(255, 142, 61, 0.75)",
-                  // color: "gray",
-                },
-                borderBottom: "solid gray",
-              }}
-            >
-              <h2>{"ประวัติการศึกษา"}</h2>
-              {visible ? <ExpandLess /> : <ExpandMore />}
-            </Button>
+            PONGSAKORN
+            <br />
+            RATTANAPAN
           </Box>
-        </div>
+
+          <Box
+            sx={{
+              fontSize: "var(--text-lg)",
+              color: "var(--color-primary-500)",
+              fontWeight: 600,
+              marginBottom: "var(--space-6)",
+            }}
+          >
+            Software Engineer
+          </Box>
+
+          {/* Contact Links */}
+          <Stack
+            spacing={2}
+            sx={{
+              width: "100%",
+              marginBottom: "var(--space-6)",
+            }}
+          >
+            {contactLinks.map((link, index) => (
+              <Box
+                key={index}
+                component="a"
+                href={link.href}
+                target={link.href.startsWith("http") ? "_blank" : undefined}
+                rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "var(--space-3)",
+                  color: "var(--color-text-secondary)",
+                  fontSize: "var(--text-sm)",
+                  textDecoration: "none",
+                  padding: "var(--space-2) var(--space-3)",
+                  borderRadius: "var(--radius-md)",
+                  transition: "all var(--transition-fast)",
+                  "&:hover": {
+                    backgroundColor: "var(--color-hover)",
+                    color: "var(--color-primary-600)",
+                  },
+                  justifyContent: { xs: "center", lg: "flex-start" },
+                }}
+              >
+                <Box sx={{ color: "var(--color-primary-500)" }}>{link.icon}</Box>
+                <span>{link.label}</span>
+              </Box>
+            ))}
+          </Stack>
+
+          {/* Education Toggle Button */}
+          <Button
+            onClick={toggleVisibility}
+            sx={{
+              color: "var(--color-text-primary)",
+              backgroundColor: "var(--color-surface-subtle)",
+              border: "1px solid var(--color-border)",
+              borderRadius: "var(--radius-md)",
+              padding: "var(--space-3) var(--space-6)",
+              textTransform: "none",
+              fontWeight: 600,
+              fontSize: "var(--text-base)",
+              fontFamily: "var(--font-family-thai)",
+              transition: "all var(--transition-fast)",
+              "&:hover": {
+                backgroundColor: "var(--color-hover)",
+                borderColor: "var(--color-primary-300)",
+              },
+              "&:focus-visible": {
+                outline: "2px solid var(--color-border-focus)",
+                outlineOffset: "2px",
+              },
+            }}
+          >
+            ประวัติการศึกษา
+            {visible ? (
+              <ExpandLess sx={{ marginLeft: "var(--space-2)" }} />
+            ) : (
+              <ExpandMore sx={{ marginLeft: "var(--space-2)" }} />
+            )}
+          </Button>
+        </Box>
+
+        {/* Right Column - Bio */}
         <Box
-          className="Passion"
           sx={{
-            width: "60%",
-            marginLeft: { xs: "30vw", lg: "0vw" },
+            flex: { lg: "1 1 auto" },
+            maxWidth: { lg: "600px" },
           }}
         >
-          <p className="text-md">
-            I graduated with a Bachelor of Engineering in Computer Engineering,
-            Chiang Mai University and I'm interested in working as a
-            <b> software engineer</b>, <b>web frontend/mobile developer</b> , or
-            <b> full-stack developer</b>.
-          </p>
-          <p className="text-md">
-            In particular, during my time in college, I worked on outsourcing
-            projects that gave me real-world experience. One of these projects
-            was developing a crowdsourcing platform for a Christian
-            organization, which I think is my masterwork.
-            <b> [React, Jira, and Agile] </b>
-          </p>
-
-          <p>
-            I have a passion about learning and exploring a wide range of
-            topics, from <b>AI</b>,<b>React</b>,<b>Mobile Flutter</b>, and
-            <b> Backend development </b>
-            which reflects my adaptable skill set and enhance for creativity.
-          </p>
+          <Box
+            sx={{
+              fontSize: "var(--text-lg)",
+              color: "var(--color-text-secondary)",
+              lineHeight: "var(--leading-relaxed)",
+              "& p": {
+                marginBottom: "var(--space-4)",
+              },
+              "& b, & strong": {
+                color: "var(--color-text-primary)",
+                fontWeight: 600,
+              },
+            }}
+          >
+            <p>
+              I graduated with a Bachelor of Engineering in Computer Engineering from
+              Chiang Mai University. I'm interested in working as a{" "}
+              <strong>Software Engineer</strong>,{" "}
+              <strong>Web Frontend/Mobile Developer</strong>, or{" "}
+              <strong>Full-stack Developer</strong>.
+            </p>
+            <p>
+              During my time in college, I worked on outsourcing projects that gave me
+              real-world experience. One of these projects was developing a
+              crowdsourcing platform for a Christian organization, which I consider my
+              masterwork. <strong>[React, Jira, and Agile]</strong>
+            </p>
+            <p>
+              I have a passion for learning and exploring a wide range of topics, from{" "}
+              <strong>AI</strong>, <strong>React</strong>, <strong>Mobile Flutter</strong>,
+              and <strong>Backend Development</strong>, which reflects my adaptable
+              skill set and enhances my creativity.
+            </p>
+          </Box>
         </Box>
       </Stack>
+
+      {/* Education Section */}
       <Collapse in={visible} timeout="auto">
         <Education />
       </Collapse>
-    </Stack>
+    </Box>
   );
 }
 

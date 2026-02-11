@@ -2,12 +2,13 @@ import "./App.css";
 import PdfViewer from "./service/PdfViewer";
 
 import SkillsComponent from "./sections/Skills";
-import { Container } from "@mui/material";
+import { Container, Box } from "@mui/material";
 import ProjectsComponent from "./sections/Projects";
 import Navbar from "./component/Navbar";
 import { ExpandableSection } from "./component/Expand";
 import About from "./sections/About";
-import ExpenrienceComponent from "./sections/Experience";
+import ExperienceComponent from "./sections/Experience";
+import Footer from "./component/Footer";
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -31,7 +32,7 @@ function App() {
     }
   }, [location, navigate]);
 
-  const ResumeSkills = [
+  const Resume = [
     {
       title: "Resume",
       content: (
@@ -47,7 +48,6 @@ function App() {
   const Projects = [
     {
       title: "Projects",
-      show: true,
       content: <ProjectsComponent />,
     },
   ];
@@ -55,27 +55,28 @@ function App() {
   const Experience = [
     {
       title: "Experience",
-      show: true,
-      content: <ExpenrienceComponent />,
+      content: <ExperienceComponent />,
     },
   ];
 
   return (
-    // <div className="App" style={{ marginLeft: "15vw", marginRight: "15vw" }}>
-    <>
+    <Box sx={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       <Navbar />
       <Container
+        component="main"
         sx={{
-          paddingTop: "70px",
+          flex: 1,
+          paddingTop: "var(--space-4)",
+          paddingBottom: "var(--space-8)",
         }}
       >
         <About />
-
-        <ExpandableSection items={ResumeSkills} show={null} />
+        <ExpandableSection items={Resume} show={null} />
         <ExpandableSection items={Projects} show={0} />
         <ExpandableSection items={Experience} show={0} />
       </Container>
-    </>
+      <Footer />
+    </Box>
   );
 }
 

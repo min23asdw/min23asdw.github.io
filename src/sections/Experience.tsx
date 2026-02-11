@@ -1,23 +1,81 @@
-import { Grid } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import ProjectCard from "../component/ProjectCard";
 import file from "../data/Experience.json";
-import TimelinePlotly from "../service/TimelinePlotly";
-const ExpenrienceComponent = () => {
+import Timeline from "../components/Timeline";
+
+const ExperienceComponent = () => {
   return (
-    <Grid
-      container
-      spacing={{ xs: 2, md: 3 }}
-      columns={{ xs: 2, md: 8, lg: 12 }}
-      sx={{ marginBottom: "20px" }}
+    <Box
+      id="experience"
+      component="section"
+      sx={{
+        padding: { xs: "var(--space-4) 0", md: "var(--space-6) 0" },
+        scrollMarginTop: "60px",
+      }}
     >
-      {Array.from(file).map((data, index) => (
-        <Grid item xs={2} sm={4} md={4} key={index}>
-          <ProjectCard data={data} />
-        </Grid>
-      ))}
-      <TimelinePlotly data={file} />
-    </Grid>
+      {/* Section Header */}
+      <Box
+        sx={{
+          textAlign: "center",
+          marginBottom: { xs: "var(--space-6)", md: "var(--space-8)" },
+        }}
+      >
+        <Typography
+          component="h2"
+          sx={{
+            fontSize: { xs: "var(--text-2xl)", md: "var(--text-3xl)" },
+            fontWeight: 700,
+            color: "var(--color-text-primary)",
+            marginBottom: "var(--space-2)",
+          }}
+        >
+          Experience
+        </Typography>
+        <Typography
+          sx={{
+            fontSize: "var(--text-base)",
+            color: "var(--color-text-secondary)",
+            maxWidth: "600px",
+            margin: "0 auto",
+          }}
+        >
+          Professional experience and internships that shaped my career journey.
+        </Typography>
+      </Box>
+
+      {/* Experience Grid */}
+      <Grid
+        container
+        spacing={{ xs: 2, md: 3 }}
+        columns={{ xs: 1, sm: 2, lg: 3 }}
+        sx={{ marginBottom: "var(--space-8)" }}
+      >
+        {Array.from(file).map((data, index) => (
+          <Grid item xs={1} sm={1} lg={1} key={index}>
+            <Box
+              sx={{
+                height: "100%",
+              }}
+            >
+              <ProjectCard data={data} />
+            </Box>
+          </Grid>
+        ))}
+      </Grid>
+
+      {/* Timeline */}
+      <Box
+        sx={{
+          backgroundColor: "var(--color-surface)",
+          borderRadius: "var(--radius-lg)",
+          padding: { xs: "var(--space-4)", md: "var(--space-6)" },
+          border: "1px solid var(--color-border)",
+        }}
+      >
+        <Timeline data={file} />
+      </Box>
+    </Box>
   );
 };
 
-export default ExpenrienceComponent;
+export default ExperienceComponent;

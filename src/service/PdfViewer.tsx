@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Viewer, Worker } from "@react-pdf-viewer/core";
 import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
 import { ScrollMode, SpecialZoomLevel } from '@react-pdf-viewer/core';
@@ -13,22 +12,22 @@ function PdfViewer(props: PdfProps) {
   // const defaultLayoutPluginInstance = defaultLayoutPlugin();
   const defaultLayoutPluginInstance = defaultLayoutPlugin({
     toolbarPlugin: {
-        fullScreenPlugin: {
-            onEnterFullScreen: (zoom) => {
-                zoom(SpecialZoomLevel.PageFit);
-                defaultLayoutPluginInstance.toolbarPluginInstance.scrollModePluginInstance.switchScrollMode(
-                    ScrollMode.Vertical
-                );
-            },
-            onExitFullScreen: (zoom) => {
-                zoom(SpecialZoomLevel.PageWidth);
-                defaultLayoutPluginInstance.toolbarPluginInstance.scrollModePluginInstance.switchScrollMode(
-                    ScrollMode.Vertical
-                );
-            },
+      fullScreenPlugin: {
+        onEnterFullScreen: (zoom) => {
+          zoom(SpecialZoomLevel.PageFit);
+          defaultLayoutPluginInstance.toolbarPluginInstance.scrollModePluginInstance.switchScrollMode(
+            ScrollMode.Vertical
+          );
         },
+        onExitFullScreen: (zoom) => {
+          zoom(SpecialZoomLevel.PageWidth);
+          defaultLayoutPluginInstance.toolbarPluginInstance.scrollModePluginInstance.switchScrollMode(
+            ScrollMode.Vertical
+          );
+        },
+      },
     },
-});
+  });
   return (
     <div
       style={{
@@ -37,7 +36,7 @@ function PdfViewer(props: PdfProps) {
         flexDirection: "column",
       }}
     >
-      <div style={{   width: "80%" , height :'90vh'}}>
+      <div style={{ width: "80%", height: '90vh' }}>
         <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.js">
           <Viewer fileUrl={src} plugins={[defaultLayoutPluginInstance]} />
         </Worker>
