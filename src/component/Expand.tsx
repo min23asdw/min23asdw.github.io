@@ -10,16 +10,34 @@ interface ContentItem {
 interface ExpandableSectionProps {
   items: ContentItem[];
   show: number | null;
+  externalExpandedIndex?: number | null;
+  onToggle?: (index: number | null) => void;
+  sectionId?: string;
 }
 
 export const ExpandableSection: React.FC<ExpandableSectionProps> = ({
   items,
   show,
+  externalExpandedIndex,
+  onToggle,
+  sectionId,
 }) => {
-  const [visibleIndex, setVisibleIndex] = useState<number | null>(show);
+  // Use internal state only when external state is not provided (uncontrolled mode)
+  const [internalVisibleIndex, setInternalVisibleIndex] = useState<number | null>(show);
+
+  // Determine if component is controlled or uncontrolled
+  const isControlled = externalExpandedIndex !== undefined;
+  const visibleIndex = isControlled ? externalExpandedIndex : internalVisibleIndex;
 
   const toggleVisibility = (index: number) => {
-    setVisibleIndex((prevIndex) => (prevIndex === index ? null : index));
+    const newIndex = visibleIndex === index ? null : index;
+
+    // Only update internal state if uncontrolled
+    if (!isControlled) {
+      setInternalVisibleIndex(newIndex);
+    }
+
+    onToggle?.(newIndex);
   };
 
   return (

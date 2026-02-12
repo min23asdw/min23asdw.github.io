@@ -12,10 +12,12 @@ import Footer from "./component/Footer";
 import AnimatedBackground from "./components/AnimatedBackground";
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { SectionProvider, useSectionContext } from "./context/SectionContext";
 
-function App() {
+function AppContent() {
   const location = useLocation();
   const navigate = useNavigate();
+  const { expandedSections, toggleSection } = useSectionContext();
 
   useEffect(() => {
     const query = new URLSearchParams(location.search);
@@ -76,13 +78,34 @@ function App() {
           },
         }}
       >
-        <About />
+        <About
+          isExpanded={expandedSections.about}
+          onToggle={() => toggleSection("about")}
+        />
         <ExpandableSection items={Resume} show={null} />
-        <ExpandableSection items={Experience} show={0} />
-        <ExpandableSection items={Projects} show={0} />
+        <ExpandableSection
+          items={Experience}
+          show={null}
+          externalExpandedIndex={expandedSections.experience ? 0 : null}
+          onToggle={() => toggleSection("experience")}
+        />
+        <ExpandableSection
+          items={Projects}
+          show={null}
+          externalExpandedIndex={expandedSections.projects ? 0 : null}
+          onToggle={() => toggleSection("projects")}
+        />
       </Container>
       <Footer />
     </Box>
+  );
+}
+
+function App() {
+  return (
+    <SectionProvider>
+      <AppContent />
+    </SectionProvider>
   );
 }
 

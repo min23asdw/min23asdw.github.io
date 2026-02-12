@@ -15,33 +15,64 @@ import {
 import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import { useSectionContext, SectionId } from "../context/SectionContext";
 
 interface NavItem {
   label: string;
   href: string;
+  sectionId: SectionId;
 }
 
 const navItems: NavItem[] = [
-  { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience" },
+  { label: "About", href: "#about", sectionId: "about" },
+  { label: "Experience", href: "#experience", sectionId: "experience" },
+  { label: "Projects", href: "#projects", sectionId: "projects" },
 ];
+
+// Scroll delay for expansion animation
+const EXPANSION_DELAY_MS = 300;
 
 function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const { expandSection, isExpanded } = useSectionContext();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
-  const handleNavClick = (href: string) => {
+  const scrollToElement = (href: string, delay: number = 0) => {
+    setTimeout(() => {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }, delay);
+  };
+
+  const handleNavClick = (href: string, sectionId: SectionId) => {
+    // Close mobile drawer first
     setMobileOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+
+    // Determine scroll delay based on whether section needs expansion
+    const needsExpansion = !isExpanded(sectionId);
+    const scrollDelay = needsExpansion ? EXPANSION_DELAY_MS : 0;
+
+    // Expand section if needed
+    if (needsExpansion) {
+      expandSection(sectionId);
     }
+
+    // Scroll with appropriate delay
+    scrollToElement(href, scrollDelay);
+  };
+
+  const handleLogoClick = () => {
+    // Close mobile drawer if open
+    setMobileOpen(false);
+    // Scroll to top smoothly
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const drawer = (
@@ -87,7 +118,7 @@ function Navbar() {
         {navItems.map((item) => (
           <ListItem key={item.href} disablePadding>
             <ListItemButton
-              onClick={() => handleNavClick(item.href)}
+              onClick={() => handleNavClick(item.href, item.sectionId)}
               sx={{
                 borderRadius: "var(--radius-sm)",
                 margin: "var(--space-1) 0",
@@ -123,7 +154,7 @@ function Navbar() {
           top: 0,
           width: "100%",
           height: "56px",
-          padding: "0 var(--container-padding-x)",
+          padding: "0 var(--space-2)",
           borderBottom: "1px solid var(--color-border)",
           display: "flex",
           flexDirection: "row",
@@ -138,12 +169,14 @@ function Navbar() {
           to="/"
           style={{ textDecoration: "none" }}
           aria-label="Go to homepage"
+          onClick={handleLogoClick}
         >
           <Typography
             sx={{
               color: "var(--color-primary-500)",
               fontSize: "var(--text-lg)",
               fontWeight: 700,
+              padding: "0 var(--space-4)",
               fontFamily: "var(--font-family-primary)",
               letterSpacing: "var(--tracking-tight)",
             }}
@@ -159,12 +192,13 @@ function Navbar() {
               display: "flex",
               alignItems: "center",
               gap: "var(--space-1)",
+              padding: "0 var(--space-8)"
             }}
           >
             {navItems.map((item) => (
               <Button
                 key={item.href}
-                onClick={() => handleNavClick(item.href)}
+                onClick={() => handleNavClick(item.href, item.sectionId)}
                 sx={{
                   color: "var(--color-text-secondary)",
                   fontWeight: 500,

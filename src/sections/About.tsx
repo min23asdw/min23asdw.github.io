@@ -1,10 +1,14 @@
 import { Box, Button, Collapse, Stack } from "@mui/material";
-import { useState } from "react";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
+
+interface AboutProps {
+  isExpanded?: boolean;
+  onToggle?: () => void;
+}
 
 const Education = () => {
   return (
@@ -176,13 +180,7 @@ const Education = () => {
   );
 };
 
-function About() {
-  const [visible, setVisible] = useState(false);
-
-  const toggleVisibility = () => {
-    setVisible(!visible);
-  };
-
+function About({ isExpanded = true, onToggle }: AboutProps) {
   const contactLinks = [
     {
       icon: <EmailIcon fontSize="small" />,
@@ -211,7 +209,7 @@ function About() {
       id="about"
       component="section"
       sx={{
-        padding: { xs: "var(--space-8) 0", md: "var(--space-16) 0" },
+        padding: { xs: "var(--space-8) 0 var(--space-4) 0", md: "var(--space-16) 0 var(--space-8) 0" },
         scrollMarginTop: "80px",
       }}
     >
@@ -295,37 +293,7 @@ function About() {
             ))}
           </Stack>
 
-          {/* Education Toggle Button */}
-          <Button
-            onClick={toggleVisibility}
-            sx={{
-              color: "var(--color-text-primary)",
-              backgroundColor: "var(--color-surface-subtle)",
-              border: "1px solid var(--color-border)",
-              borderRadius: "var(--radius-md)",
-              padding: "var(--space-3) var(--space-6)",
-              textTransform: "none",
-              fontWeight: 600,
-              fontSize: "var(--text-base)",
-              fontFamily: "var(--font-family-thai)",
-              transition: "all var(--transition-fast)",
-              "&:hover": {
-                backgroundColor: "var(--color-hover)",
-                borderColor: "var(--color-primary-300)",
-              },
-              "&:focus-visible": {
-                outline: "2px solid var(--color-border-focus)",
-                outlineOffset: "2px",
-              },
-            }}
-          >
-            ประวัติการศึกษา
-            {visible ? (
-              <ExpandLess sx={{ marginLeft: "var(--space-2)" }} />
-            ) : (
-              <ExpandMore sx={{ marginLeft: "var(--space-2)" }} />
-            )}
-          </Button>
+
         </Box>
 
         {/* Right Column - Bio */}
@@ -369,11 +337,42 @@ function About() {
               skill set and enhances my creativity.
             </p>
           </Box>
+          {/* Education Toggle Button */}
+          <Button
+            onClick={onToggle}
+            sx={{
+              color: "var(--color-text-primary)",
+              backgroundColor: "var(--color-surface-subtle)",
+              border: "1px solid var(--color-border)",
+              borderRadius: "var(--radius-md)",
+              padding: "var(--space-3) var(--space-6)",
+              textTransform: "none",
+              fontWeight: 600,
+              fontSize: "var(--text-base)",
+              fontFamily: "var(--font-family-thai)",
+              transition: "all var(--transition-fast)",
+              "&:hover": {
+                backgroundColor: "var(--color-hover)",
+                borderColor: "var(--color-primary-300)",
+              },
+              "&:focus-visible": {
+                outline: "2px solid var(--color-border-focus)",
+                outlineOffset: "2px",
+              },
+            }}
+          >
+            ประวัติการศึกษา
+            {isExpanded ? (
+              <ExpandLess sx={{ marginLeft: "var(--space-2)" }} />
+            ) : (
+              <ExpandMore sx={{ marginLeft: "var(--space-2)" }} />
+            )}
+          </Button>
         </Box>
       </Stack>
 
       {/* Education Section */}
-      <Collapse in={visible} timeout="auto">
+      <Collapse in={isExpanded} timeout="auto">
         <Education />
       </Collapse>
     </Box>
