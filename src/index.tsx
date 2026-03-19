@@ -7,6 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import ScrollToTop from "./service/ScrollToTop";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { ROUTE } from "./data/route";
+import PageSkeleton from "./component/PageSkeleton";
 // Lazy load the components
 const AIRWARE = lazy(() => import("./project/airwareness/AirPage"));
 const MLP = lazy(() => import("./project/mlp/MlpPage"));
@@ -40,7 +41,7 @@ const router = createBrowserRouter([
       {
         path: ROUTE.AIRWARE,
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<PageSkeleton />}>
             <AIRWARE />
           </Suspense>
         ),
@@ -48,7 +49,7 @@ const router = createBrowserRouter([
       {
         path: ROUTE.MLP,
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<PageSkeleton />}>
             <MLP />
           </Suspense>
         ),
@@ -56,7 +57,7 @@ const router = createBrowserRouter([
       {
         path: ROUTE.CAPSNAP,
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<PageSkeleton />}>
             <CAPSNAP />
           </Suspense>
         ),
@@ -64,7 +65,7 @@ const router = createBrowserRouter([
       {
         path: ROUTE.GOAPI,
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<PageSkeleton />}>
             <GOAPI />
           </Suspense>
         ),
@@ -72,7 +73,7 @@ const router = createBrowserRouter([
       {
         path: ROUTE.NETAPI,
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<PageSkeleton />}>
             <NETAPI />
           </Suspense>
         ),
@@ -80,7 +81,7 @@ const router = createBrowserRouter([
       {
         path: ROUTE.CARIN,
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<PageSkeleton />}>
             <CARIN />
           </Suspense>
         ),
@@ -88,7 +89,7 @@ const router = createBrowserRouter([
       {
         path: ROUTE.MIN,
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<PageSkeleton />}>
             <MIN />
           </Suspense>
         ),
@@ -96,7 +97,7 @@ const router = createBrowserRouter([
       {
         path: ROUTE.NAMJAI,
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<PageSkeleton />}>
             <NAMJAI />
           </Suspense>
         ),
@@ -104,7 +105,7 @@ const router = createBrowserRouter([
       {
         path: ROUTE.WAANME,
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<PageSkeleton />}>
             <WAANME />
           </Suspense>
         ),
@@ -112,7 +113,7 @@ const router = createBrowserRouter([
       {
         path: ROUTE.TA,
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<PageSkeleton />}>
             <TA />
           </Suspense>
         ),
@@ -120,7 +121,7 @@ const router = createBrowserRouter([
       {
         path: ROUTE.BINBOT,
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<PageSkeleton />}>
             <BINBOT />
           </Suspense>
         ),
@@ -128,7 +129,7 @@ const router = createBrowserRouter([
       {
         path: ROUTE.FOOD,
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<PageSkeleton />}>
             <FOOD />
           </Suspense>
         ),
@@ -136,7 +137,7 @@ const router = createBrowserRouter([
       {
         path: ROUTE.WATER,
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<PageSkeleton />}>
             <WATER />
           </Suspense>
         ),
@@ -144,7 +145,7 @@ const router = createBrowserRouter([
       {
         path: ROUTE.COMPILER,
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<PageSkeleton />}>
             <COMPILER />
           </Suspense>
         ),
@@ -152,7 +153,7 @@ const router = createBrowserRouter([
       {
         path: ROUTE.KIBO,
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<PageSkeleton />}>
             <KIBO />
           </Suspense>
         ),
@@ -160,7 +161,7 @@ const router = createBrowserRouter([
       {
         path: ROUTE.CHECK,
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<PageSkeleton />}>
             <CHECK />
           </Suspense>
         ),
@@ -168,7 +169,7 @@ const router = createBrowserRouter([
       {
         path: ROUTE.NOTE,
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<PageSkeleton />}>
             <Note />
           </Suspense>
         ),
@@ -176,7 +177,7 @@ const router = createBrowserRouter([
       {
         path: ROUTE.LIFECYCLE,
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<PageSkeleton />}>
             <LIFECYCLE />
           </Suspense>
         ),
@@ -184,7 +185,7 @@ const router = createBrowserRouter([
       {
         path: ROUTE.INLINE,
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<PageSkeleton />}>
             <INLINE />
           </Suspense>
         ),
