@@ -38,27 +38,27 @@ function AppContent() {
   const Resume = [
     {
       title: "Resume",
-      content: (
+      content: () => (
         <PdfViewer src="https://min23asdw.github.io/doc/Pongsakorn_Rattanapan_Resume.pdf" />
       ),
     },
     {
       title: "Skills",
-      content: <SkillsComponent />,
+      content: () => <SkillsComponent />,
     },
   ];
 
   const Projects = [
     {
       title: "Projects",
-      content: <ProjectsComponent />,
+      content: () => <ProjectsComponent />,
     },
   ];
 
   const Experience = [
     {
       title: "Experience",
-      content: <ExperienceComponent />,
+      content: () => <ExperienceComponent />,
     },
   ];
 

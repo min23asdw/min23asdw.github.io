@@ -7,6 +7,7 @@ import {
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import ProjectData from "../model/project";
+import { prefetchRoute } from "../data/routePrefetch";
 
 interface TimelineProps {
     data: ProjectData[];
@@ -236,6 +237,10 @@ const Timeline = ({ data, title = "Timeline" }: TimelineProps) => {
                                             onClick={() =>
                                                 item.detailsLink &&
                                                 navigate(item.detailsLink)
+                                            }
+                                            onMouseEnter={() =>
+                                                item.detailsLink &&
+                                                prefetchRoute(item.detailsLink)
                                             }
                                             sx={{
                                                 display: "flex",

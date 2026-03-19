@@ -42,9 +42,9 @@ const MIN = () => {
                 paddingLeft: "15%",
               }}
             >
-              <img width={"100%"} src="./pic/min/m1.png" alt="m1" />
+              <img loading="lazy" width={"100%"} src="./pic/min/m1.png" alt="m1" />
 
-              <img width={"100%"} src="./pic/min/m2.png" alt="m2" />
+              <img loading="lazy" width={"100%"} src="./pic/min/m2.png" alt="m2" />
             </div>
           </div>
         </div>

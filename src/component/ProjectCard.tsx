@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import {
   Box,
   Card,
@@ -13,6 +13,7 @@ import Badge from "./Badge";
 import { Link } from "react-router-dom";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+import { prefetchRoute } from "../data/routePrefetch";
 
 interface DataProp {
   data: ProjectData;
@@ -21,11 +22,17 @@ interface DataProp {
 const ProjectCard = (prop: DataProp) => {
   const data = prop.data;
 
+  const handlePrefetch = useCallback(() => {
+    prefetchRoute(data.detailsLink);
+  }, [data.detailsLink]);
+
   return (
     <Link
       style={{ textDecoration: "none", display: "block", height: "100%" }}
       to={data.detailsLink}
       aria-label={`View details for ${data.title}`}
+      onMouseEnter={handlePrefetch}
+      onFocus={handlePrefetch}
     >
       <Card
         variant="outlined"

@@ -80,7 +80,7 @@ const AIRWARE = () => {
                 paddingLeft: "15%",
               }}
             >
-              <img width={"100%"} src="./pic/air/air_flow.png" alt="air_flow" />
+              <img loading="lazy" width={"100%"} src="./pic/air/air_flow.png" alt="air_flow" />
             </div>
             <h2 className="text-xl font-bold">Flow</h2>
             <div
@@ -90,7 +90,7 @@ const AIRWARE = () => {
                 flexDirection: "column",
               }}
             >
-              <img src="./pic/air/air_btest.png" alt="air_btest" />
+              <img loading="lazy" src="./pic/air/air_btest.png" alt="air_btest" />
             </div>
             <h2 className="text-xl font-bold">Task</h2>
             <div
@@ -101,7 +101,7 @@ const AIRWARE = () => {
                 flexDirection: "column",
               }}
             >
-              <img src="./pic/air/air_task.png" alt="air_task" />
+              <img loading="lazy" src="./pic/air/air_task.png" alt="air_task" />
             </div>
           </div>
         </div>

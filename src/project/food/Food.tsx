@@ -43,10 +43,10 @@ const FOOD = () => {
               }}
             >
               <div style={{ display: "flex", flexDirection: "row" }}>
-                <img width={"40%"} src="./pic/food/food_1.png" alt="food_1" />
-                <img width={"70%"} src="./pic/food/food_2.png" alt="food_2" />
+                <img loading="lazy" width={"40%"} src="./pic/food/food_1.png" alt="food_1" />
+                <img loading="lazy" width={"70%"} src="./pic/food/food_2.png" alt="food_2" />
               </div>
-              <img width={"80%"} src="./pic/food/food_3.png" alt="food_3" />
+              <img loading="lazy" width={"80%"} src="./pic/food/food_3.png" alt="food_3" />
             </div>
           </div>
         </div>

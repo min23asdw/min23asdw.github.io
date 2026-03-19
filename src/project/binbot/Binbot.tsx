@@ -41,11 +41,11 @@ const BINBOT = () => {
                 paddingLeft: "15%",
               }}
             >
-              <img width={"100%"} src="./pic/binbot/bin_1.png" alt="bin_1" />
+              <img loading="lazy" width={"100%"} src="./pic/binbot/bin_1.png" alt="bin_1" />
 
-              <img width={"100%"} src="./pic/binbot/bin_2.png" alt="bin_2" />
-              <img width={"100%"} src="./pic/binbot/bin_3.png" alt="bin_4" />
-              <img width={"100%"} src="./pic/binbot/bin_4.png" alt="bin_4" />
+              <img loading="lazy" width={"100%"} src="./pic/binbot/bin_2.png" alt="bin_2" />
+              <img loading="lazy" width={"100%"} src="./pic/binbot/bin_3.png" alt="bin_4" />
+              <img loading="lazy" width={"100%"} src="./pic/binbot/bin_4.png" alt="bin_4" />
             </div>
           </div>
         </div>

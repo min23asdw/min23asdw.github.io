@@ -45,9 +45,9 @@ const NAMJAI = () => {
                 alignItems: 'center',
               }}
             >
-              <img width={"100%"} src="./pic/namjai/n1.png" alt="n1" />
+              <img loading="lazy" width={"100%"} src="./pic/namjai/n1.png" alt="n1" />
 
-              <img width={"100%"} src="./pic/namjai/n2.png" alt="n2" />
+              <img loading="lazy" width={"100%"} src="./pic/namjai/n2.png" alt="n2" />
             </div>
           </div>
         </div>

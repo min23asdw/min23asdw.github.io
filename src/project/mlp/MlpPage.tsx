@@ -75,7 +75,7 @@ const MLP = () => {
                 </a>
               </h3>
 
-              <img src="./pic/mlp/train.png" alt="train" />
+              <img loading="lazy" src="./pic/mlp/train.png" alt="train" />
             </div>
             <h2 className="text-xl font-bold">Theory</h2>
             <div

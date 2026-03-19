@@ -46,8 +46,8 @@ const NETAPI = () => {
                 paddingLeft: "15%",
               }}
             >
-              <img width={"100%"} src="./pic/net/net_api.png" alt="net_api" />
-              <img width={"100%"} src="./pic/net/net_api2.png" alt="net_api2" />
+              <img loading="lazy" width={"100%"} src="./pic/net/net_api.png" alt="net_api" />
+              <img loading="lazy" width={"100%"} src="./pic/net/net_api2.png" alt="net_api2" />
             </div>
           </div>
         </div>

@@ -37,41 +37,54 @@ const KOI_PATHS = [
 
 const FISH_COLORS = ["primary", "secondary", "accent", "primary", "secondary", "accent"] as const;
 const FISH_SCALES = [5, 6, 7, 5.5, 6, 5];
-const FISH_BLURS = [4, 5, 6, 4, 7, 5];
 const FISH_OPACITIES = [0.7, 0.6, 0.5, 0.6, 0.4, 0.5];
 const BASE_OFFSETS = [0, 8000, 15000, 25000, 5000, 20000];
 
 // Memoized Koi SVG
+const FISH_BLUR_VALUES = [4, 5, 6, 4, 7, 5];
+
 const KoiFishSVG = memo(({
     color,
     scale = 1,
     facing = "right",
+    blur = 5,
 }: {
     color: string;
     scale?: number;
     facing?: "right" | "left";
-}) => (
-    <svg
-        viewBox="0 0 200 80"
-        style={{
-            width: 200 * scale,
-            height: 80 * scale,
-            transform: facing === "left" ? "none" : "scaleX(-1)",
-        }}
-    >
-        <path d="M40 40 Q60 20, 100 25 Q140 30, 170 35 Q180 37, 185 40 Q180 43, 170 45 Q140 50, 100 55 Q60 60, 40 40 Z" fill={color} opacity={0.7} />
-        <ellipse cx="45" cy="40" rx="12" ry="10" fill={color} opacity={0.5} />
-        <circle cx="42" cy="38" r="2" fill={color} opacity={0.8} />
-        <path d="M80 25 Q90 10, 110 22 Q100 18, 80 25" fill={color} opacity={0.5} />
-        <path d="M70 45 Q75 55, 85 48 Q80 52, 70 45" fill={color} opacity={0.5} />
-        <path d="M100 52 Q105 62, 115 55 Q110 58, 100 52" fill={color} opacity={0.5} />
-        <path d="M170 35 Q185 25, 195 30 Q190 35, 195 40 Q190 45, 185 50 Q180 45, 170 45" fill={color} opacity={0.6} />
-        <path d="M175 40 Q190 20, 200 25 Q195 40, 200 55 Q190 50, 175 40" fill={color} opacity={0.4} />
-        <ellipse cx="90" cy="38" rx="8" ry="5" fill={color} opacity={0.25} />
-        <ellipse cx="120" cy="42" rx="10" ry="6" fill={color} opacity={0.2} />
-        <ellipse cx="145" cy="38" rx="6" ry="4" fill={color} opacity={0.3} />
-    </svg>
-));
+    blur?: number;
+}) => {
+    const filterId = `blur-${blur}`;
+    return (
+        <svg
+            viewBox="-10 -10 220 100"
+            style={{
+                width: 220 * scale,
+                height: 100 * scale,
+                transform: facing === "left" ? "none" : "scaleX(-1)",
+            }}
+        >
+            <defs>
+                <filter id={filterId}>
+                    <feGaussianBlur stdDeviation={blur} />
+                </filter>
+            </defs>
+            <g filter={`url(#${filterId})`}>
+                <path d="M40 40 Q60 20, 100 25 Q140 30, 170 35 Q180 37, 185 40 Q180 43, 170 45 Q140 50, 100 55 Q60 60, 40 40 Z" fill={color} opacity={0.7} />
+                <ellipse cx="45" cy="40" rx="12" ry="10" fill={color} opacity={0.5} />
+                <circle cx="42" cy="38" r="2" fill={color} opacity={0.8} />
+                <path d="M80 25 Q90 10, 110 22 Q100 18, 80 25" fill={color} opacity={0.5} />
+                <path d="M70 45 Q75 55, 85 48 Q80 52, 70 45" fill={color} opacity={0.5} />
+                <path d="M100 52 Q105 62, 115 55 Q110 58, 100 52" fill={color} opacity={0.5} />
+                <path d="M170 35 Q185 25, 195 30 Q190 35, 195 40 Q190 45, 185 50 Q180 45, 170 45" fill={color} opacity={0.6} />
+                <path d="M175 40 Q190 20, 200 25 Q195 40, 200 55 Q190 50, 175 40" fill={color} opacity={0.4} />
+                <ellipse cx="90" cy="38" rx="8" ry="5" fill={color} opacity={0.25} />
+                <ellipse cx="120" cy="42" rx="10" ry="6" fill={color} opacity={0.2} />
+                <ellipse cx="145" cy="38" rx="6" ry="4" fill={color} opacity={0.3} />
+            </g>
+        </svg>
+    );
+});
 KoiFishSVG.displayName = "KoiFishSVG";
 
 interface FoodPellet {
@@ -333,7 +346,6 @@ const AnimatedBackground = () => {
                             left: 0,
                             top: 0,
                             willChange: "transform",
-                            filter: `blur(${fish.isEating ? FISH_BLURS[i] - 1 : FISH_BLURS[i]}px)`,
                             opacity: fish.isEating ? Math.min(FISH_OPACITIES[i] + 0.15, 0.9) : FISH_OPACITIES[i],
                             transform: `translate3d(${fish.currentX}px, ${fish.currentY}px, 0)`,
                         }}
@@ -342,6 +354,7 @@ const AnimatedBackground = () => {
                             color={colorMap[FISH_COLORS[i]]}
                             scale={FISH_SCALES[i]}
                             facing={fish.facing}
+                            blur={FISH_BLUR_VALUES[i]}
                         />
                     </Box>
                 ))}

@@ -42,9 +42,9 @@ const WAANME = () => {
                 alignItems: 'center',
               }}
             >
-              <img width={"70%"} src="./pic/waanme/poster.png" alt="poster" />
-              <img width={"70%"} src="./pic/waanme/user.png" alt="user" />
-              <img width={"70%"} src="./pic/waanme/waan.png" alt="waan" />
+              <img loading="lazy" width={"70%"} src="./pic/waanme/poster.png" alt="poster" />
+              <img loading="lazy" width={"70%"} src="./pic/waanme/user.png" alt="user" />
+              <img loading="lazy" width={"70%"} src="./pic/waanme/waan.png" alt="waan" />
             </div>
           </div>
         </div>

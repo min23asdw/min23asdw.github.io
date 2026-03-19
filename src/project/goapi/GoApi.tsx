@@ -46,8 +46,9 @@ const GOAPI = () => {
                 paddingLeft: "15%",
               }}
             >
-              <img width={"100%"} src="./pic/go/goapi.png" alt="goapi" />
+              <img loading="lazy" width={"100%"} src="./pic/go/goapi.png" alt="goapi" />
               <img
+                loading="lazy"
                 width={"100%"}
                 src="./pic/go/goapi_mysql.png"
                 alt="goapi_mysql"

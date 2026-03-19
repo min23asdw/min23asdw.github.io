@@ -55,11 +55,13 @@ const CHECK = () => {
               }}
             >
               <img
+                loading="lazy"
                 width={"100%"}
                 src="./pic/checkworld/check_1.png"
                 alt="check_1"
               />
               <img
+                loading="lazy"
                 width={"50%"}
                 src="./pic/checkworld/check_2.png"
                 alt="check_2"

@@ -56,7 +56,7 @@ const KIBO = () => {
                 paddingLeft: "15%",
               }}
             >
-              <img width={"80%"} src="./pic/kibo/kibo_1.png" alt="kibo_1" />
+              <img loading="lazy" width={"80%"} src="./pic/kibo/kibo_1.png" alt="kibo_1" />
             </div>
             <h2 className="text-xl font-bold">
               8th place on 2021 <Link to={link2021}>Link</Link>
@@ -69,7 +69,7 @@ const KIBO = () => {
                 paddingLeft: "15%",
               }}
             >
-              <img width={"80%"} src="./pic/kibo/kibo_2.png" alt="kibo_2" />
+              <img loading="lazy" width={"80%"} src="./pic/kibo/kibo_2.png" alt="kibo_2" />
             </div>
           </div>
         </div>

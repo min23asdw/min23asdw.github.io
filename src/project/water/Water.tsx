@@ -56,6 +56,7 @@ const WATER = () => {
                   style={{ width: "100%", height: "500px", overflow: "hidden" }}
                 >
                   <img
+                    loading="lazy"
                     style={{
                       width: "100%",
                       height: "100%",
@@ -69,6 +70,7 @@ const WATER = () => {
                   style={{ width: "100%", height: "500px", overflow: "hidden" }}
                 >
                   <img
+                    loading="lazy"
                     style={{
                       width: "100%",
                       height: "100%",
@@ -88,6 +90,7 @@ const WATER = () => {
                 }}
               >
                 <img
+                  loading="lazy"
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                   src="./pic/water/water_3.png"
                   alt="water_3"
@@ -102,6 +105,7 @@ const WATER = () => {
                 }}
               >
                 <img
+                  loading="lazy"
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                   src="./pic/water/water_4.png"
                   alt="water_4"
@@ -109,6 +113,7 @@ const WATER = () => {
               </div>
 
               <img
+                loading="lazy"
                 style={{ width: "50%", height: "50%", objectFit: "cover" }}
                 src="./pic/water/water_5.png"
                 alt="water_5"

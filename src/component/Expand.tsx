@@ -4,7 +4,7 @@ import { useState } from "react";
 
 interface ContentItem {
   title: string;
-  content: React.ReactNode;
+  content: React.ReactNode | (() => React.ReactNode);
 }
 
 interface ExpandableSectionProps {
@@ -128,7 +128,7 @@ export const ExpandableSection: React.FC<ExpandableSectionProps> = ({
               marginTop: { xs: "var(--space-1)", sm: "var(--space-2)" },
             }}
           >
-            {item.content}
+            {typeof item.content === "function" ? item.content() : item.content}
           </Box>
         </Collapse>
       ))}

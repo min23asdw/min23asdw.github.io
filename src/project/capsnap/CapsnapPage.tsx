@@ -47,9 +47,9 @@ const CAPSNAP = () => {
                 paddingLeft: "15%",
               }}
             >
-              <img width={"100%"} src="./pic/capsnap/cap1.png" alt="cap1" />
-              <img width={"100%"} src="./pic/capsnap/cap2.png" alt="cap2" />
-              <img width={"100%"} src="./pic/capsnap/cap3.png" alt="cap3" />
+              <img loading="lazy" width={"100%"} src="./pic/capsnap/cap1.png" alt="cap1" />
+              <img loading="lazy" width={"100%"} src="./pic/capsnap/cap2.png" alt="cap2" />
+              <img loading="lazy" width={"100%"} src="./pic/capsnap/cap3.png" alt="cap3" />
             </div>
           </div>
         </div>

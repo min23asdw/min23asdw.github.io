@@ -58,9 +58,10 @@ const CARIN = () => {
                 paddingLeft: "15%",
               }}
             >
-              <img width={"100%"} src="./pic/carin/carin.png" alt="carin" />
+              <img loading="lazy" width={"100%"} src="./pic/carin/carin.png" alt="carin" />
 
               <img
+                loading="lazy"
                 width={"100%"}
                 src="./pic/carin/editcode.png"
                 alt="editcode"

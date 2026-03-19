@@ -57,7 +57,7 @@ const COMPILER = () => {
               style={{ width: "100%", borderTop: "3px dashed   #bbb" }}
             ></div>
             <div>
-              <img width={"100%"} src="./pic/com/overview.png" alt="overview" />
+              <img loading="lazy" width={"100%"} src="./pic/com/overview.png" alt="overview" />
               <h2 className="text-xl font-bold">
                 <Button key={0} onClick={() => t1()}>
                   <h2 className="text-2xl font-bold"> 1. Lexer</h2>
@@ -70,9 +70,9 @@ const COMPILER = () => {
                 timeout="auto"
                 style={{ width: "100%" }}
               >
-                <img width={"100%"} src="./pic/com/lexer_1.png" alt="lexer_1" />
-                <img width={"100%"} src="./pic/com/lexer_2.png" alt="lexer_2" />
-                <img width={"100%"} src="./pic/com/lexer_3.png" alt="lexer_3" />
+                <img loading="lazy" width={"100%"} src="./pic/com/lexer_1.png" alt="lexer_1" />
+                <img loading="lazy" width={"100%"} src="./pic/com/lexer_2.png" alt="lexer_2" />
+                <img loading="lazy" width={"100%"} src="./pic/com/lexer_3.png" alt="lexer_3" />
               </Collapse>
               <h2 className="text-xl font-bold">
                 <Button key={1} onClick={() => t2()}>
@@ -87,16 +87,19 @@ const COMPILER = () => {
                 style={{ width: "100%" }}
               >
                 <img
+                  loading="lazy"
                   width={"100%"}
                   src="./pic/com/parser_1.png"
                   alt="parser_1"
                 />
                 <img
+                  loading="lazy"
                   width={"100%"}
                   src="./pic/com/parser_2.png"
                   alt="parser_2"
                 />
                 <img
+                  loading="lazy"
                   width={"100%"}
                   src="./pic/com/parser_3.png"
                   alt="parser_3"
@@ -115,16 +118,19 @@ const COMPILER = () => {
                 style={{ width: "100%" }}
               >
                 <img
+                  loading="lazy"
                   width={"100%"}
                   src="./pic/com/typecheck_1.png"
                   alt="typecheck_1"
                 />
                 <img
+                  loading="lazy"
                   width={"100%"}
                   src="./pic/com/typecheck_2.png"
                   alt="typecheck_2"
                 />
                 <img
+                  loading="lazy"
                   width={"100%"}
                   src="./pic/com/typecheck_3.png"
                   alt="typecheck_3"
@@ -139,10 +145,10 @@ const COMPILER = () => {
                 gap: "20px",
               }}
             >
-              <img width={"60%"} src="./pic/com/step1.png" alt="step1" />
-              <img width={"60%"} src="./pic/com/step2.png" alt="step2" />
-              <img width={"60%"} src="./pic/com/step3.png" alt="step3" />
-              <img width={"60%"} src="./pic/com/app.png" alt="app" />
+              <img loading="lazy" width={"60%"} src="./pic/com/step1.png" alt="step1" />
+              <img loading="lazy" width={"60%"} src="./pic/com/step2.png" alt="step2" />
+              <img loading="lazy" width={"60%"} src="./pic/com/step3.png" alt="step3" />
+              <img loading="lazy" width={"60%"} src="./pic/com/app.png" alt="app" />
             </div>
           </div>
         </div>
