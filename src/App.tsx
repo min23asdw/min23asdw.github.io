@@ -12,7 +12,7 @@ import Footer from "./component/Footer";
 import AnimatedBackground from "./components/AnimatedBackground";
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { SectionProvider, useSectionContext } from "./context/SectionContext";
+import { useSectionContext } from "./context/SectionContext";
 
 function AppContent() {
   const location = useLocation();
@@ -102,11 +102,7 @@ function AppContent() {
 }
 
 function App() {
-  return (
-    <SectionProvider>
-      <AppContent />
-    </SectionProvider>
-  );
+  return <AppContent />;
 }
 
 export default App;

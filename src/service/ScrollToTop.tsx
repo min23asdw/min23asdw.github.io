@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
+import { SectionProvider } from "../context/SectionContext";
 
 export default function ScrollToTop() {
   const { pathname } = useLocation();
@@ -10,5 +11,9 @@ export default function ScrollToTop() {
     }
   }, [pathname]);
 
-  return <Outlet />;
+  return (
+    <SectionProvider>
+      <Outlet />
+    </SectionProvider>
+  );
 }
