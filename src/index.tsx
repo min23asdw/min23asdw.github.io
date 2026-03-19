@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import "./styles/theme.css";
@@ -8,26 +8,27 @@ import ScrollToTop from "./service/ScrollToTop";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { ROUTE } from "./data/route";
 import PageSkeleton from "./component/PageSkeleton";
-// Lazy load the components
-const AIRWARE = lazy(() => import("./project/airwareness/AirPage"));
-const MLP = lazy(() => import("./project/mlp/MlpPage"));
-const CAPSNAP = lazy(() => import("./project/capsnap/CapsnapPage"));
-const GOAPI = lazy(() => import("./project/goapi/GoApi"));
-const NETAPI = lazy(() => import("./project/netapi/NetApi"));
-const CARIN = lazy(() => import("./project/carin/Carin"));
-const MIN = lazy(() => import("./project/min/Min"));
-const NAMJAI = lazy(() => import("./experience/namjai/NAM"));
-const TA = lazy(() => import("./experience/ta/TA"));
-const WAANME = lazy(() => import("./experience/waanme/WAANME"));
-const BINBOT = lazy(() => import("./project/binbot/Binbot"));
-const FOOD = lazy(() => import("./project/food/Food"));
-const WATER = lazy(() => import("./project/water/Water"));
-const COMPILER = lazy(() => import("./project/compiler/Com"));
-const KIBO = lazy(() => import("./project/kibo/Kibo"));
-const CHECK = lazy(() => import("./project/check/Check"));
-const Note = lazy(() => import("./component/NoteReact"));
-const LIFECYCLE = lazy(() => import("./component/ReactLifecycle"));
-const INLINE = lazy(() => import("./component/ReactInlineProp"));
+import lazyWithDelay from "./service/lazyWithDelay";
+// Lazy load the components with minimum skeleton display time
+const AIRWARE = lazyWithDelay(() => import("./project/airwareness/AirPage"));
+const MLP = lazyWithDelay(() => import("./project/mlp/MlpPage"));
+const CAPSNAP = lazyWithDelay(() => import("./project/capsnap/CapsnapPage"));
+const GOAPI = lazyWithDelay(() => import("./project/goapi/GoApi"));
+const NETAPI = lazyWithDelay(() => import("./project/netapi/NetApi"));
+const CARIN = lazyWithDelay(() => import("./project/carin/Carin"));
+const MIN = lazyWithDelay(() => import("./project/min/Min"));
+const NAMJAI = lazyWithDelay(() => import("./experience/namjai/NAM"));
+const TA = lazyWithDelay(() => import("./experience/ta/TA"));
+const WAANME = lazyWithDelay(() => import("./experience/waanme/WAANME"));
+const BINBOT = lazyWithDelay(() => import("./project/binbot/Binbot"));
+const FOOD = lazyWithDelay(() => import("./project/food/Food"));
+const WATER = lazyWithDelay(() => import("./project/water/Water"));
+const COMPILER = lazyWithDelay(() => import("./project/compiler/Com"));
+const KIBO = lazyWithDelay(() => import("./project/kibo/Kibo"));
+const CHECK = lazyWithDelay(() => import("./project/check/Check"));
+const Note = lazyWithDelay(() => import("./component/NoteReact"));
+const LIFECYCLE = lazyWithDelay(() => import("./component/ReactLifecycle"));
+const INLINE = lazyWithDelay(() => import("./component/ReactInlineProp"));
 
 const router = createBrowserRouter([
   {
