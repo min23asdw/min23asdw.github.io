@@ -104,6 +104,12 @@ const ApiContext = createContext<ConstructApi>(DISABLED_API);
 
 export const useConstruct = (): ConstructApi => useContext(ApiContext);
 
+/**
+ * Module state lives until a full reload: coming back to the home page from
+ * another route (e.g. /waanme) shows it finished instead of rebuilding it.
+ */
+let playedThisPageLoad = false;
+
 const detectEnabled = (): boolean => {
   if (typeof window === "undefined" || !("IntersectionObserver" in window)) return false;
   const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection
@@ -119,7 +125,11 @@ interface ConstructProviderProps {
 }
 
 export function ConstructProvider({ children }: ConstructProviderProps) {
-  const [enabled] = useState(detectEnabled);
+  const [enabled] = useState(() => !playedThisPageLoad && detectEnabled());
+
+  useEffect(() => {
+    playedThisPageLoad = true;
+  }, []);
   const [skipped, setSkipped] = useState(false);
   const [stats, setStats] = useState<ConstructStats>({ total: 0, built: 0, active: 0 });
   const [chromeVisible, setChromeVisible] = useState(false);

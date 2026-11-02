@@ -6,7 +6,7 @@ const FRAME_SELECTOR = ".cx-frame, .cx-dup-clone";
 const collectTextNodes = (root: HTMLElement): Text[] => {
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
     acceptNode: (node) =>
-      node.parentElement?.closest(FRAME_SELECTOR)
+      node.parentElement?.closest(FRAME_SELECTOR) || !(node.nodeValue ?? "").length
         ? NodeFilter.FILTER_REJECT
         : NodeFilter.FILTER_ACCEPT,
   });
@@ -32,9 +32,10 @@ const placeCaret = (caret: HTMLElement, node: Text, offset: number) => {
 };
 
 /**
- * Types every text node inside `root` from empty to full over `durationMs`,
- * keeping inline formatting (bold, links). The root's height is locked so the
- * layout never jumps. Returns a function that stops and restores the text.
+ * Types every text node inside `root` over `durationMs`, keeping inline
+ * formatting (bold, links). The untyped rest of each node stays in the layout
+ * as invisible text, so nothing moves or rewraps while typing (no layout shift,
+ * centred lines stay put). Returns a function that stops and restores the text.
  */
 export const startDomTyping = (
   root: HTMLElement,
@@ -45,11 +46,15 @@ export const startDomTyping = (
   const originals = nodes.map((n) => n.nodeValue ?? "");
   const lengths = originals.map((t) => t.length);
   const total = lengths.reduce((a, b) => a + b, 0);
-  const previousMinHeight = root.style.minHeight;
 
-  root.style.minHeight = `${root.offsetHeight}px`;
-  nodes.forEach((n) => {
-    n.nodeValue = "";
+  // Each node keeps its typed part; the rest waits in a hidden sibling right after it.
+  const tails = nodes.map((node, i) => {
+    const tail = document.createElement("span");
+    tail.className = "cx-untyped";
+    tail.textContent = originals[i];
+    node.after(tail);
+    node.nodeValue = "";
+    return tail.firstChild as Text;
   });
 
   const start = performance.now();
@@ -63,8 +68,8 @@ export const startDomTyping = (
     cancelAnimationFrame(frame);
     nodes.forEach((n, i) => {
       n.nodeValue = originals[i];
+      tails[i].parentElement?.remove();
     });
-    root.style.minHeight = previousMinHeight;
   };
 
   const tick = (now: number) => {
@@ -76,8 +81,11 @@ export const startDomTyping = (
       lastCount = count;
       const shown = sliceAcross(lengths, count);
       shown.forEach((n, i) => {
-        const text = originals[i].slice(0, n);
-        if (nodes[i].nodeValue !== text) nodes[i].nodeValue = text;
+        const typed = originals[i].slice(0, n);
+        if (nodes[i].nodeValue !== typed) {
+          nodes[i].nodeValue = typed;
+          tails[i].nodeValue = originals[i].slice(n);
+        }
       });
 
       const lastIndex = shown.findIndex((n, i) => n < lengths[i]);

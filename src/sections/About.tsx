@@ -26,7 +26,7 @@ const Education = () => {
         >
           {/* University Name */}
           <Box
-            component="h3"
+            component="h2"
             sx={{
               fontSize: { xs: "var(--text-lg)", md: "var(--text-xl)" },
               fontWeight: 600,

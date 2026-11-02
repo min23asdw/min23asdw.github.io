@@ -86,7 +86,7 @@ const SkillCategory = ({
         }}
       />
       <Typography
-        component="h3"
+        component="h2"
         sx={{
           fontSize: "var(--text-sm)",
           fontWeight: 600,
@@ -186,7 +186,7 @@ const SkillsComponent = () => {
               }}
             />
             <Typography
-              component="h3"
+              component="h2"
               sx={{
                 fontSize: "var(--text-sm)",
                 fontWeight: 600,
@@ -239,7 +239,7 @@ const SkillsComponent = () => {
           }}
         >
           <Typography
-            component="h3"
+            component="h2"
             sx={{
               fontSize: "var(--text-sm)",
               fontWeight: 600,

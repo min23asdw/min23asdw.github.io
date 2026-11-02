@@ -1,5 +1,4 @@
 import "./App.css";
-import PdfViewer from "./service/PdfViewer";
 
 import SkillsComponent from "./sections/Skills";
 import { Container, Box } from "@mui/material";
@@ -10,12 +9,15 @@ import About from "./sections/About";
 import ExperienceComponent from "./sections/Experience";
 import Footer from "./component/Footer";
 import AnimatedBackground from "./components/AnimatedBackground";
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useSectionContext } from "./context/SectionContext";
 import { ConstructProvider } from "./construct/ConstructProvider";
 import Scaffold from "./construct/Scaffold";
 import { ThemeModeProvider } from "./context/ThemeModeContext";
+
+// pdf.js + the viewer are ~half the bundle; fetch them only when Resume is opened.
+const PdfViewer = lazy(() => import("./service/PdfViewer"));
 
 function AppContent() {
   const location = useLocation();
@@ -42,7 +44,9 @@ function AppContent() {
     {
       title: "Resume",
       content: () => (
-        <PdfViewer src="https://min23asdw.github.io/doc/Pongsakorn_Rattanapan_Resume.pdf" />
+        <Suspense fallback={<Box sx={{ minHeight: 480 }} aria-busy="true" />}>
+          <PdfViewer src="https://min23asdw.github.io/doc/Pongsakorn_Rattanapan_Resume.pdf" />
+        </Suspense>
       ),
     },
     {

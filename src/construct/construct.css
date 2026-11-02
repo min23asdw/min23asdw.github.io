@@ -186,6 +186,11 @@
   display: none;
 }
 
+/* Not-yet-typed text keeps its space, so typing never shifts the layout. */
+.cx-untyped {
+  visibility: hidden;
+}
+
 /* Text cursor that follows the typing position. */
 .cx-ibeam {
   position: absolute;
@@ -446,7 +451,7 @@
   left: 12px;
   padding: 1px 6px;
   border-radius: 4px;
-  color: #fff;
+  color: #1c1917; /* white on Claude's orange is only 3.1:1 */
   font: 600 10px/1.5 var(--font-family-mono, ui-monospace, monospace);
   white-space: nowrap;
 }

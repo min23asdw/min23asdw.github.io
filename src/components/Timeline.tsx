@@ -187,6 +187,8 @@ const Timeline = ({ data, title = "Timeline" }: TimelineProps) => {
                         >
                             <IconButton
                                 size="small"
+                                aria-label={`${expandedYears.has(group.year) ? "Collapse" : "Expand"} ${group.year}`}
+                                aria-expanded={expandedYears.has(group.year)}
                                 sx={{
                                     p: 0.25,
                                     color: "var(--color-text-muted)",

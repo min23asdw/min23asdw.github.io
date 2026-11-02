@@ -30,7 +30,6 @@ const ProjectCard = (prop: DataProp) => {
     <Link
       style={{ textDecoration: "none", display: "block", height: "100%" }}
       to={data.detailsLink}
-      aria-label={`View details for ${data.title}`}
       onMouseEnter={handlePrefetch}
       onFocus={handlePrefetch}
     >

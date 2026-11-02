@@ -194,7 +194,7 @@ function Navbar() {
         <Link
           to="/"
           style={{ textDecoration: "none" }}
-          aria-label="Go to homepage"
+          aria-label="PORTFOLIO - go to homepage"
           onClick={handleLogoClick}
         >
           <Typography
