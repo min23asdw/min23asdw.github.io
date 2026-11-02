@@ -5,8 +5,9 @@
  * Click anywhere to drop fish food. 40% of fish will swim to eat it.
  * Adapts to light/dark mode.
  */
-import { Box, useTheme, useMediaQuery } from "@mui/material";
+import { Box } from "@mui/material";
 import { useState, useEffect, useRef, useCallback, useMemo, memo } from "react";
+import { useThemeMode } from "../context/ThemeModeContext";
 
 // Memoized fish food component
 const FishFood = memo(({ x, y }: { x: number; y: number }) => (
@@ -120,8 +121,7 @@ const createInitialFish = (): FishData[] => {
 };
 
 const AnimatedBackground = () => {
-    const theme = useTheme();
-    const isDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+    const isDarkMode = useThemeMode().mode === "dark";
     const [canFeed, setCanFeed] = useState(true);
     const [foods, setFoods] = useState<FoodPellet[]>([]);
     const [, forceUpdate] = useState({});
@@ -293,10 +293,9 @@ const AnimatedBackground = () => {
     )`, []);
 
     const darkGradient = useMemo(() => `linear-gradient(
-        -45deg, rgba(251, 146, 60, 0.15), rgba(234, 88, 12, 0.1),
-        rgba(124, 45, 18, 0.2), rgba(15, 23, 42, 0.98),
-        rgba(30, 41, 59, 0.95), rgba(124, 45, 18, 0.15),
-        rgba(234, 88, 12, 0.08), rgba(251, 146, 60, 0.12)
+        -45deg, rgba(124, 45, 18, 0.18), rgba(10, 10, 12, 0.98),
+        rgba(10, 10, 12, 1), rgba(16, 16, 20, 0.98),
+        rgba(10, 10, 12, 1), rgba(124, 45, 18, 0.12)
     )`, []);
 
     return (

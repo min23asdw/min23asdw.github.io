@@ -18,9 +18,10 @@ interface SectionContextType {
 const SectionContext = createContext<SectionContextType | undefined>(undefined);
 
 const initialState: SectionState = {
-    about: true, // About is expanded by default
-    projects: false,
-    experience: false,
+    // Everything starts open so the build animation has content to construct on scroll.
+    about: true,
+    projects: true,
+    experience: true,
 };
 
 export const SectionProvider: React.FC<{ children: React.ReactNode }> = ({

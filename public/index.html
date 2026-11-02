@@ -35,6 +35,17 @@
       rel="stylesheet"
     />
     <title>Hobby's Pongsakorn</title>
+    <!-- Apply the saved theme before first paint (dark by default) to avoid a light flash. -->
+    <script>
+      (function () {
+        var mode = "dark";
+        try {
+          var saved = localStorage.getItem("portfolio-theme");
+          if (saved === "light" || saved === "dark") mode = saved;
+        } catch (e) {}
+        document.documentElement.setAttribute("data-theme", mode);
+      })();
+    </script>
   </head>
 
   <body>

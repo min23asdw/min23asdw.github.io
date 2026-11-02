@@ -1,6 +1,8 @@
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import { Box, Button, Collapse, Typography } from "@mui/material";
 import { useState } from "react";
+import Build from "../construct/Build";
+import Scaffold from "../construct/Scaffold";
 
 interface ContentItem {
   title: string;
@@ -58,54 +60,59 @@ export const ExpandableSection: React.FC<ExpandableSectionProps> = ({
         {items.map((item, index) => {
           const isActive = visibleIndex === index;
           return (
-            <Button
+            <Build
               key={index}
-              onClick={() => toggleVisibility(index)}
-              sx={{
-                flex: 1,
-                justifyContent: "space-between",
-                alignItems: "center",
-                padding: "var(--space-3) var(--space-4)",
-                borderRadius: "var(--radius-sm)",
-                textTransform: "none",
-                fontWeight: 500,
-                fontSize: "var(--text-base)",
-                fontFamily: "var(--font-family-primary)",
-                color: isActive
-                  ? "var(--color-primary-700)"
-                  : "var(--color-text-secondary)",
-                backgroundColor: isActive
-                  ? "var(--color-primary-100)"
-                  : "transparent",
-                border: `1px solid ${isActive
-                  ? "var(--color-primary-300)"
-                  : "var(--color-border)"
-                  }`,
-                "&:hover": {
-                  backgroundColor: isActive
-                    ? "var(--color-primary-100)"
-                    : "var(--color-surface-subtle)",
-                  borderColor: "var(--color-primary-300)",
-                },
-              }}
-              aria-expanded={isActive}
-              aria-controls={`expandable-content-${index}`}
+              label={`tab · ${item.title}`}
+              style={{ flex: 1, display: "flex" }}
             >
-              <Typography
+              <Button
+                onClick={() => toggleVisibility(index)}
                 sx={{
+                  flex: 1,
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  padding: "var(--space-3) var(--space-4)",
+                  borderRadius: "var(--radius-sm)",
+                  textTransform: "none",
                   fontWeight: 500,
                   fontSize: "var(--text-base)",
-                  color: "inherit",
+                  fontFamily: "var(--font-family-primary)",
+                  color: isActive
+                    ? "var(--color-primary-700)"
+                    : "var(--color-text-secondary)",
+                  backgroundColor: isActive
+                    ? "var(--color-primary-100)"
+                    : "transparent",
+                  border: `1px solid ${isActive
+                    ? "var(--color-primary-300)"
+                    : "var(--color-border)"
+                    }`,
+                  "&:hover": {
+                    backgroundColor: isActive
+                      ? "var(--color-primary-100)"
+                      : "var(--color-surface-subtle)",
+                    borderColor: "var(--color-primary-300)",
+                  },
                 }}
+                aria-expanded={isActive}
+                aria-controls={`expandable-content-${index}`}
               >
-                {item.title}
-              </Typography>
-              {isActive ? (
-                <ExpandLess sx={{ marginLeft: "var(--space-2)" }} />
-              ) : (
-                <ExpandMore sx={{ marginLeft: "var(--space-2)" }} />
-              )}
-            </Button>
+                <Typography
+                  sx={{
+                    fontWeight: 500,
+                    fontSize: "var(--text-base)",
+                    color: "inherit",
+                  }}
+                >
+                  {item.title}
+                </Typography>
+                {isActive ? (
+                  <ExpandLess sx={{ marginLeft: "var(--space-2)" }} />
+                ) : (
+                  <ExpandMore sx={{ marginLeft: "var(--space-2)" }} />
+                )}
+              </Button>
+            </Build>
           );
         })}
       </Box>
@@ -118,18 +125,20 @@ export const ExpandableSection: React.FC<ExpandableSectionProps> = ({
           timeout="auto"
           unmountOnExit
         >
-          <Box
-            id={`expandable-content-${index}`}
-            sx={{
-              padding: { xs: "var(--space-2)", sm: "var(--space-3)" },
-              backgroundColor: "var(--color-surface)",
-              borderRadius: "var(--radius-sm)",
-              border: "1px solid var(--color-border)",
-              marginTop: { xs: "var(--space-1)", sm: "var(--space-2)" },
-            }}
-          >
-            {typeof item.content === "function" ? item.content() : item.content}
-          </Box>
+          <Scaffold>
+            <Box
+              id={`expandable-content-${index}`}
+              sx={{
+                padding: { xs: "var(--space-2)", sm: "var(--space-3)" },
+                backgroundColor: "var(--color-surface)",
+                borderRadius: "var(--radius-sm)",
+                border: "1px solid var(--color-border)",
+                marginTop: { xs: "var(--space-1)", sm: "var(--space-2)" },
+              }}
+            >
+              {typeof item.content === "function" ? item.content() : item.content}
+            </Box>
+          </Scaffold>
         </Collapse>
       ))}
     </Box>

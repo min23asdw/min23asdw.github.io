@@ -3,6 +3,7 @@ import data from "../data/SkillData.json";
 import CodeIcon from "@mui/icons-material/Code";
 import StorageIcon from "@mui/icons-material/Storage";
 import BuildIcon from "@mui/icons-material/Build";
+import Build from "../construct/Build";
 
 interface Skill {
   name: string;
@@ -12,37 +13,39 @@ interface Skill {
 
 const SkillCard = ({ skill }: { skill: Skill }) => {
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "var(--space-2)",
-        padding: "var(--space-3)",
-        borderRadius: "var(--radius-sm)",
-        backgroundColor: "var(--color-surface)",
-        border: "1px solid var(--color-border)",
-        minWidth: "80px",
-      }}
-    >
-      <i
-        className={skill.icon}
-        style={{
-          fontSize: "32px",
-          color: "var(--color-text-secondary)",
-        }}
-      />
-      <Typography
+    <Build label={`chip · ${skill.name}`}>
+      <Box
         sx={{
-          fontSize: "var(--text-xs)",
-          fontWeight: 500,
-          color: "var(--color-text-primary)",
-          textAlign: "center",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "var(--space-2)",
+          padding: "var(--space-3)",
+          borderRadius: "var(--radius-sm)",
+          backgroundColor: "var(--color-surface)",
+          border: "1px solid var(--color-border)",
+          minWidth: "80px",
         }}
       >
-        {skill.name}
-      </Typography>
-    </Box>
+        <i
+          className={skill.icon}
+          style={{
+            fontSize: "32px",
+            color: "var(--color-text-secondary)",
+          }}
+        />
+        <Typography
+          sx={{
+            fontSize: "var(--text-xs)",
+            fontWeight: 500,
+            color: "var(--color-text-primary)",
+            textAlign: "center",
+          }}
+        >
+          {skill.name}
+        </Typography>
+      </Box>
+    </Build>
   );
 };
 

@@ -13,6 +13,9 @@ import AnimatedBackground from "./components/AnimatedBackground";
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useSectionContext } from "./context/SectionContext";
+import { ConstructProvider } from "./construct/ConstructProvider";
+import Scaffold from "./construct/Scaffold";
+import { ThemeModeProvider } from "./context/ThemeModeContext";
 
 function AppContent() {
   const location = useLocation();
@@ -78,11 +81,14 @@ function AppContent() {
           },
         }}
       >
-        <About
-          isExpanded={expandedSections.about}
-          onToggle={() => toggleSection("about")}
-        />
-        <ExpandableSection items={Resume} show={null} />
+        <Scaffold>
+          <About
+            isExpanded={expandedSections.about}
+            onToggle={() => toggleSection("about")}
+          />
+        </Scaffold>
+        {/* Skills open by default; the heavier PDF resume stays one click away. */}
+        <ExpandableSection items={Resume} show={1} />
         <ExpandableSection
           items={Experience}
           show={null}
@@ -102,7 +108,13 @@ function AppContent() {
 }
 
 function App() {
-  return <AppContent />;
+  return (
+    <ThemeModeProvider>
+      <ConstructProvider>
+        <AppContent />
+      </ConstructProvider>
+    </ThemeModeProvider>
+  );
 }
 
 export default App;

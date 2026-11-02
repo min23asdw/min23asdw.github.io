@@ -1,0 +1,156 @@
+/* ============================================
+   CONSTRUCT - sequences: the opening swarm beat and repeat-grid duplicates
+   (split from construct.css; loaded right after it)
+   ============================================ */
+
+/* ---------- Duplicated grid cards ---------- */
+
+/* Copy slots wait empty (just the wireframe) until the master card is duplicated. */
+.cx--copy.cx--pending > :not(.cx-frame),
+.cx--copy.cx--queued > :not(.cx-frame) {
+  opacity: 0;
+}
+
+.cx--copy .cx-cross {
+  display: none;
+}
+
+/* The copy riding out of the first card, selected like in a design tool. */
+.cx-dup-clone {
+  position: absolute !important;
+  inset: 0;
+  z-index: 1;
+  margin: 0;
+  pointer-events: none;
+  outline: 1px solid var(--cx-sel);
+  outline-offset: 3px;
+  will-change: transform, opacity, filter;
+}
+
+/* Template copies: lorem text and an image placeholder, like a fresh repeat grid. */
+.cx-ph-img {
+  display: block;
+  max-width: 100%;
+  border-radius: inherit;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 24 24' fill='none' stroke='%23a3b1c6' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='18' height='18' rx='2'/%3E%3Ccircle cx='8.5' cy='8.5' r='1.5'/%3E%3Cpath d='M21 15l-5-5L5 21'/%3E%3C/svg%3E")
+      center / 44px no-repeat,
+    linear-gradient(135deg, var(--cx-ph-from), var(--cx-ph-to));
+}
+
+:root {
+  --cx-ph-from: #e2e8f0;
+  --cx-ph-to: #cbd5e1;
+}
+
+[data-theme="dark"] {
+  --cx-ph-from: #262d3a;
+  --cx-ph-to: #343e50;
+}
+
+/* Lorem text reads as placeholder copy, not content. */
+.cx-template {
+  color: var(--color-text-muted);
+}
+
+/* No box drawing for copies: duplicate.ts flashes the frame on landing and edit. */
+.cx--copy.cx--building .cx-frame {
+  animation: none;
+}
+
+/* The I-beam only shows once this card's text is being retyped. */
+.cx--copy:not([data-cx-fill]) .cx-ibeam {
+  display: none;
+}
+
+/* Smart guide between the source card and the copy, with the gap in px. */
+.cx-spacing {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  background: #f43f5e;
+}
+
+.cx-spacing--h {
+  height: 1px;
+}
+
+.cx-spacing--v {
+  width: 1px;
+}
+
+.cx-spacing em {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0 4px;
+  border-radius: 3px;
+  background: #f43f5e;
+  color: #fff;
+  font: 600 9px/1.5 var(--font-family-mono, ui-monospace, monospace);
+  font-style: normal;
+}
+
+/* ---------- Opening layout guides ---------- */
+
+.cx-intro {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--cx-z) - 1);
+  pointer-events: none;
+  transition: opacity 0.7s ease;
+}
+
+.cx-intro--fading {
+  opacity: 0;
+}
+
+.cx-intro__row,
+.cx-intro__col {
+  position: absolute;
+  background: var(--cx-guide);
+  opacity: 0.35;
+  box-shadow: var(--cx-glow);
+}
+
+/* Edge-to-edge lines, drawn out one after another. */
+.cx-intro__row {
+  left: 0;
+  right: 0;
+  height: 1px;
+  transform-origin: left;
+  animation: cx-intro-row 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.cx-intro__col {
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  transform-origin: top;
+  animation: cx-intro-col 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes cx-intro-row {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes cx-intro-col {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cx-intro {
+    display: none;
+  }
+}

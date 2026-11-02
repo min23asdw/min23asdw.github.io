@@ -1,0 +1,691 @@
+/* ============================================
+   CONSTRUCT - "agents building the page" animation
+   ============================================ */
+
+:root {
+  --cx-guide: #0ea5e9;
+  --cx-guide-soft: rgba(14, 165, 233, 0.12);
+  --cx-raw-blur: 3px;
+  --cx-raw-opacity: 0.6;
+  --cx-ruler-bg: rgba(15, 23, 42, 0.86);
+  --cx-ruler-fg: rgba(226, 232, 240, 0.75);
+  --cx-hud-bg: rgba(17, 24, 39, 0.9);
+  --cx-hud-fg: #e2e8f0;
+  --cx-z: 750;
+  /* Cards and media get the brand colour for their selection, like the video. */
+  --cx-accent: var(--color-primary-500, #ea580c);
+  --cx-wire: rgba(14, 165, 233, 0.32);
+  --cx-glow: 0 0 0 transparent;
+}
+
+/* Dark canvas: brighter cyan with a soft bloom, like an editor at night. */
+[data-theme="dark"] {
+  --cx-guide: #38bdf8;
+  --cx-guide-soft: rgba(56, 189, 248, 0.14);
+  --cx-wire: rgba(56, 189, 248, 0.28);
+  --cx-glow: 0 0 10px rgba(56, 189, 248, 0.45);
+  --cx-raw-opacity: 0.5;
+  --cx-ruler-bg: rgba(8, 8, 10, 0.92);
+}
+
+/* ---------- Layer wrapper ---------- */
+
+.cx {
+  position: relative;
+  --cx-sel: var(--cx-guide);
+}
+
+.cx--block {
+  --cx-sel: var(--cx-accent);
+}
+
+/* Raw draft: lightly blurred and desaturated - still readable, clearly unfinished. */
+.cx--pending > :not(.cx-frame),
+.cx--queued > :not(.cx-frame) {
+  filter: blur(var(--cx-raw-blur)) grayscale(1) contrast(0.85);
+  opacity: var(--cx-raw-opacity);
+  transition: opacity 0.5s ease;
+}
+
+/* Opening beat: an empty canvas of wireframes before any draft shows up. */
+.cx-wire .cx--pending > :not(.cx-frame),
+.cx-wire .cx--queued > :not(.cx-frame) {
+  opacity: 0;
+}
+
+/*
+ * Developing: the draft sharpens and gains colour while agents work.
+ * Not for repeat-grid copies: duplicate.ts drives their clone and real content.
+ */
+.cx--building.cx--block:not(.cx--copy) > :not(.cx-frame) {
+  will-change: filter, opacity;
+  animation: cx-develop var(--cx-dur, 800ms) cubic-bezier(0.45, 0, 0.2, 1) both;
+}
+
+@keyframes cx-develop {
+  0% {
+    filter: blur(var(--cx-raw-blur)) grayscale(1) contrast(0.85);
+    opacity: var(--cx-raw-opacity);
+  }
+  65% {
+    filter: blur(0.5px) grayscale(0.3) contrast(1);
+    opacity: 0.9;
+  }
+  100% {
+    filter: blur(0) grayscale(0) contrast(1);
+    opacity: 1;
+  }
+}
+
+/* ---------- Selection frame ---------- */
+
+.cx-frame {
+  position: absolute;
+  inset: -4px;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: 4px;
+  border: 1px dashed transparent;
+  opacity: 0;
+  transition: opacity 0.35s ease, border-color 0.25s ease;
+}
+
+/*
+ * The lead agent drags the selection box open from the top-left corner.
+ * clip-path (not right/bottom) so the draw never triggers layout; the negative
+ * insets leave room for the tag above and the size readout below.
+ */
+/* Opening swarm: the page is blank until the agents have circled in. */
+.cx-void .cx > :not(.cx-frame),
+.cx-void .cx-frame,
+.cx-void .cx-scaffold {
+  opacity: 0 !important;
+}
+
+/* Wireframe beat: every waiting layer shows its blue name tag, like the video's skeleton. */
+.cx-wire .cx--pending .cx-tag,
+.cx-wire .cx--queued .cx-tag {
+  display: block;
+  opacity: 0.75;
+}
+
+/* Waiting layers are bare wireframes: a thin outline, no handles or labels. */
+.cx--pending .cx-frame,
+.cx--queued .cx-frame {
+  opacity: 1;
+  border-style: solid;
+  border-color: var(--cx-wire);
+}
+
+.cx--pending .cx-h,
+.cx--queued .cx-h,
+.cx--pending .cx-tag,
+.cx--queued .cx-tag {
+  display: none;
+}
+
+.cx--building .cx-frame {
+  opacity: 1;
+  border-style: solid;
+  border-color: var(--cx-sel);
+  box-shadow: 0 0 0 3px var(--cx-guide-soft), var(--cx-glow);
+  animation: cx-draw calc(var(--cx-dur, 800ms) * 0.35) cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  /* Waits until the lead cursor has grabbed the corner, then opens with its drag. */
+  animation-delay: var(--cx-grab, 0ms);
+}
+
+@keyframes cx-draw {
+  from {
+    clip-path: inset(-24px 100% 100% -24px);
+  }
+  to {
+    clip-path: inset(-24px -120px -32px -120px);
+  }
+}
+
+.cx--built .cx-frame {
+  opacity: 0;
+}
+
+/* Size readout under the box, like a design tool. */
+.cx-dim {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1px 6px;
+  border-radius: 3px;
+  background: var(--cx-sel);
+  color: #fff;
+  font: 500 9px/1.5 var(--font-family-mono, ui-monospace, monospace);
+  white-space: nowrap;
+}
+
+/* "+" snap markers scattered inside media / card layers. */
+.cx-cross {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  margin: -4px 0 0 -4px;
+  opacity: 0.85;
+}
+
+.cx-cross::before,
+.cx-cross::after {
+  content: "";
+  position: absolute;
+  background: var(--cx-sel);
+}
+.cx-cross::before { left: 4px; top: 0; width: 1px; height: 9px; }
+.cx-cross::after { top: 4px; left: 0; width: 9px; height: 1px; }
+.cx-cross--a { left: var(--cx-x1); top: var(--cx-y1); }
+.cx-cross--b { left: var(--cx-x2); top: var(--cx-y2); }
+
+.cx--text .cx-cross,
+.cx--type .cx-cross {
+  display: none;
+}
+
+/* Text cursor that follows the typing position. */
+.cx-ibeam {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 1em;
+  background: var(--cx-guide);
+  box-shadow: 0 0 6px var(--cx-guide);
+}
+
+.cx-ibeam::before,
+.cx-ibeam::after {
+  content: "";
+  position: absolute;
+  left: -3px;
+  width: 8px;
+  height: 2px;
+  background: var(--cx-guide);
+}
+.cx-ibeam::before { top: 0; }
+.cx-ibeam::after { bottom: 0; }
+
+/* Before typing starts the I-beam waits at the end of the empty text box. */
+.cx--pending .cx-ibeam,
+.cx--queued .cx-ibeam {
+  top: 50%;
+  left: auto;
+  right: 6px;
+  height: 12px;
+  margin-top: -6px;
+  opacity: 0.8;
+}
+
+/* Headings bring their own blinking caret while typing. */
+.cx--type.cx--building .cx-ibeam {
+  display: none;
+}
+
+/* ---------- Section scaffold (layout guides + padding) ---------- */
+
+.cx-scaffold-host {
+  position: relative;
+}
+
+.cx-scaffold {
+  position: absolute;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+  outline: 1px solid transparent;
+  opacity: 0;
+  transition: opacity 0.6s ease, outline-color 0.6s ease;
+}
+
+.cx-scaffold--on {
+  opacity: 1;
+  outline-color: var(--cx-guide);
+  box-shadow: var(--cx-glow);
+}
+
+.cx-pad {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(14, 165, 233, 0.16) 0 4px,
+    rgba(14, 165, 233, 0.04) 4px 9px
+  );
+}
+
+.cx-pad em {
+  padding: 0 4px;
+  border-radius: 2px;
+  background: var(--cx-guide);
+  color: #fff;
+  font: 500 9px/1.5 var(--font-family-mono, ui-monospace, monospace);
+  font-style: normal;
+}
+
+.cx-guide {
+  position: absolute;
+  background: rgba(14, 165, 233, 0.35);
+  box-shadow: var(--cx-glow);
+}
+
+.cx-guide--v {
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  transform-origin: top;
+}
+
+.cx-scaffold--on .cx-guide--v {
+  animation: cx-guide-v 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes cx-guide-v {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+/* Corner handles */
+.cx-h {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border: 1px solid var(--cx-sel);
+  border-radius: 1px;
+}
+.cx-h--tl { top: -4px; left: -4px; }
+.cx-h--tr { top: -4px; right: -4px; }
+.cx-h--bl { bottom: -4px; left: -4px; }
+.cx-h--br { bottom: -4px; right: -4px; }
+
+/* Layer name tag */
+.cx-tag {
+  position: absolute;
+  bottom: calc(100% + 3px);
+  left: -1px;
+  max-width: 240px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 1px 6px;
+  border-radius: 3px;
+  background: var(--cx-sel);
+  color: #fff;
+  font: 500 10px/1.5 var(--font-family-mono, ui-monospace, monospace);
+  letter-spacing: 0.02em;
+}
+
+/* ---------- Typewriter ---------- */
+
+.cx-type {
+  position: relative;
+  display: inline-block;
+  white-space: pre-line;
+}
+
+/* While typing, the full line lingers underneath as a faint raw draft. */
+.cx-type--typing .cx-type__ghost {
+  opacity: 0.22;
+  filter: blur(3px);
+}
+
+.cx-type__live {
+  position: absolute;
+  inset: 0;
+}
+
+.cx-caret {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 2px;
+  vertical-align: -0.12em;
+  background: var(--cx-guide);
+  animation: cx-blink 0.8s steps(1) infinite;
+}
+
+@keyframes cx-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ---------- Agent cursors ---------- */
+
+.cx-agents {
+  position: fixed;
+  inset: 0;
+  z-index: var(--cx-z);
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.cx-agents--visible {
+  opacity: 1;
+}
+
+.cx-agent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.35));
+  /* Position is driven per frame by a spring (agentMotion.ts); only opacity transitions. */
+  transition: opacity 0.4s ease;
+}
+
+.cx-agent svg {
+  display: block;
+}
+
+/* Mouse button held: the arrow dips, like a real press-and-drag. */
+.cx-agent svg {
+  transform-origin: 2px 2px;
+  transition: transform 0.09s ease;
+}
+
+.cx-agent--press svg {
+  transform: scale(0.82);
+}
+
+/* Click ripple left where an agent clicked. */
+.cx-ripple {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.cx-ripple::before {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: -14px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--cx-guide);
+  animation: cx-ripple 0.45s ease-out forwards;
+}
+
+@keyframes cx-ripple {
+  from {
+    opacity: 0.9;
+    transform: scale(0.2);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.4);
+  }
+}
+
+/* Waiting agents: dimmed, no name tag, until the first screen is built. */
+.cx-agent--parked {
+  opacity: 0.55;
+}
+
+.cx-agent--parked .cx-agent__tag {
+  opacity: 0;
+}
+
+.cx-agent__tag {
+  transition: opacity 0.3s ease;
+}
+.cx-agent__tag {
+  position: absolute;
+  top: 16px;
+  left: 12px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  color: #fff;
+  font: 600 10px/1.5 var(--font-family-mono, ui-monospace, monospace);
+  white-space: nowrap;
+}
+
+/* ---------- Rulers ---------- */
+
+.cx-rulers {
+  position: fixed;
+  inset: 0;
+  z-index: var(--cx-z);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.cx-rulers--visible {
+  opacity: 1;
+}
+
+.cx-ruler {
+  position: absolute;
+  overflow: hidden;
+  background-color: var(--cx-ruler-bg);
+  color: var(--cx-ruler-fg);
+  font: 9px/1 var(--font-family-mono, ui-monospace, monospace);
+}
+
+.cx-ruler--top {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 14px;
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--cx-ruler-fg) 0 1px,
+    transparent 1px 10px
+  );
+  background-size: 100% 4px;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+.cx-ruler--left {
+  top: 14px;
+  left: 0;
+  bottom: 0;
+  width: 14px;
+  background-image: repeating-linear-gradient(
+    180deg,
+    var(--cx-ruler-fg) 0 1px,
+    transparent 1px 10px
+  );
+  background-size: 4px 100%;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.cx-ruler--top span {
+  position: absolute;
+  top: 2px;
+  padding-left: 2px;
+  border-left: 1px solid var(--cx-ruler-fg);
+}
+
+/* Extent of a layer under construction, mirrored on the rulers. */
+.cx-ruler__band {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 0 solid var(--cx-guide);
+  background: rgba(56, 189, 248, 0.35);
+  box-shadow: var(--cx-glow);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.cx-ruler--top .cx-ruler__band {
+  width: 0;
+  height: 100%;
+  border-width: 0 1px;
+}
+
+/* The left ruler starts below the top one; bands use viewport coordinates. */
+.cx-ruler--left .cx-ruler__band {
+  top: -14px;
+  width: 100%;
+  height: 0;
+  border-width: 1px 0;
+}
+
+.cx-ruler--left span {
+  position: absolute;
+  left: 1px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+/* ---------- HUD ---------- */
+
+.cx-hud {
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  z-index: var(--cx-z);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: calc(100vw - 32px);
+  padding: 7px 8px 7px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--cx-hud-bg);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  color: var(--cx-hud-fg);
+  font: 500 12px/1 var(--font-family-primary, system-ui, sans-serif);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, 16px);
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s linear 0.4s;
+}
+
+.cx-hud--visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+  transition-delay: 0s;
+}
+
+.cx-hud__avatars {
+  display: inline-flex;
+  padding-left: 4px;
+}
+
+.cx-hud__avatars i {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  margin-left: -6px;
+  border-radius: 50%;
+  border: 2px solid #111827;
+  color: #fff;
+  font: 700 9px/1 var(--font-family-mono, ui-monospace, monospace);
+  font-style: normal;
+}
+
+.cx-hud__stat {
+  white-space: nowrap;
+  color: rgba(226, 232, 240, 0.7);
+}
+
+.cx-hud__stat b {
+  color: #fff;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.cx-hud__divider {
+  width: 1px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.cx-hud__bar {
+  position: relative;
+  width: 80px;
+  height: 2px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.cx-hud__bar span {
+  position: absolute;
+  inset: 0;
+  background: var(--cx-guide);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.cx-hud__mode {
+  padding: 5px 10px;
+  border: 0;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(226, 232, 240, 0.7);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.cx-hud__mode:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.cx-hud__mode--on,
+.cx-hud__mode--on:hover {
+  background: #1d4ed8;
+  color: #fff;
+}
+
+.cx-hud__btn {
+  display: grid;
+  place-items: center;
+  min-width: 26px;
+  height: 24px;
+  padding: 0 6px;
+  border: 0;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.08);
+  color: inherit;
+  font: 700 11px/1 var(--font-family-mono, ui-monospace, monospace);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.cx-hud__btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+@media (max-width: 600px) {
+  .cx-hud__bar,
+  .cx-hud__divider {
+    display: none;
+  }
+  .cx-rulers {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cx-agents,
+  .cx-rulers,
+  .cx-hud {
+    display: none;
+  }
+}

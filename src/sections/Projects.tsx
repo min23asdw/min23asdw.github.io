@@ -2,6 +2,9 @@ import { Box, Grid, Typography } from "@mui/material";
 import ProjectCard from "../component/ProjectCard";
 import file from "../data/Projects.json";
 import Timeline from "../components/Timeline";
+import Build from "../construct/Build";
+import DupGroup from "../construct/DupGroup";
+import TypeText from "../construct/TypeText";
 
 const ProjectsComponent = () => {
   return (
@@ -20,60 +23,75 @@ const ProjectsComponent = () => {
           marginBottom: { xs: "var(--space-6)", md: "var(--space-8)" },
         }}
       >
-        <Typography
-          component="h2"
-          sx={{
-            fontSize: { xs: "var(--text-2xl)", md: "var(--text-3xl)" },
-            fontWeight: 700,
-            color: "var(--color-text-primary)",
-            marginBottom: "var(--space-2)",
-          }}
-        >
-          Projects
-        </Typography>
-        <Typography
-          sx={{
-            fontSize: "var(--text-base)",
-            color: "var(--color-text-secondary)",
-            maxWidth: "600px",
-            margin: "0 auto",
-          }}
-        >
-          A collection of my work, from university coursework to real-world applications.
-        </Typography>
+        <Build kind="type" label="h2 · Projects">
+          <Typography
+            component="h2"
+            sx={{
+              fontSize: { xs: "var(--text-2xl)", md: "var(--text-3xl)" },
+              fontWeight: 700,
+              color: "var(--color-text-primary)",
+              marginBottom: "var(--space-2)",
+            }}
+          >
+            <TypeText text="Projects" />
+          </Typography>
+        </Build>
+        <Build kind="text" label="text · Subtitle">
+          <Typography
+            sx={{
+              fontSize: "var(--text-base)",
+              color: "var(--color-text-secondary)",
+              maxWidth: "600px",
+              margin: "0 auto",
+            }}
+          >
+            A collection of my work, from university coursework to real-world applications.
+          </Typography>
+        </Build>
       </Box>
 
       {/* Projects Grid */}
-      <Grid
-        container
-        spacing={{ xs: 2, md: 3 }}
-        columns={{ xs: 1, sm: 2, lg: 3 }}
-        sx={{ marginBottom: "var(--space-8)" }}
-      >
-        {Array.from(file).map((data, index) => (
-          <Grid item xs={1} sm={1} lg={1} key={index}>
-            <Box
-              sx={{
-                height: "100%",
-              }}
-            >
-              <ProjectCard data={data} />
-            </Box>
-          </Grid>
-        ))}
-      </Grid>
+      {/* First card is built, then each card is duplicated from its neighbour. */}
+      <DupGroup>
+        <Grid
+          container
+          spacing={{ xs: 2, md: 3 }}
+          columns={{ xs: 1, sm: 2, lg: 3 }}
+          sx={{ marginBottom: "var(--space-8)" }}
+        >
+          {Array.from(file).map((data, index) => (
+            <Grid item xs={1} sm={1} lg={1} key={index}>
+              <Build
+                label={`card · ${data.title}`}
+                dupIndex={index}
+                style={{ height: "100%" }}
+              >
+                <Box
+                  sx={{
+                    height: "100%",
+                  }}
+                >
+                  <ProjectCard data={data} />
+                </Box>
+              </Build>
+            </Grid>
+          ))}
+        </Grid>
+      </DupGroup>
 
       {/* Timeline */}
-      <Box
-        sx={{
-          backgroundColor: "var(--color-surface)",
-          borderRadius: "var(--radius-lg)",
-          padding: { xs: "var(--space-4)", md: "var(--space-6)" },
-          border: "1px solid var(--color-border)",
-        }}
-      >
-        <Timeline data={file} />
-      </Box>
+      <Build label="panel · Timeline">
+        <Box
+          sx={{
+            backgroundColor: "var(--color-surface)",
+            borderRadius: "var(--radius-lg)",
+            padding: { xs: "var(--space-4)", md: "var(--space-6)" },
+            border: "1px solid var(--color-border)",
+          }}
+        >
+          <Timeline data={file} />
+        </Box>
+      </Build>
     </Box>
   );
 };

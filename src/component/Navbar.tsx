@@ -15,7 +15,10 @@ import {
 import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import LightModeIcon from "@mui/icons-material/LightModeOutlined";
+import DarkModeIcon from "@mui/icons-material/DarkModeOutlined";
 import { useSectionContext, SectionId } from "../context/SectionContext";
+import { useThemeMode } from "../context/ThemeModeContext";
 
 interface NavItem {
   label: string;
@@ -31,6 +34,29 @@ const navItems: NavItem[] = [
 
 // Scroll delay for expansion animation
 const EXPANSION_DELAY_MS = 300;
+
+function ThemeToggle() {
+  const { mode, toggle } = useThemeMode();
+  const next = mode === "dark" ? "light" : "dark";
+  return (
+    <IconButton
+      onClick={toggle}
+      aria-label={`Switch to ${next} mode`}
+      title={`Switch to ${next} mode`}
+      sx={{
+        color: "var(--color-text-secondary)",
+        padding: "var(--space-2)",
+        borderRadius: "var(--radius-sm)",
+        "&:hover": {
+          backgroundColor: "var(--color-hover)",
+          color: "var(--color-primary-500)",
+        },
+      }}
+    >
+      {mode === "dark" ? <LightModeIcon fontSize="small" /> : <DarkModeIcon fontSize="small" />}
+    </IconButton>
+  );
+}
 
 function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -216,27 +242,31 @@ function Navbar() {
                 {item.label}
               </Button>
             ))}
+            <ThemeToggle />
           </Box>
         )}
 
         {/* Mobile Menu Button */}
         {isMobile && (
-          <IconButton
-            onClick={handleDrawerToggle}
-            aria-label="open menu"
-            aria-expanded={mobileOpen}
-            sx={{
-              color: "var(--color-text-primary)",
-              padding: "var(--space-2)",
-              borderRadius: "var(--radius-sm)",
-              "&:hover": {
-                backgroundColor: "var(--color-hover)",
-                color: "var(--color-primary-500)",
-              },
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
+          <Box sx={{ display: "flex", alignItems: "center" }}>
+            <ThemeToggle />
+            <IconButton
+              onClick={handleDrawerToggle}
+              aria-label="open menu"
+              aria-expanded={mobileOpen}
+              sx={{
+                color: "var(--color-text-primary)",
+                padding: "var(--space-2)",
+                borderRadius: "var(--radius-sm)",
+                "&:hover": {
+                  backgroundColor: "var(--color-hover)",
+                  color: "var(--color-primary-500)",
+                },
+              }}
+            >
+              <MenuIcon />
+            </IconButton>
+          </Box>
         )}
       </Box>
 

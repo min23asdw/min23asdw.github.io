@@ -4,6 +4,8 @@ import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import Build from "../construct/Build";
+import TypeText from "../construct/TypeText";
 
 interface AboutProps {
   isExpanded?: boolean;
@@ -13,169 +15,171 @@ interface AboutProps {
 const Education = () => {
   return (
     <Box sx={{ padding: { xs: "var(--space-2)", md: "var(--space-4)" } }}>
-      <Box
-        sx={{
-          borderRadius: "var(--radius-lg)",
-          backgroundColor: "var(--color-surface)",
-          border: "1px solid var(--color-border)",
-          padding: { xs: "var(--space-3)", md: "var(--space-5)" },
-        }}
-      >
-        {/* University Name */}
-        <Box
-          component="h3"
-          sx={{
-            fontSize: { xs: "var(--text-lg)", md: "var(--text-xl)" },
-            fontWeight: 600,
-            color: "var(--color-text-primary)",
-            marginBottom: "var(--space-2)",
-            fontFamily: "var(--font-family-thai)",
-            lineHeight: "var(--leading-tight)",
-          }}
-        >
-          มหาวิทยาลัยเชียงใหม่
-        </Box>
-
-        {/* Degree */}
+      <Build label="card · Education">
         <Box
           sx={{
-            fontSize: { xs: "var(--text-sm)", md: "var(--text-base)" },
-            color: "var(--color-text-secondary)",
-            fontFamily: "var(--font-family-thai)",
-            lineHeight: "var(--leading-relaxed)",
+            borderRadius: "var(--radius-lg)",
+            backgroundColor: "var(--color-surface)",
+            border: "1px solid var(--color-border)",
+            padding: { xs: "var(--space-3)", md: "var(--space-5)" },
           }}
         >
-          วิศวกรรมศาสตรบัณฑิต (วิศวกรรมคอมพิวเตอร์)
-        </Box>
-
-        {/* Year & GPA */}
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: { xs: "column", sm: "row" },
-            gap: { xs: "var(--space-1)", sm: "var(--space-3)" },
-            color: "var(--color-text-tertiary)",
-            fontSize: "var(--text-sm)",
-            marginTop: "var(--space-3)",
-            marginBottom: "var(--space-4)",
-          }}
-        >
-          <span>2020 — 2024</span>
+          {/* University Name */}
           <Box
-            component="span"
+            component="h3"
             sx={{
-              display: { xs: "none", sm: "inline" },
-              color: "var(--color-border)",
-            }}
-          >
-            |
-          </Box>
-          <span>GPA 3.61</span>
-          <Box
-            component="span"
-            sx={{
-              display: { xs: "none", sm: "inline" },
-              color: "var(--color-border)",
-            }}
-          >
-            |
-          </Box>
-          <span>First Class Honors</span>
-        </Box>
-
-        {/* Transcript Button */}
-        <Button
-          variant="outlined"
-          size="small"
-          href="/doc/Pongsakorn_Rattanapan_Resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          sx={{
-            textTransform: "none",
-            fontWeight: 500,
-            fontSize: "var(--text-sm)",
-            color: "var(--color-text-secondary)",
-            borderColor: "var(--color-border)",
-            borderRadius: "var(--radius-md)",
-            padding: "var(--space-1) var(--space-4)",
-            fontFamily: "var(--font-family-thai)",
-            marginBottom: "var(--space-5)",
-            "&:hover": {
-              backgroundColor: "var(--color-hover)",
-              borderColor: "var(--color-border-hover)",
-            },
-          }}
-        >
-          ดู Resume
-        </Button>
-
-        {/* Course Grades */}
-        <Box
-          sx={{
-            borderTop: "1px solid var(--color-border)",
-            paddingTop: "var(--space-4)",
-          }}
-        >
-          <Box
-            sx={{
-              fontSize: "var(--text-sm)",
-              fontWeight: 500,
-              color: "var(--color-text-secondary)",
-              marginBottom: "var(--space-3)",
+              fontSize: { xs: "var(--text-lg)", md: "var(--text-xl)" },
+              fontWeight: 600,
+              color: "var(--color-text-primary)",
+              marginBottom: "var(--space-2)",
               fontFamily: "var(--font-family-thai)",
+              lineHeight: "var(--leading-tight)",
             }}
           >
-            รายวิชาเด่น
+            มหาวิทยาลัยเชียงใหม่
           </Box>
+
+          {/* Degree */}
           <Box
             sx={{
-              display: "grid",
-              gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" },
-              gap: "var(--space-2)",
+              fontSize: { xs: "var(--text-sm)", md: "var(--text-base)" },
+              color: "var(--color-text-secondary)",
+              fontFamily: "var(--font-family-thai)",
+              lineHeight: "var(--leading-relaxed)",
             }}
           >
-            {[
-              { name: "Compiler Construction", grade: "A" },
-              { name: "Machine Learning", grade: "A" },
-              { name: "Software Engineering", grade: "A" },
-              { name: "Database Systems", grade: "A" },
-              { name: "Computer Networks", grade: "A" },
-              { name: "Operating Systems", grade: "B+" },
-            ].map((course) => (
-              <Box
-                key={course.name}
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  padding: "var(--space-2) var(--space-3)",
-                  backgroundColor: "var(--color-bg-secondary)",
-                  borderRadius: "var(--radius-md)",
-                }}
-              >
+            วิศวกรรมศาสตรบัณฑิต (วิศวกรรมคอมพิวเตอร์)
+          </Box>
+
+          {/* Year & GPA */}
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: { xs: "column", sm: "row" },
+              gap: { xs: "var(--space-1)", sm: "var(--space-3)" },
+              color: "var(--color-text-tertiary)",
+              fontSize: "var(--text-sm)",
+              marginTop: "var(--space-3)",
+              marginBottom: "var(--space-4)",
+            }}
+          >
+            <span>2020 — 2024</span>
+            <Box
+              component="span"
+              sx={{
+                display: { xs: "none", sm: "inline" },
+                color: "var(--color-border)",
+              }}
+            >
+              |
+            </Box>
+            <span>GPA 3.61</span>
+            <Box
+              component="span"
+              sx={{
+                display: { xs: "none", sm: "inline" },
+                color: "var(--color-border)",
+              }}
+            >
+              |
+            </Box>
+            <span>First Class Honors</span>
+          </Box>
+
+          {/* Transcript Button */}
+          <Button
+            variant="outlined"
+            size="small"
+            href="/doc/Pongsakorn_Rattanapan_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{
+              textTransform: "none",
+              fontWeight: 500,
+              fontSize: "var(--text-sm)",
+              color: "var(--color-text-secondary)",
+              borderColor: "var(--color-border)",
+              borderRadius: "var(--radius-md)",
+              padding: "var(--space-1) var(--space-4)",
+              fontFamily: "var(--font-family-thai)",
+              marginBottom: "var(--space-5)",
+              "&:hover": {
+                backgroundColor: "var(--color-hover)",
+                borderColor: "var(--color-border-hover)",
+              },
+            }}
+          >
+            ดู Resume
+          </Button>
+
+          {/* Course Grades */}
+          <Box
+            sx={{
+              borderTop: "1px solid var(--color-border)",
+              paddingTop: "var(--space-4)",
+            }}
+          >
+            <Box
+              sx={{
+                fontSize: "var(--text-sm)",
+                fontWeight: 500,
+                color: "var(--color-text-secondary)",
+                marginBottom: "var(--space-3)",
+                fontFamily: "var(--font-family-thai)",
+              }}
+            >
+              รายวิชาเด่น
+            </Box>
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" },
+                gap: "var(--space-2)",
+              }}
+            >
+              {[
+                { name: "Compiler Construction", grade: "A" },
+                { name: "Machine Learning", grade: "A" },
+                { name: "Software Engineering", grade: "A" },
+                { name: "Database Systems", grade: "A" },
+                { name: "Computer Networks", grade: "A" },
+                { name: "Operating Systems", grade: "B+" },
+              ].map((course) => (
                 <Box
+                  key={course.name}
                   sx={{
-                    fontSize: "var(--text-sm)",
-                    color: "var(--color-text-secondary)",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    padding: "var(--space-2) var(--space-3)",
+                    backgroundColor: "var(--color-bg-secondary)",
+                    borderRadius: "var(--radius-md)",
                   }}
                 >
-                  {course.name}
+                  <Box
+                    sx={{
+                      fontSize: "var(--text-sm)",
+                      color: "var(--color-text-secondary)",
+                    }}
+                  >
+                    {course.name}
+                  </Box>
+                  <Box
+                    sx={{
+                      fontSize: "var(--text-sm)",
+                      fontWeight: 600,
+                      color: "var(--color-text-primary)",
+                      fontFamily: "var(--font-family-mono)",
+                    }}
+                  >
+                    {course.grade}
+                  </Box>
                 </Box>
-                <Box
-                  sx={{
-                    fontSize: "var(--text-sm)",
-                    fontWeight: 600,
-                    color: "var(--color-text-primary)",
-                    fontFamily: "var(--font-family-mono)",
-                  }}
-                >
-                  {course.grade}
-                </Box>
-              </Box>
-            ))}
+              ))}
+            </Box>
           </Box>
         </Box>
-      </Box>
+      </Build>
     </Box>
   );
 };
@@ -228,32 +232,34 @@ function About({ isExpanded = true, onToggle }: AboutProps) {
             textAlign: { xs: "center", lg: "left" },
           }}
         >
-          <Box
-            component="h1"
-            sx={{
-              fontSize: { xs: "var(--text-3xl)", md: "var(--text-4xl)", lg: "var(--text-5xl)" },
-              fontWeight: 800,
-              color: "var(--color-text-primary)",
-              marginBottom: "var(--space-4)",
-              letterSpacing: "var(--tracking-tight)",
-              lineHeight: "var(--leading-tight)",
-            }}
-          >
-            PONGSAKORN
-            <br />
-            RATTANAPAN
-          </Box>
+          <Build kind="type" label="h1 · Name">
+            <Box
+              component="h1"
+              sx={{
+                fontSize: { xs: "var(--text-3xl)", md: "var(--text-4xl)", lg: "var(--text-5xl)" },
+                fontWeight: 800,
+                color: "var(--color-text-primary)",
+                marginBottom: "var(--space-4)",
+                letterSpacing: "var(--tracking-tight)",
+                lineHeight: "var(--leading-tight)",
+              }}
+            >
+              <TypeText text={"PONGSAKORN\nRATTANAPAN"} />
+            </Box>
+          </Build>
 
-          <Box
-            sx={{
-              fontSize: "var(--text-lg)",
-              color: "var(--color-primary-500)",
-              fontWeight: 600,
-              marginBottom: "var(--space-6)",
-            }}
-          >
-            Software Engineer
-          </Box>
+          <Build kind="type" label="text · Role">
+            <Box
+              sx={{
+                fontSize: "var(--text-lg)",
+                color: "var(--color-primary-500)",
+                fontWeight: 600,
+                marginBottom: "var(--space-6)",
+              }}
+            >
+              <TypeText text="Software Engineer" />
+            </Box>
+          </Build>
 
           {/* Contact Links */}
           <Stack
@@ -264,32 +270,33 @@ function About({ isExpanded = true, onToggle }: AboutProps) {
             }}
           >
             {contactLinks.map((link, index) => (
-              <Box
-                key={index}
-                component="a"
-                href={link.href}
-                target={link.href.startsWith("http") ? "_blank" : undefined}
-                rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "var(--space-3)",
-                  color: "var(--color-text-secondary)",
-                  fontSize: "var(--text-sm)",
-                  textDecoration: "none",
-                  padding: "var(--space-2) var(--space-3)",
-                  borderRadius: "var(--radius-md)",
-                  transition: "all var(--transition-fast)",
-                  "&:hover": {
-                    backgroundColor: "var(--color-hover)",
-                    color: "var(--color-primary-600)",
-                  },
-                  justifyContent: { xs: "center", lg: "flex-start" },
-                }}
-              >
-                <Box sx={{ color: "var(--color-primary-500)" }}>{link.icon}</Box>
-                <span>{link.label}</span>
-              </Box>
+              <Build key={index} kind="text" label={`link · ${index + 1}`}>
+                <Box
+                  component="a"
+                  href={link.href}
+                  target={link.href.startsWith("http") ? "_blank" : undefined}
+                  rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "var(--space-3)",
+                    color: "var(--color-text-secondary)",
+                    fontSize: "var(--text-sm)",
+                    textDecoration: "none",
+                    padding: "var(--space-2) var(--space-3)",
+                    borderRadius: "var(--radius-md)",
+                    transition: "all var(--transition-fast)",
+                    "&:hover": {
+                      backgroundColor: "var(--color-hover)",
+                      color: "var(--color-primary-600)",
+                    },
+                    justifyContent: { xs: "center", lg: "flex-start" },
+                  }}
+                >
+                  <Box sx={{ color: "var(--color-primary-500)" }}>{link.icon}</Box>
+                  <span>{link.label}</span>
+                </Box>
+              </Build>
             ))}
           </Stack>
 
@@ -317,57 +324,65 @@ function About({ isExpanded = true, onToggle }: AboutProps) {
               },
             }}
           >
-            <p>
-              I graduated with a Bachelor of Engineering in Computer Engineering from
-              Chiang Mai University. I'm interested in working as a{" "}
-              <strong>Software Engineer</strong>,{" "}
-              <strong>Web Frontend/Mobile Developer</strong>, or{" "}
-              <strong>Full-stack Developer</strong>.
-            </p>
-            <p>
-              During my time in college, I worked on outsourcing projects that gave me
-              real-world experience. One of these projects was developing a
-              crowdsourcing platform for a Christian organization, which I consider my
-              masterwork. <strong>[React, Jira, and Agile]</strong>
-            </p>
-            <p>
-              I have a passion for learning and exploring a wide range of topics, from{" "}
-              <strong>AI</strong>, <strong>React</strong>, <strong>Mobile Flutter</strong>,
-              and <strong>Backend Development</strong>, which reflects my adaptable
-              skill set and enhances my creativity.
-            </p>
+            <Build kind="text" label="p · Intro">
+              <p>
+                I graduated with a Bachelor of Engineering in Computer Engineering from
+                Chiang Mai University. I'm interested in working as a{" "}
+                <strong>Software Engineer</strong>,{" "}
+                <strong>Web Frontend/Mobile Developer</strong>, or{" "}
+                <strong>Full-stack Developer</strong>.
+              </p>
+            </Build>
+            <Build kind="text" label="p · Outsourcing">
+              <p>
+                During my time in college, I worked on outsourcing projects that gave me
+                real-world experience. One of these projects was developing a
+                crowdsourcing platform for a Christian organization, which I consider my
+                masterwork. <strong>[React, Jira, and Agile]</strong>
+              </p>
+            </Build>
+            <Build kind="text" label="p · Interests">
+              <p>
+                I have a passion for learning and exploring a wide range of topics, from{" "}
+                <strong>AI</strong>, <strong>React</strong>, <strong>Mobile Flutter</strong>,
+                and <strong>Backend Development</strong>, which reflects my adaptable
+                skill set and enhances my creativity.
+              </p>
+            </Build>
           </Box>
           {/* Education Toggle Button */}
-          <Button
-            onClick={onToggle}
-            sx={{
-              color: "var(--color-text-primary)",
-              backgroundColor: "var(--color-surface-subtle)",
-              border: "1px solid var(--color-border)",
-              borderRadius: "var(--radius-md)",
-              padding: "var(--space-3) var(--space-6)",
-              textTransform: "none",
-              fontWeight: 600,
-              fontSize: "var(--text-base)",
-              fontFamily: "var(--font-family-thai)",
-              transition: "all var(--transition-fast)",
-              "&:hover": {
-                backgroundColor: "var(--color-hover)",
-                borderColor: "var(--color-primary-300)",
-              },
-              "&:focus-visible": {
-                outline: "2px solid var(--color-border-focus)",
-                outlineOffset: "2px",
-              },
-            }}
-          >
-            ประวัติการศึกษา
-            {isExpanded ? (
-              <ExpandLess sx={{ marginLeft: "var(--space-2)" }} />
-            ) : (
-              <ExpandMore sx={{ marginLeft: "var(--space-2)" }} />
-            )}
-          </Button>
+          <Build label="button · Education" style={{ display: "inline-block" }}>
+            <Button
+              onClick={onToggle}
+              sx={{
+                color: "var(--color-text-primary)",
+                backgroundColor: "var(--color-surface-subtle)",
+                border: "1px solid var(--color-border)",
+                borderRadius: "var(--radius-md)",
+                padding: "var(--space-3) var(--space-6)",
+                textTransform: "none",
+                fontWeight: 600,
+                fontSize: "var(--text-base)",
+                fontFamily: "var(--font-family-thai)",
+                transition: "all var(--transition-fast)",
+                "&:hover": {
+                  backgroundColor: "var(--color-hover)",
+                  borderColor: "var(--color-primary-300)",
+                },
+                "&:focus-visible": {
+                  outline: "2px solid var(--color-border-focus)",
+                  outlineOffset: "2px",
+                },
+              }}
+            >
+              ประวัติการศึกษา
+              {isExpanded ? (
+                <ExpandLess sx={{ marginLeft: "var(--space-2)" }} />
+              ) : (
+                <ExpandMore sx={{ marginLeft: "var(--space-2)" }} />
+              )}
+            </Button>
+          </Build>
         </Box>
       </Stack>
 
