@@ -677,6 +677,35 @@
   .cx-hud__divider {
     display: none;
   }
+  /* Phones: the HUD spans the width (8px gutters) instead of overflowing it. */
+  .cx-hud {
+    left: 8px;
+    right: 8px;
+    bottom: max(10px, env(safe-area-inset-bottom));
+    justify-content: space-between;
+    gap: 6px;
+    max-width: none;
+    padding: 6px;
+    font-size: 11px;
+    transform: translateY(16px);
+  }
+  .cx-hud--visible {
+    transform: none;
+  }
+  .cx-hud__avatars i:nth-child(n + 3) {
+    display: none;
+  }
+  .cx-hud__stat {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media (max-width: 420px) {
+  .cx-hud__unit {
+    display: none;
+  }
   .cx-rulers {
     display: none;
   }

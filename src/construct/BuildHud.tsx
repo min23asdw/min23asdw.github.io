@@ -39,11 +39,13 @@ function BuildHud({
         ))}
       </span>
       <span className="cx-hud__stat">
-        <b>{agents.length}</b> agents
+        <b>{agents.length}</b>
+        <span className="cx-hud__unit"> agents</span>
       </span>
       <span className="cx-hud__divider" aria-hidden="true" />
       <span className="cx-hud__stat">
-        <b>{built}</b> / {stats.total} layers
+        <b>{built}</b> / {stats.total}
+        <span className="cx-hud__unit"> layers</span>
       </span>
       <span className="cx-hud__bar" aria-hidden="true">
         <span style={{ transform: `scaleX(${progress})` }} />
